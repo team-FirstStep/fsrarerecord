@@ -1,39 +1,44 @@
 Rails.application.routes.draw do
-  get 'carts/index'
-  get 'carts/show'
-  get 'carts/new'
-  get 'carts/edit'
-  get 'carts/updata'
-  get 'carts/create'
-  get 'carts/destroy'
-  get 'orders/index'
-  get 'orders/show'
-  get 'orders/new'
-  get 'orders/edit'
-  get 'orders/updata'
-  get 'orders/create'
-  get 'orders/destroy'
-  get 'songs/index'
-  get 'songs/show'
-  get 'songs/new'
-  get 'songs/edit'
-  get 'songs/updata'
-  get 'songs/create'
-  get 'songs/destroy'
-  get 'products/index'
-  get 'products/show'
-  get 'products/new'
-  get 'products/edit'
-  get 'products/updata'
-  get 'products/create'
-  get 'products/destroy'
-  get 'admins/index'
-  get 'admins/show'
-  get 'admins/new'
-  get 'admins/edit'
-  get 'admins/updata'
-  get 'admins/create'
-  get 'admins/destroy'
   devise_for :users
+
+  root 'products#index'
+
+  namespace :admin do
+    resources :users
+  end
+  scope module: :public do
+    resources :users, only: [:show, :edit, :update]
+  end
+
+  namespace :admin do
+    resources :products
+      get '/products/search' => 'products#search', as: 'search_products'
+  end
+  scope module: :public do
+    resources :products, only: [:show]
+      get '/products/search' => 'products#search', as: 'search_products'
+  end
+
+  namespace :admin do
+    resources :songs
+  end
+
+  namespace :admin do
+    resources :carts, only: [:show]
+  end
+  scope module: :public do
+    resources :carts
+  end
+
+  namespace :admin do
+    resources :orders
+  end
+  scope module: :public do
+    resources :orders, only: [:create]
+  end
+
+
+  resources :admins
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
