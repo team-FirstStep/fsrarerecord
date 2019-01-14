@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cart_id: 1
+  status: 1
+  log_last_name: MyString
+  log_first_name: MyString
+  log_last_name_kana: MyString
+  log_first_name_kana: MyString
+  log_zip: MyString
+  log_address: MyString
+  created_at: 2019-01-14 09:43:05
+  update_at: 2019-01-14 09:43:05
+
+two:
+  cart_id: 1
+  status: 1
+  log_last_name: MyString
+  log_first_name: MyString
+  log_last_name_kana: MyString
+  log_first_name_kana: MyString
+  log_zip: MyString
+  log_address: MyString
+  created_at: 2019-01-14 09:43:05
+  update_at: 2019-01-14 09:43:05
