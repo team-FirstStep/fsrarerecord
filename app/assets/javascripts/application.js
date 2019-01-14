@@ -16,3 +16,13 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+ 
+  $('.menu-trigger').on('click', function() {
+    $(this).toggleClass('active');
+    $('#sp-menu').fadeToggle();
+    return false;
+  });
+ 
+ });
