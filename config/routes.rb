@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :products
+      get '/products/check/:id' => 'products#check', as: 'check_product'
       get '/products/search' => 'products#search', as: 'search_products'
   end
   scope module: :public do
