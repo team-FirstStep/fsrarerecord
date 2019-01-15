@@ -12,9 +12,12 @@
   <body>
     <header>
       <img src="images/fs-logo.png"></div>
+      <!-- 検索 -->
       <div class="header-serch">
-        <span>検索</span>
-        <input type="text">
+        <%= form_tag(search_products_path,:method => 'get') do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '検索', :name => nil %>
+        <% end %>
       </div>
       <!-- ハンバーガーアイコン -->
       <div id="sp-menu">
@@ -37,5 +40,8 @@
     </header>
 
     <%= yield %>
+    <footer>
+      <p>©︎2019 RareRecord inc. All Right Reserved.</p>
+    </footer>
   </body>
 </html>

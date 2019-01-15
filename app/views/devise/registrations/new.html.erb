@@ -1,4 +1,9 @@
+<div class="container">
+<div class="row">
+  <div class="col-md-4"></div>
+<div class="col-md-4">
 <h2>Sign up</h2>
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -26,11 +31,14 @@
   
   <%= f.fields_for :address do |al| %><%# 子レコードへの入力 %>
     <%= al.label :住所 %>
-    <%= al.text_field :address, autofocus: true %>
+    <%= al.text_field :address, autofocus: true %></br>
+
+    <%= al.label :電話番号 %>
+    <%= al.text_field :phone, autofocus: true %>
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
@@ -38,12 +46,12 @@
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
@@ -53,3 +61,9 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+
+<div class="col-md-4"></div>
+
+</div>
+</div>
