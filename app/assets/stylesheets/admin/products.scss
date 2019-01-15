@@ -13,24 +13,23 @@ a {
   clear: both;
 }
 
-.product-new {
+.profile-edit {
   width: 100%;
   height: 300px;
 }
-.product-new-content {
+.profile-edit-content {
   width: 30%;
   height: 300px;
   text-align: center;
 }
-.product-new-image {
+.profile-edit-image {
   float: none;/*変更点レスポンシブ対応left→none*/
   height: 180px;
 }
-.product-new-text {
+.profile-edit-text {
   color: 0;
-  text-align: center;
 }
-.product-new-name {
+.profile-edit-name {
   margin-top: 30px;
   color: #fff;
 }
@@ -39,7 +38,7 @@ a {
   margin: 0 auto;
   padding-top: 70px;/*変更点:レスポンシブ対応(70px 0)→70px;*/
 }
-.product-new {
+.profile-edit {
   width: 100%;/*変更点:レスポンシブ対応800px→100%;*/
   margin: 0 auto;
   padding-top: 70px;/*変更点:レスポンシブ対応(70px 0)→70px;*/
@@ -55,13 +54,13 @@ a {
 .profile-first_name_kana {
 }
 
-.product-new-driver {
+.profile-edit-driver {
   width: 100%;/*変更点:レスポンシブ対応800px→100%;*/
   margin: 0 auto;
   padding-top: 70px;/*変更点:レスポンシブ対応(70px 0)→70px;*/
 }
 
-.product-new-item {
+.profile-edit-item {
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid #f7f7f7;
