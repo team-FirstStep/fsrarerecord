@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rarerecord</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <img src="images/fs-logo.png"></div>
+      <div class="header-serch">
+        <span>検索</span>
+        <input type="text">
+      </div>
+      <!-- ハンバーガーアイコン -->
+      <div id="sp-menu">
+        <h1>menu</h1>
+        <ul>
+          <li><a href="#"> Top</a></li>
+          <li><a href="#"> 新規登録</a></li>
+          <li><a href="#"> ログイン</a></li>
+        </ul>
+      </div>
+      
+      <div id="hm-icon">
+        <a class="menu-trigger" href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+        </a>
+      </div>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>
