@@ -4,6 +4,32 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :姓 %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :名 %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :セイ %>
+    <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :メイ %>
+    <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  
+  <%= f.fields_for :address do |al| %><%# 子レコードへの入力 %>
+    <%= al.label :住所 %>
+    <%= al.text_field :address, autofocus: true %>
+  <% end %>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
