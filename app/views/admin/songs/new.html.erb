@@ -1,2 +1,11 @@
-<h1>Songs#new</h1>
-<p>Find me in app/views/songs/new.html.erb</p>
+<h2>曲名登録</h2>
+
+<span>収録曲数</span>
+<%= form_for(@) do |f| %>
+<%= f.text_filed : %>
+<%= f.submit '枚数決定', :class=>"btn btn-primary btn-block" %>
+<% end %>
+
+<h3>シングル/アルバム内の曲名</h3>
+<%# @songs.each do |song| %>
+<%# end %>

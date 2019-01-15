@@ -20,12 +20,13 @@
       <div id="sp-menu">
         <h1>menu</h1>
         <ul>
-          <li><a href="#"> Top</a></li>
-          <li><a href="#"> 新規登録</a></li>
-          <li><a href="#"> ログイン</a></li>
+          <li><%= link_to root_path, class: 'home' do %> Home <% end %></li>
+          <li><%= link_to new_user_registration_path, class: 'sign_up' do %> 新規会員登録 <% end %></li>
+          <li><%= link_to new_user_session_path, class: 'sign_in' do %>ログイン<% end %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
         </ul>
       </div>
-      
+
       <div id="hm-icon">
         <a class="menu-trigger" href="#">
           <span></span>
