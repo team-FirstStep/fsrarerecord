@@ -14,7 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
     begin
       ActiveRecord::Base.transaction do
-        super
         ###新規登録したユーザー（親）が保有する住所（子）を作成する
         resource.build_address
         resource.save!
