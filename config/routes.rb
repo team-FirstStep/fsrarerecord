@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root 'products#index'
+  root 'public/products#index'
 
   namespace :admin do
     resources :users

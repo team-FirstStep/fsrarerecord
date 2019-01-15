@@ -1,5 +1,5 @@
 class Admin::ProductsController < Admin::ApplicationController
-  before_action :set_product
+  # before_action :set_product
 
   def index
   end

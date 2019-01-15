@@ -1,5 +1,5 @@
 class Public::ProductsController < Public::ApplicationController
-  before_action :set_product
+  # before_action :set_product
 
   def index
   end
@@ -7,7 +7,7 @@ class Public::ProductsController < Public::ApplicationController
   def show
   end
 
-  def search ?
+  def search
   end
 
 end

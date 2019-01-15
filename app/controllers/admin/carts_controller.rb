@@ -1,5 +1,5 @@
 class Admin::CartsController < Admin::ApplicationController
-  before_action :set_cart
+  # before_action :set_cart
 
   def show
   end
