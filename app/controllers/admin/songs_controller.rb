@@ -1,5 +1,5 @@
 class Admin::SongsController < Admin::ApplicationController
-  before_action :set_song
+  # before_action :set_song
 
   def new
   end

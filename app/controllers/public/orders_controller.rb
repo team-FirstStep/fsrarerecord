@@ -1,5 +1,5 @@
 class Public::OrdersController < Public::ApplicationController
-  before_action :set_order
+  # before_action :set_order
 
   def create
   end

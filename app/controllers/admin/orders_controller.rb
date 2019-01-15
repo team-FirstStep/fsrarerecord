@@ -1,5 +1,5 @@
 class Admin::OrdersController < Admin::ApplicationController
-  before_action :set_order
+  # before_action :set_order
 
   def index
   end
