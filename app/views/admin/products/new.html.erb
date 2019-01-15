@@ -1,2 +1,37 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <%= stylesheet_link_tag "admin/products", :media => "all" %>
+  <title>user_edit</title>
+</head>
+
+
+  <table class="product-new">
+    <h2 class="product-new-title">商品新規登録</h2>
+  <!-- プロフィール画像 -->
+   <tr>
+   	<th>
+      <p class="product-new-text">Disc 1</p>
+   </th>
+   </tr>
+   <tr>
+    <td class="product-new-content">
+      <p class="product-new-text">登録枚数：</p>
+      <p class="product-new-text">ジャケット：</p>
+      <p class="product-new-text">アーティスト名：</p>
+      <p class="product-new-text">シングル/アルバム名：</p>
+      <p class="product-new-text">値段：</p>
+      <p class="product-new-text">レーベル名：</p>
+      <p class="product-new-text">在庫数：</p>
+      <p class="product-new-text">ジャンル：</p>
+      <%= image_tag 'fs-logo.jpg', :size =>'200x200' %>
+      <p class="product-new-text">ファイルを開く</p>
+    </td>
+   </tr>
+  </table>
+
+
+
