@@ -8,30 +8,92 @@
   <title>user_edit</title>
 </head>
 
-
+                  <div class="container">
   <table class="product-new">
     <h2 class="product-new-title">商品新規登録</h2>
+                  <div class="row">
   <!-- プロフィール画像 -->
+<%= form_for(@product, url: admin_products_path) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
+    </div>
+  <% end %>
+
+   	<tr>
+   	  <td>
+       <p class="product-new-text">Disc 1</p>
+       <p  class="text-right">登録枚数：  </p>
+   	  <td>
+    </tr>
+  <%= f.text.field :value %>
    <tr>
-   	<th>
-      <p class="product-new-text">Disc 1</p>
-   </th>
+   <td>
+      <p  class="text-right">ジャケット：  </p>
+   </td>
+   <td>
+      <%= f.attachment_field :image %>
+   </td>
+   </tr>
+
+   <tr>
+     <td>
+      <p  class="text-right">アーティスト名：  </p>
+     </td>
+     <td>
+    <%= f.text_field :artists, class: "product_artists" %>
+     </td>
    </tr>
    <tr>
-    <td class="product-new-content">
-      <p class="product-new-text">登録枚数：</p>
-      <p class="product-new-text">ジャケット：</p>
-      <p class="product-new-text">アーティスト名：</p>
-      <p class="product-new-text">シングル/アルバム名：</p>
-      <p class="product-new-text">値段：</p>
-      <p class="product-new-text">レーベル名：</p>
-      <p class="product-new-text">在庫数：</p>
-      <p class="product-new-text">ジャンル：</p>
-      <%= image_tag 'fs-logo.jpg', :size =>'200x200' %>
-      <p class="product-new-text">ファイルを開く</p>
-    </td>
+     <td>
+      <p class="text-right">シングル/アルバム名：  </p>
+     </td>
+     <td>
+    <%= f.text_field :cd_title, class: "product_cd_title" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">値段：  </p>
+     </td>
+     <td>
+    <%= f.text_field :price, class: "product_price" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">レーベル名：  </p>
+     </td>
+     <td>
+    <%= f.text_field :label, class: "product_label" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">在庫数：  </p>
+     </td>
+     <td>
+    <%= f.text_field :stock, class: "product_stock" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">ジャンル：  </p>
+     </td>
+     <td>
+    <%= f.text_field :genre, class: "product_genre" %>
+     </td>
+   </tr>
+     <td>
+   <tr>
+     <td>
+     </td>
+     <td>
+  <%= f.submit "次へ", class:"btn" %>
+<% end %>
+     </td>
    </tr>
   </table>
-
-
+                  </div>
+                  </div>
 
