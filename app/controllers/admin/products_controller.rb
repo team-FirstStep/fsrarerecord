@@ -7,12 +7,13 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
-  @product = Product.new
-  @product.discs.build
+    @product = Product.new
+    @product.discs.build
+
   end
 
   def edit
@@ -26,8 +27,8 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def create
-  @product = current_admin.products.build(product_params)
-  @product.save
+    @product = current_admin.products.build(product_params)
+    @product.save
   end
 
   def destroy
