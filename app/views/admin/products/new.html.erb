@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
   <%= stylesheet_link_tag "admin/products", :media => "all" %>
-  <title>user_edit</title>
+  <title>product_new</title>
 </head>
 
                   <div class="container">
@@ -19,14 +19,13 @@
       <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
     </div>
   <% end %>
-
+       <h5 class="product-new-text text-center">Disc 1</h5>
    	<tr>
    	  <td>
-       <p class="product-new-text">Disc 1</p>
        <p  class="text-right">登録枚数：  </p>
    	  <td>
     </tr>
-  <%= f.text.field :value %>
+
    <tr>
    <td>
       <p  class="text-right">ジャケット：  </p>
@@ -46,7 +45,7 @@
    </tr>
    <tr>
      <td>
-      <p class="text-right">シングル/アルバム名：  </p>
+      <p class="text-right">　　　　　　シングル/アルバム名：  </p>
      </td>
      <td>
     <%= f.text_field :cd_title, class: "product_cd_title" %>
