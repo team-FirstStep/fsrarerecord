@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+  <%= stylesheet_link_tag "admin/products", :media => "all" %>
+  <title>product_check</title>
+</head>
+
+<div class="container">
+
+ <div class="row">
+
+<h2>商品新規登録確認画面</h2>
+
+  <table class="product-new">
+  <!-- プロフィール画像 -->
+
+   	<tr>
+   	  <td>
+       <p class="text-right">登録枚数：  </p>
+   	  </td>
+      <td>
+        <%= "@product.value" %>
+      </td>
+    </tr>
+
+   <tr>
+   <td>
+      <p class="text-right">ジャケット：  </p>
+   </td>
+   <td>
+      <%= "@product.image" %>
+   </td>
+   </tr>
+
+   <tr>
+     <td>
+      <p class="text-right">アーティスト名：  </p>
+     </td>
+     <td>
+    <%= "@product.artists" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">シングル/アルバム名：  </p>
+     </td>
+     <td>
+    <%= "@product.cd_title" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">値段：  </p>
+     </td>
+     <td>
+    <%= "@product.price" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">レーベル名：  </p>
+     </td>
+     <td>
+    <%= "@product.label" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">在庫数：  </p>
+     </td>
+     <td>
+    <%= "@product.stock" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">ジャンル：  </p>
+     </td>
+     <td>
+    <%= "@product.genre" %>
+     </td>
+   </tr>
+     <td>
+   <tr>
+     <td>
+     </td>
+     <td>
+     </td>
+   </tr>
+  </table>
+ </div>
+ <div class="row">
+     <h3 class="text-center">シングル/アルバム内の曲名</h3>
+     <h5 class="text-center">　　　Disc 1</h5>
+  <table class="product-new_song">
+   <tr>
+     <td>
+      <p class="text-right">　　　　　　　　1曲目：  </p>
+     </td>
+     <td>
+    <%= "@song.title" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-right">　　　　　　　　2曲目：  </p>
+     </td>
+     <td>
+    <%= "@song.title" %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+     </td>
+     <td>
+<%= link_to "戻る", new_admin_product_path, class: "back" %>
+     </td>
+     <td>
+  <%= "新規投稿" %>
+     </td>
+   </tr>
+  </table>
+ </div>
+</div>
+

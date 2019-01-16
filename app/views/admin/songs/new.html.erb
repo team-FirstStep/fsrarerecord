@@ -2,9 +2,9 @@
 <h2>曲名登録</h2>
 
 <span>収録曲数</span>
-<%= form_for(@songs) do |f| %>
-<%= f.text_filed : %>
-<%= f.submit '枚数決定', class: "btn btn-primary btn-block" %>
+<%= form_for(@song, url: admin_products_path) do |f| %>
+<%= f.number_field :song_no %>
+<%= f.submit '枚数決定', class: "btn" %>
 <% end %>
 
 <h3>シングル/アルバム内の曲名</h3>
