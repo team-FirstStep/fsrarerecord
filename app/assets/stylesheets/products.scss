@@ -26,6 +26,11 @@ a {
   float: none;/*変更点レスポンシブ対応left→none*/
   height: 180px;
 }
+input#product_image{
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
 .product-new-text {
   color: 0;
   text-align: center;
@@ -45,7 +50,9 @@ a {
   padding-top: 70px;/*変更点:レスポンシブ対応(70px 0)→70px;*/
 }
 
-.profile-last_name {
+.new-jacket {
+  margin: 0 auto;
+  text-align: center;
 }
 .profile-first_name {
 }
