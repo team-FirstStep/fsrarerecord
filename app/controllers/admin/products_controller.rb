@@ -7,10 +7,11 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
+    
   end
 
   def edit
