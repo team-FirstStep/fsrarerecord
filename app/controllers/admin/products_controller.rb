@@ -2,6 +2,8 @@ class Admin::ProductsController < Admin::ApplicationController
   # before_action :set_product
 
   def index
+
+    @products = Product.page(params[:page]).reverse_order
   end
 
   def show
