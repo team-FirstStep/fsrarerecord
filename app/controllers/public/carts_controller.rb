@@ -1,5 +1,5 @@
 class Public::CartsController < Public::ApplicationController
-  # before_action :set_cart
+  # before_action :set_select
 
   def show
   end
@@ -15,5 +15,6 @@ class Public::CartsController < Public::ApplicationController
 
   def destroy
   end
+
 
 end
