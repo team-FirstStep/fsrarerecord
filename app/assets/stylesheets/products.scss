@@ -15,6 +15,7 @@ a {
 
 .product-new {
   width: 100%;
+  margin: 0 auto;
   height: 300px;
 }
 .product-new-content {
@@ -23,12 +24,12 @@ a {
   text-align: center;
 }
 .product-new-image {
-  float: none;/*変更点レスポンシブ対応left→none*/
+  float: none;
   height: 180px;
 }
 input#product_image{
     width: 40%;
-    margin: 0 auto;
+    margin: 0;
     text-align: center;
 }
 .product-new-text {
@@ -40,14 +41,14 @@ input#product_image{
   color: #fff;
 }
 .form-header-title{
-  width: 100%;/*変更点:レスポンシブ対応800px→100%;*/
+  width: 100%;
   margin: 0 auto;
-  padding-top: 70px;/*変更点:レスポンシブ対応(70px 0)→70px;*/
+  padding-top: 70px;
 }
 .product-new {
-  width: 100%;/*変更点:レスポンシブ対応800px→100%;*/
+  width: 100%;
   margin: 0 auto;
-  padding-top: 70px;/*変更点:レスポンシブ対応(70px 0)→70px;*/
+  padding-top: 100px;
 }
 
 .new-jacket {
@@ -63,9 +64,9 @@ input#product_image{
 }
 
 .product-new-driver {
-  width: 100%;/*変更点:レスポンシブ対応800px→100%;*/
+  width: 100%;
   margin: 0 auto;
-  padding-top: 70px;/*変更点:レスポンシブ対応(70px 0)→70px;*/
+  padding-top: 70px;
 }
 
 .product-new-item {
@@ -74,71 +75,12 @@ input#product_image{
   border-bottom: 1px solid #f7f7f7;
 }
 .profile-image {
-  float: none;/*変更点レスポンシブ対応left→none*/
+  float: none;
   height: 180px;
 }
-.blog-text-headline {
-  padding-bottom: 15px;
-}
-.blog-text {
-  float: none;/*変更点レスポンシブ対応left→none*/
-  padding: 30px 0 0 25px;
-}
-.blog-date {
-  display: inline-block;
-  font-size: 12px;
-}
-.category {
-  display: inline-block;
-  padding: 5px 8px;
-  background-color: #acabab;
-  border-radius: 3px;
-  color: #fff;
-  font-size: 11px;
-}
-.pagination {
-    width: 100%;
-  text-align: center;
-  /*padding-top: 50px;変更点レスポンシブ対応 無効*/
-}
-.pagination p {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin: 0 5px;
-  color: #fff;
-  background-color: #acabab;
-  border-radius: 3px;
-  line-height: 30px;
-}
-.sidebar {
-  width: 100%;/*変更点:レスポンシブ対応230px→100%;*/
-  float: none;/*変更点レスポンシブ対応left→none*/
-  padding: 50px;/*変更点レスポンシブ対応 追加*/
-}
-.sidebar-headline, .instagram-headline, .categories-headline {
-  border-bottom: 8px solid #f7f7f7;
-  text-align: center;
-  line-height: 0.6;
-}
-.sidebar-contents {
-  padding: 50px 15px;/*変更点:レスポンシブ対応50px→(50px 15px);*/
-}
-.popular-text, .categories-text {
-  padding-bottom: 5px;
-  border-bottom: 1px solid #f7f7f7;
-  margin-bottom: 5px;
-}
-.popular-text:last-child, .categories-text:last-child {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-.instagram-box {
-  float: left;
-  width: 110px;
-  padding-top: 110px;
-  margin: 0 0 10px 10px;/*変更点:追加*/
-  background-size: cover;
-  background-position: center;
+.product-new_song {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 70px;
+  padding-left: 200px;
 }
