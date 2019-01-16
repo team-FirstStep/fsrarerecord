@@ -5,6 +5,8 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def show
+    @product = Product.show(params[:id])
+    @songs =
   end
 
   def new
