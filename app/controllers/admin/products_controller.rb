@@ -27,7 +27,7 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def create
-    @product = current_admin.products.build(product_params)
+    @product = current_admin.product.build(product_params)
     @product.save
   end
 
