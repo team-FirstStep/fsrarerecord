@@ -6,6 +6,8 @@ class Public::ProductsController < Public::ApplicationController
   end
 
   def show
+  	@product = Product.find(params[:id])
+  	# @songs = Songs.
   end
 
   def search
