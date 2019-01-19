@@ -27,8 +27,12 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def create
-    @product = current_admin.product.build(product_params)
-    @product.save
+
+        @product = Product.new(product_params)
+        @product.admin_id = current_admin.id
+        @product.save
+    redirect_to new_admin_song_path
+
   end
 
   def destroy
@@ -37,4 +41,9 @@ class Admin::ProductsController < Admin::ApplicationController
   # def count
   #   cnt = Product.where(cd_title: '').count
   #   render text: "検索結果　#{cnt}件ヒットしました。"
-end
+private
+    def product_params
+        params.require(:product).permit(:artists, :cd_title, :jacket_img, :price, :label, :genre, :stock, :value)
+    end
+
+    end

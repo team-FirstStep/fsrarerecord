@@ -12,15 +12,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    begin
-      ActiveRecord::Base.transaction do
+    # begin
+      # ActiveRecord::Base.transaction do
         ###新規登録したユーザー（親）が保有する住所（子）を作成する
-        resource.build.address
+        resource.addresses.build
         resource.save!
-      end
+      # end
   end
 
-  end
 
   # GET /resource/edit
   # def edit
