@@ -1,12 +1,19 @@
 
 <h2>曲名登録</h2>
 
+
 <span>収録曲数</span>
 <%= form_for(@song, url: admin_products_path) do |f| %>
-<%= f.number_field :song_no %>
+      <p class="text-right">　　　　　　曲数：  </p>>
+    <%= f.number_field :song_value, class: "product_song_value" %>
 <%= f.submit '枚数決定', class: "btn" %>
 <% end %>
 
 <h3>シングル/アルバム内の曲名</h3>
-<%# @songs.each do |song| %>
-<%# end %>
+<% @songs.song_value.each do |song| %>
+<%= form_for(@song, url: admin_products_path) do |f| %>
+<%= f.text_field :song_title %>
+<% end %>
+
+<%= f.submit '次へ', class: "btn" %>
+<% end %>

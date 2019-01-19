@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_16_071145) do
+ActiveRecord::Schema.define(version: 2019_01_17_115817) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -83,7 +83,6 @@ ActiveRecord::Schema.define(version: 2019_01_16_071145) do
     t.integer "admin_id"
     t.string "artists"
     t.string "cd_title"
-    t.text "jacket_img"
     t.integer "price"
     t.string "label"
     t.integer "genre"
@@ -93,6 +92,7 @@ ActiveRecord::Schema.define(version: 2019_01_16_071145) do
     t.datetime "update_at"
     t.datetime "deleted_at"
     t.datetime "updated_at", null: false
+    t.string "image_id"
   end
 
   create_table "selects", force: :cascade do |t|
