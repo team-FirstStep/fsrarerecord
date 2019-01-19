@@ -3,7 +3,7 @@ class ApplicationRecord < ActiveRecord::Base
 
 	def self.search(search) #self.でクラスメソッドとしている
 	    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-	      Product.where(['name LIKE ?', "%#{search}%"])
+	      Product.where(['cd_title LIKE ?', "%#{search}%"])
 	    else
 	      Product.all #全て表示。
 	    end
