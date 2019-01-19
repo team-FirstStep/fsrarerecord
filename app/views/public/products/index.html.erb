@@ -1,5 +1,42 @@
 <h1>Products#index</h1>
 
+<p>アーティスト名</p>
+<p>商品名</p>
+<p>値段</p>
+<p>在庫ステータス</p>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>世界の天気</title>
+    </head>
+    <body>
+    <h3>世界の天気</h3>
+      <label>都市名：</label>
+        <input id="cityname" type="text" size="14" maxlength="14" placeholder="Tokyo">
+        <button id="btn">検索</button><br>
+       <span>場所 :</span>
+       <span id="place"></span><br>
+       <span>最高気温 :</span>
+       <span id="temp_max"></span>
+       <span> ℃</span><br>
+       <span>最低気温 :</span>
+       <span id="temp_min"></span>
+       <span> ℃</span><br>
+       <span>湿度 :</span>
+       <span id="humidity"></span>
+       <span> %</span><br>
+       <span>風速 :</span>
+       <span id="speed"></span>
+       <span> m/s</span><br>
+       <span>天気 :</span>
+       <span id="weather"></span>
+       <div id="icon"><img id="img"></div>
+        <script src="jquery-3.2.1.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
 <body>
 <div class="container">
     <div class="row">
@@ -11,31 +48,31 @@
 			    		<table>
 			    			<thead>
 			    				<tr>
-			    					<%= attachment_image_tag products, :jacket_img, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+			    					<%= attachment_image_tag products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
 			    					<td>アーティスト名</td>
 			    					<td>
-			    					<% products.artist %>
+			    					<%= products.artist %>
 			    					</td>
 			    				</tr>
 
 			    				<tr>
 			    					<td>シングル/アルバム名</td>
 			    					<td>
-			    					<% products.cd_title %>
+			    					<%= products.cd_title %>
 			    					</td>
 			    				</tr>
 
 			    				<tr>
 			    					<td>値段</td>
 			    					<td>
-			    						<% products.price%>
+			    						<%= products.price %>
 			    					</td>
 			    				</tr>
 
 			    				<tr>
 			    					<td>在庫ステータス</td>
 			    					<td>
-			    						<% products.status %>
+			    						<%= products.status %>
 			    					</td>
 			    				</tr>
 			    			</thead>
@@ -50,3 +87,4 @@
 
 
 </body>
+
