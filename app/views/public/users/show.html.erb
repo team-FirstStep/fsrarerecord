@@ -1,0 +1,15 @@
+<h2>お客様登録情報</h2>
+
+
+<p><%= @user.last_name %></p>
+<p><%= @user.first_name %></p>
+<%= link_to "登録情報編集", edit_user_path(@user), class: 'btn btn-default' %>
+
+
+<ul>
+<li>電話番号<%= @user.phone %></li>
+<li>E-mail<%= @user.email %></li>
+<li>〒<%= @user.zip %></li>
+<li>住所<%= @user.address %></li>
+</ul>
+

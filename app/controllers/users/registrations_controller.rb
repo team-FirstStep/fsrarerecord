@@ -5,21 +5,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  def new
-    super
-  end
+  # def new
+  #   super
+  # end
 
   # POST /resource
-  def create
-    super
-    # begin
-      # ActiveRecord::Base.transaction do
-        ###新規登録したユーザー（親）が保有する住所（子）を作成する
+  # def create
+  #   super
+  #   # begin
+  #     # ActiveRecord::Base.transaction do
+  #       ###新規登録したユーザー（親）が保有する住所（子）を作成する
 
-        resource.addresses.build
-        resource.save
-      # end
-  end
+  #       resource.addresses.build
+  #       resource.save
+  #     # end
+  # end
 
 
   # GET /resource/edit
