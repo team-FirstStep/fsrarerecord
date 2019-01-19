@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
+
   root 'public/products#index'
 
   namespace :admin do
