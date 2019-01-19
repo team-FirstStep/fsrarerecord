@@ -1,46 +1,53 @@
-<h2>商品詳細</h2>
+<div class="container">
+	<div class="row">
+        <h2>商品詳細</h2>
 
-<%= attachment_image_tag @product, :size => '200x200' %>
+        <div class="col-md-4">
+            <%= attachment_image_tag @product, :size => '200x200' %>
+        </div>
 
+        <div class="col-md-4">
+            <table class="table">
+	            <tbody>
+	           	    <tr>
+		           	    <td>シングル/アルバム名</td>
+		           	    <td><%= @product.cd_title %></td>
+		            </tr>
+		            <tr>
+			            <td>アーティスト名</td>
+			            <td><%= @product.artist %></td>
+		            </tr>
+		            <tr>
+			            <td>レーベル名</td>
+			            <td><%= @product.label %></td>
+		            </tr>
+		            <tr>
+			            <td>在庫数</td>
+			            <td><%= @product.stock %></td>
+		            </tr>
+		            <tr>
+			            <td>ジャンル</td>
+			            <td><%= @product.genre %></td>
+		            </tr>
+		            <tr>
+			            <td>値段</td>
+			            <td><%= @product.price %></td>
+		            </tr>
+	            </tbody>
+            </table>
 
-<table class="table">
-	<tbody>
-		<tr>
-			<td>シングル/アルバム名</td>
-			<td><%= @product.cd_title %></td>
-		</tr>
-		<tr>
-			<td>アーティスト名</td>
-			<td><%= @product.artist %></td>
-		</tr>
-		<tr>
-			<td>レーベル名</td>
-			<td><%= @product.label %></td>
-		</tr>
-		<tr>
-			<td>在庫数</td>
-			<td><%= @product.stock %></td>
-		</tr>
-		<tr>
-			<td>ジャンル</td>
-			<td><%= @product.genre %></td>
-		</tr>
-		<tr>
-			<td>値段</td>
-			<td><%= @product.price %></td>
-		</tr>
-	</tbody>
-</table>
+            <%= form_for %>
+            <span>枚</span>
 
-<%= form_for %>
-<span>枚</span>
+            <%= link_to "カートに追加" %>
+        </div>
 
-<%= link_to "カートに追加" %>
+        <div class="col-md-4">
+            <h4>シングル/アルバム内の曲名</h4>
+            <% @songs.each do |song| %>
+                <%= song.song_no %>
+                <%= song.song_title %>
+            <% end %>
 
-
-<h4>シングル/アルバム内の曲名</h4>
-<% @songs.each do |song| %>
-<%= song.song_title %>
-<% end %>
-
-<%= @product.status %>
+            <%= @product.status %>
+        </div>

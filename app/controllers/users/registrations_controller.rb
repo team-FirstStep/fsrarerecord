@@ -10,16 +10,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  #   # begin
-  #     # ActiveRecord::Base.transaction do
-  #       ###新規登録したユーザー（親）が保有する住所（子）を作成する
 
-  #       resource.addresses.build
-  #       resource.save
-  #     # end
-  # end
+  def create
+    begin
+      ActiveRecord::Base.transaction do
+        super
+        ###新規登録したユーザー（親）が保有する住所（子）を作成する
+
+        resource.addresses.build
+        resource.addresses[0].address = params[:user][:address][:address]
+        resource.addresses[0].zip = params[:user][:address][:zip]
+        resource.addresses[0].phone = params[:user][:address][:phone]
+        resource.save!
+      end
+    end
+  end
+
 
 
   # GET /resource/edit
@@ -46,12 +52,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
-
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params

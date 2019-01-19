@@ -6,7 +6,6 @@ class Public::ProductsController < Public::ApplicationController
   end
 
   def show
-
   end
 
   def search
