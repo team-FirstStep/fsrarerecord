@@ -14,4 +14,9 @@ class Public::ProductsController < Public::ApplicationController
     @products = Product.search(params[:search])
   end
 
+private
+    def product_params
+        params.require(:product).permit(:image_id,:artists, :cd_title, :price, :label, :genre, :stock, discs_attributes: [:value])
+    end
+
 end

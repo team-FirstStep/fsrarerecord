@@ -27,10 +27,13 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def create
+
         @product = Product.new(product_params)
         @product.admin_id = current_admin.id
         @product.save
+
         redirect_to new_admin_song_path
+
   end
 
   def destroy
