@@ -37,3 +37,54 @@
         <script src="app.js"></script>
     </body>
 </html>
+<body>
+<div class="container">
+    <div class="row">
+    	<h1>main</h1>
+    	<div class="col-md-12">
+    		<div class="row">
+    			<% @products.each do |products| %>
+	    			<div class="col-md-4" style="margin-bottom:30px">
+			    		<table>
+			    			<thead>
+			    				<tr>
+			    					<%= attachment_image_tag products, :jacket_img, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+			    					<td>アーティスト名</td>
+			    					<td>
+			    					<% products.artist %>
+			    					</td>
+			    				</tr>
+
+			    				<tr>
+			    					<td>シングル/アルバム名</td>
+			    					<td>
+			    					<% products.cd_title %>
+			    					</td>
+			    				</tr>
+
+			    				<tr>
+			    					<td>値段</td>
+			    					<td>
+			    						<% products.price%>
+			    					</td>
+			    				</tr>
+
+			    				<tr>
+			    					<td>在庫ステータス</td>
+			    					<td>
+			    						<% products.status %>
+			    					</td>
+			    				</tr>
+			    			</thead>
+			    		</table>
+			    	</div>
+			    <% end %>
+				
+			</div>
+	</div>
+</div>
+
+
+
+</body>
+
