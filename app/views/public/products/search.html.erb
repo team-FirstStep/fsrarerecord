@@ -1,12 +1,13 @@
 <h2>検索結果</h2>
 
-<% @products.each do |products| %>
+<% @products.each do |product| %>
 
 
 
 <table>
     <tbody>
 	    <tr>
+	    	<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
 		    <td>商品名</td>
 		    <td><%= product.cd_title %></td>
 	    </tr>
@@ -26,7 +27,5 @@
 <%= product.price %>
 
 <%= product.status %>
-
-<input type="number">
 
 <% end %>

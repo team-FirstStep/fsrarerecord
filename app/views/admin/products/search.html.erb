@@ -6,6 +6,7 @@
 <table>
     <tbody>
 	    <tr>
+	    	<%= attachment_image_tag products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
 		    <td>商品名</td>
 		    <td><%= user.name %></td>
 	    </tr>
