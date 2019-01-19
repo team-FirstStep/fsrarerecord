@@ -7,12 +7,13 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
-  @product = Product.new
-  @product.discs.build
+    @product = Product.new
+    @product.discs.build
+
   end
 
   def edit
@@ -26,14 +27,25 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def create
-  @product = current_admin.products.build(product_params)
-  @product.save
+        @product = Product.new(product_params)
+        @product.admin_id = current_admin.id
+        @product.save
+        redirect_to new_admin_song_path
   end
 
   def destroy
   end
 
+  def search
+    @products = Product.search(params[:search])
+  end
+
   # def count
   #   cnt = Product.where(cd_title: '').count
   #   render text: "検索結果　#{cnt}件ヒットしました。"
-end
+private
+    def product_params
+        params.require(:product).permit(:artists, :cd_title, :jacket_img, :price, :label, :genre, :stock, :value)
+    end
+
+    end
