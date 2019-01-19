@@ -23,5 +23,5 @@ protected
       # account_updateのときに、nameをストロングパラメータに追加する
       devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name,
        :email, :last_name_kana, :first_name_kana, :password, :password_confirmation])
-	end
+	  end
 end
