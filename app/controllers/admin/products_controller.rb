@@ -41,7 +41,7 @@ class Admin::ProductsController < Admin::ApplicationController
   #   render text: "検索結果　#{cnt}件ヒットしました。"
 private
     def product_params
-        params.require(:product).permit(:artists, :cd_title, :jacket_img, :price, :label, :genre, :stock, :value)
+        params.require(:product).permit(:image_id,:artists, :cd_title, :price, :label, :genre, :stock, discs_attributes: [:value])
     end
 
     end
