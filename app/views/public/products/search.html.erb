@@ -2,18 +2,17 @@
 
 <% @products.each do |products| %>
 
-<%= product.jacket_img %>
 
 
 <table>
     <tbody>
 	    <tr>
 		    <td>商品名</td>
-		    <td><%= user.name %></td>
+		    <td><%= product.cd_title %></td>
 	    </tr>
 	    <tr>
 	    	<td>アーティスト名</td>
-	    	<td><%= product.artist %></td>
+	    	<td><%= product.artists %></td>
 	    </tr>
 	    <tr>
 	    	<td>ジャンル</td>
@@ -29,8 +28,5 @@
 <%= product.status %>
 
 <input type="number">
-
-<%= link_to carts_path(@user.id), class: 'btn btn-default' do %>
-<% end %>
 
 <% end %>
