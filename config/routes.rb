@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   passwords:     'admins/passwords',
   registrations: 'admins/registrations'
 }
+
   root 'public/products#index'
 
   namespace :admin do
@@ -20,13 +21,14 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get '/products/search' => 'products#search', as: 'search_products'
     resources :products
       get '/products/check/:id' => 'products#check', as: 'check_product'
-      get '/products/search' => 'products#search', as: 'search_products'
   end
   scope module: :public do
+    get '/products/search' => 'products#search', as: 'search_products'
     resources :products, only: [:show]
-      get '/products/search' => 'products#search', as: 'search_products'
+
   end
 
   namespace :admin do
@@ -46,6 +48,8 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :orders, only: [:create]
   end
+
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

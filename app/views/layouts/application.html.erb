@@ -12,9 +12,10 @@
   <body>
     <header>
       <%= image_tag 'fs-logo.jpg', :size =>'50x50' %>
-      <div class="header-serch">
-        <%= form_tag(admin_search_products_path,:method => 'get') do %>
-          <%= text_field_tag :search %>
+
+      <div class="header-search">
+        <%= form_tag(search_products_path, :method => 'get') do %>
+          <%= text_field_tag :search, params[:search] %>
           <%= submit_tag '検索', :name => nil %>
         <% end %>
       </div>
@@ -29,6 +30,13 @@
           <li><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
           <li><%= link_to user_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <% end %></li>
 
+        <% elsif admin_signed_in? %>
+          <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
+          <li><%= link_to root_path, class: '' do %> マイページ <% end %></li>
+          <li><%= link_to root_path, class: '' do %> カート <% end %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
+          <li><%= link_to user_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <% end %></li>
+
         <% else %>
           <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
           <li><%= link_to new_user_session_path, class: 'sign_in' do %>ログイン<% end %></li>
@@ -36,6 +44,7 @@
           <% end %>
         </ul>
       </div>
+<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %>
 
       <div id="hm-icon">
         <a class="menu-trigger" href="#">

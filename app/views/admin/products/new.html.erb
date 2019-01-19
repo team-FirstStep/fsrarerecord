@@ -38,7 +38,6 @@
       <%= f.attachment_field :image %>
     </td>
    </tr>
-
    <tr>
      <td>
       <p  class="text-right">アーティスト名：  </p>
@@ -76,7 +75,7 @@
       <p class="text-right">在庫数：  </p>
      </td>
      <td>
-    <%= f.text_field :stock, class: "product_stock" %>
+    <%= f.number_field :stock, class: "product_stock" %>
      </td>
    </tr>
    <tr>
@@ -84,7 +83,7 @@
       <p class="text-right">ジャンル：  </p>
      </td>
      <td>
-    <%= f.text_field :genre, class: "product_genre" %>
+<%= f.select(:genre, [["期間限定生産", 1], ["初回限定生産", 2], ["非売品", 3], ["イベント限定販売品", 4], ["生産終了品", 5]]) %>
      </td>
    </tr>
      <td>

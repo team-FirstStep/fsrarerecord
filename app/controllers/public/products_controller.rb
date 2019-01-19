@@ -6,11 +6,11 @@ class Public::ProductsController < Public::ApplicationController
   end
 
   def show
-  	@product = Product.find(params[:id])
-  	# @songs = Songs.
   end
 
   def search
+  #ViewのFormで取得したパラメータをモデルに渡す
+    @products = Product.search(params[:search])
   end
 
 end
