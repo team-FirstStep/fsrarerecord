@@ -48,31 +48,31 @@
 			    		<table>
 			    			<thead>
 			    				<tr>
-			    					<%= attachment_image_tag products, :jacket_img, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+			    					<%= attachment_image_tag products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
 			    					<td>アーティスト名</td>
 			    					<td>
-			    					<% products.artist %>
+			    					<%= products.artist %>
 			    					</td>
 			    				</tr>
 
 			    				<tr>
 			    					<td>シングル/アルバム名</td>
 			    					<td>
-			    					<% products.cd_title %>
+			    					<%= products.cd_title %>
 			    					</td>
 			    				</tr>
 
 			    				<tr>
 			    					<td>値段</td>
 			    					<td>
-			    						<% products.price%>
+			    						<%= products.price %>
 			    					</td>
 			    				</tr>
 
 			    				<tr>
 			    					<td>在庫ステータス</td>
 			    					<td>
-			    						<% products.status %>
+			    						<%= products.status %>
 			    					</td>
 			    				</tr>
 			    			</thead>
