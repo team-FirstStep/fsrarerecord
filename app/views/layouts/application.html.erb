@@ -12,9 +12,9 @@
   <body>
     <header>
       <%= image_tag 'fs-logo.jpg', :size =>'50x50' %>
-      <div class="header-serch">
-        <%= form_tag(search_products_path,:method => 'get') do %>
-          <%= text_field_tag :search %>
+      <div class="header-search">
+        <%= form_tag(search_products_path, :method => 'get') do %>
+          <%= text_field_tag :search, params[:search] %>
           <%= submit_tag '検索', :name => nil %>
         <% end %>
       </div>
@@ -36,6 +36,7 @@
           <% end %>
         </ul>
       </div>
+<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %>
 
       <div id="hm-icon">
         <a class="menu-trigger" href="#">
