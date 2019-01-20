@@ -1,0 +1,37 @@
+<head>
+  <title>disc_new</title>
+</head>
+
+                  <div class="container">
+  <table class="disc-new">
+    <h2 class="disc_new_num">Discナンバー登録</h2>
+                  <div class="row">
+  <!-- フォームフォー -->
+<%= form_for @disc, :url => { :controller => :discs, :action => :create } do |f| %>
+  <% if @disc.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
+    </div>
+  <% end %>
+
+   <tr>
+     <td>
+      <p class="text-right">Disc：  </p>
+     </td>
+     <td>
+    <%= f.number_field :disc_num, class: "disc_num" %>
+     </td>
+   </tr>
+
+   <tr>
+     <td>
+     </td>
+     <td>
+  <%= f.submit "次へ", class:"btn" %>
+<% end %>
+     </td>
+   </tr>
+  </table>
+                  </div>
+                  </div>
+

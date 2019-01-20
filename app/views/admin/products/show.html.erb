@@ -1,38 +1,94 @@
 <h2>商品詳細</h2>
 
-<%= attachment_image_tag products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200" %>
+   	<tr>
+   	  <td>
+       <p class="text-left">登録枚数：  </p>
+   	  </td>
+      <td>
+        <%= @disc.value %>
+      </td>
+    </tr>
 
+   <tr>
+   <td>
+      <p class="text-left">ジャケット：  </p>
+   </td>
+   <td>
+<%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+   </td>
+   </tr>
 
-<table class="table">
-	<tbody>
-		<tr>
-			<td>シングル/アルバム名</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>アーティスト名</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>レーベル名</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>在庫数</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>ジャンル</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>値段</td>
-			<td></td>
-		</tr>
-	</tbody>
-</table>
+   <tr>
+     <td>
+      <p class="text-left">アーティスト名：  </p>
+     </td>
+     <td>
+    <%= @product.artists %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-left">シングル/アルバム名：  </p>
+     </td>
+     <td>
+    <%= @product.cd_title %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-left">値段：  </p>
+     </td>
+     <td>
+    <%= @product.price %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-left">レーベル名：  </p>
+     </td>
+     <td>
+    <%= @product.label %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-left">在庫数：  </p>
+     </td>
+     <td>
+    <%= @product.stock %>
+     </td>
+   </tr>
+   <tr>
+     <td>
+      <p class="text-left">ジャンル：  </p>
+     </td>
+     <td>
+    <%= @product.genre %>
+     </td>
+   </tr>
+     <td>
+   <tr>
+     <td>
+     </td>
+     <td>
+     </td>
+   </tr>
+  </table>
+ </div>
+ <div class="row">
+     <h3 class="text-center">シングル/アルバム内の曲名</h3>
+     <h5 class="text-center">　　　Disc:</h5>
+    <%= @disc.disc_num %>
+  <table class="product-new_song">
+   <tr>
+     <td>
+    <%= @song.song_track %>
+     </td>
+     <td>
+    <%= @song.song_title %>
+     </td>
+   </tr>
 
-<%= form_for %>
 <h6>枚</h6>
 
 <%= link_to "カートに追加" %>
@@ -40,3 +96,7 @@
 <h4>シングル/アルバム内の曲名</h4>
 
 < 在庫ステータスの表示 >
+
+    <td>
+<%= link_to "登録完了", admin_products_path %>
+    </td>

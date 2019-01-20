@@ -1,10 +1,11 @@
 class Admin::SongsController < Admin::ApplicationController
   # before_action :set_song
   def index
-    @songs = Song.all
+    @songs = Song.where(id: params[:disc_id])
   end
 
   def new
+    @product = Product.find(params[:product_id])
     @new_song = Song.new
     respond_to do |format|
       format.html
@@ -14,9 +15,11 @@ class Admin::SongsController < Admin::ApplicationController
   end
 
   def create
-    # disc = Disc.find(params[:disc_id])
+    # disc = Disc.find(params[:disc_id]) ←実験中
+    @product = Product.find(params[:product_id])
+    @disc = Disc.find(params[:disc_id])
     @new_song = Song.new(song_params)
-    # @new_song.disc_id = disc.id
+    @product = @new_song.disc_id
     respond_to do |format|
       if @new_song.save!
     @new_song.errors.full_messages
@@ -29,7 +32,6 @@ class Admin::SongsController < Admin::ApplicationController
       end
     end
   end
-
 
   def edit
     @song = Song.find(params[:id])
@@ -49,7 +51,7 @@ class Admin::SongsController < Admin::ApplicationController
 
 private
   def song_params
-    params.require(:song).permit(:song_no, :song_title)
+    params.require(:song).permit(:song_track, :song_title)
   end
 
 end
