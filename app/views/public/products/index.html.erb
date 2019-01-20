@@ -1,60 +1,57 @@
 <h1>Products#index</h1>
 
-<p>アーティスト名</p>
-<p>商品名</p>
-<p>値段</p>
-<p>在庫ステータス</p>
-
-    </body>
-</html>
 <body>
-<div class="container">
-    <div class="row">
-    	<h1>main</h1>
-    	<div class="col-md-12">
-    		<div class="row">
-    			<% @products.each do |products| %>
-	    			<div class="col-md-4" style="margin-bottom:30px">
-			    		<table>
-			    			<thead>
-			    				<tr>
-			    					<%= attachment_image_tag products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
-			    					<td>アーティスト名</td>
-			    					<td>
-			    					<%= products.artists %>
-			    					</td>
-			    				</tr>
+	<div class="container">
+	    <div class="row">
+	    	<h1>main</h1>
+	    	<div class="col-md-10">
+	    		<div class="row">
+	    			<% @products.each do |products| %>
+		    			<div class="col-md-4" style="margin-bottom:30px">
+				    		<table>
+				    			<thead>
+				    				<tr>
+				    					<%= attachment_image_tag products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
+				    					<td>アーティスト名</td>
+				    					<td>
+				    					<%= products.artists %>
+				    					</td>
+				    				</tr>
 
-			    				<tr>
-			    					<td>シングル/アルバム名</td>
-			    					<td>
-			    					<%= products.cd_title %>
-			    					</td>
-			    				</tr>
+				    				<tr>
+				    					<td>シングル/アルバム名</td>
+				    					<td>
+				    					<%= products.cd_title %>
+				    					</td>
+				    				</tr>
 
-			    				<tr>
-			    					<td>値段</td>
-			    					<td>
-			    						<%= products.price %>
-			    					</td>
-			    				</tr>
+				    				<tr>
+				    					<td>値段</td>
+				    					<td>
+				    						<%= products.price %>
+				    					</td>
+				    				</tr>
 
-			    				<tr>
-			    					<td>在庫ステータス</td>
-			    					<td>
-			    						<%= products.status %>
-			    					</td>
-			    				</tr>
-			    			</thead>
-			    		</table>
-			    	</div>
-			    <% end %>
-				
+				    				<tr>
+				    					<td>在庫ステータス</td>
+				    					<td>
+				    						<%= products.status %>
+				    					</td>
+				    				</tr>
+				    			</thead>
+				    		</table>
+				    	</div>
+				    <% end %>
+				</div>
 			</div>
+			<div class="col-md-2">
+				<%= render 'public/products/side'%>
+			</div>
+		</div>
 	</div>
-</div>
-
-
-
 </body>
+
+<%= paginate @products, class: "paginate" %>
+
+
 

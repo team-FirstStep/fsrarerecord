@@ -31,7 +31,7 @@
           <li><%= link_to user_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <% end %></li>
 
         <% elsif admin_signed_in? %>
-          <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
+          <li><%= link_to admin_products_path, class: 'top' do %> Top <% end %></li>
           <li><%= link_to root_path, class: '' do %> マイページ <% end %></li>
           <li><%= link_to root_path, class: '' do %> カート <% end %></li>
           <li><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
@@ -44,7 +44,6 @@
           <% end %>
         </ul>
       </div>
-<%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %>
 
       <div id="hm-icon">
         <a class="menu-trigger" href="#">
