@@ -21,7 +21,7 @@ get 'admin/users' => 'admin/users#index'
     resources :users
   end
   scope module: :public do
-    resources :users, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update, :create]
   end
 
   namespace :admin do

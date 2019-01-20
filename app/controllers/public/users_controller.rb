@@ -8,12 +8,20 @@ class Public::UsersController < Public::ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # @addresses = @user.addresses
+    @new_address = Address.new
+    @address = Address.find(params[:id])
+
   end
 
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    redirect_to user_path(current_user)
+  end
+
+  def create
+    @new_address = Address.new(user_params)
+    @new_address.save
     redirect_to user_path(current_user)
   end
 
