@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_01_19_090522) do
-=======
-ActiveRecord::Schema.define(version: 2019_01_20_061231) do
->>>>>>> f26db4ea637b0c98cc5bea46ff804f8020d2c5ff
+ActiveRecord::Schema.define(version: 2019_01_20_105620) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -30,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_01_20_061231) do
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "updated_at", null: false
+    t.string "add_phone"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -91,14 +88,14 @@ ActiveRecord::Schema.define(version: 2019_01_20_061231) do
     t.string "cd_title"
     t.integer "price"
     t.string "label"
-    t.integer "genre"
-    t.integer "stock"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "deleted_at"
     t.datetime "updated_at", null: false
     t.string "image_id"
+    t.string "genre"
+    t.string "stock"
   end
 
   create_table "selects", force: :cascade do |t|
