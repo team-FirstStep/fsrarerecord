@@ -78,8 +78,13 @@
 			    			</thead>
 			    		</table>
 			    	</div>
+			    	<p><%= form_for(@product, url: root_path) do |f| %>
+				<%= fields_for :discs do |disc| %>
+				<%= disc.number_field :value, :size => "10*10" %>
+				<% end %>
+				<% end %>枚</p>
 			    <% end %>
-				
+			    
 			</div>
 	</div>
 </div>

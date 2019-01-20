@@ -3,6 +3,7 @@ class Public::ProductsController < Public::ApplicationController
 
   def index
   	@products = Product.all
+    @product = Product.new
   end
 
   def show
