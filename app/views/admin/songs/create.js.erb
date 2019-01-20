@@ -1,0 +1,6 @@
+// <div id="song"></div>の箇所に入力フォームが動的に表示
+$('#songs').html("<%= j (render 'index') %>");
+// (render 'index')により_index.html.erbの内容を表示
+
+$('#song-form').fadeOut(600);
+// <div id="song-form"></div>の箇所に入力フォームが動的に非表示

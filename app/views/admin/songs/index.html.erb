@@ -1,0 +1,13 @@
+<h1>Appleモデル一覧</h1>
+<table class="table" id="songs">
+<!-- ↑create.js.erbの$('#songs').htmlにリンクするためにid="songs"を記入 -->
+
+  <%= render @songs %>
+<!-- render @songsにより_song.html.erbの内容を表示 -->
+
+</table>
+<%= link_to "データを追加する", new_admin_song_path, remote: true %>
+<!-- "データを追加する”のボタンを押すと、songsのnewアクションが実行される -->
+
+<div id="song-form"></div>
+<!-- ↑new.js.erbの$('#song-form')にリンクするため記入 -->
