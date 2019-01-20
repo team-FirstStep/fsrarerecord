@@ -10,9 +10,21 @@
 <!-- render @new_songsより_song.html.erbの内容を表示 -->
 
 </table>
-<%= link_to "曲名を追加する", new_admin_song_path, remote: true %>
+<%= link_to "曲名を追加する", new_admin_product_disc_song_path, remote: true %>
 <!-- "曲名を追加する”のボタンを押すと、songsのnewアクションが実行される -->
 <!-- link_toにremote:trueを加えることによって自動的にajaxでの処理にすることができる -->
 
 <div id="song-form"></div>
 <!-- ↑new.js.erbの$('#song-form')にリンクするため記入 -->
+
+<table class="link">
+
+<p class="btn">
+  <tr>
+    <td>
+       <%= link_to "次へ", admin_product_path(@product.id) %>
+    </td>
+  </tr>
+</p>
+
+</table>
