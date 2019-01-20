@@ -2,6 +2,7 @@ class Admin::UsersController < Admin::ApplicationController
   # before_action :set_user
 
   def index
+    @users = User.where("email LIKE(?)", "%#{params[:keyword]}%")
   end
 
   def show

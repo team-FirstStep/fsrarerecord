@@ -1,12 +1,18 @@
 
 <h2>曲名登録</h2>
 
-
-<span>収録曲数</span>
-<%= form_for(@song, url: admin_products_path) do |f| %>
-      <p class="text-right">　　　　　　曲数：  </p>>
-
-<%= f.submit '枚数決定', class: "btn" %>
-<% end %>
-
 <h3>シングル/アルバム内の曲名</h3>
+
+<table class="table" id="songs">
+<!-- ↑create.js.erbの$('#songs').htmlにリンクするためにid="songs"を記入 -->
+
+  <%= render @new_song %>
+<!-- render @new_songsより_song.html.erbの内容を表示 -->
+
+</table>
+<%= link_to "曲名を追加する", new_admin_song_path, remote: true %>
+<!-- "曲名を追加する”のボタンを押すと、songsのnewアクションが実行される -->
+<!-- link_toにremote:trueを加えることによって自動的にajaxでの処理にすることができる -->
+
+<div id="song-form"></div>
+<!-- ↑new.js.erbの$('#song-form')にリンクするため記入 -->
