@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2019_01_19_090522) do
-=======
 ActiveRecord::Schema.define(version: 2019_01_20_061231) do
->>>>>>> f26db4ea637b0c98cc5bea46ff804f8020d2c5ff
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
