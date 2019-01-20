@@ -70,8 +70,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
 gem 'kaminari','~> 1.1.1'
-
+# ↓論理削除で使用
 gem 'paranoia'
-
-
-
+# ↓曲の新規投稿で使用
+gem 'simple_form'

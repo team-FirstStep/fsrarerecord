@@ -1,0 +1,31 @@
+<!-- new.js.erbの(render 'form')から飛んでくる -->
+<%= simple_form_for @new_song, :url => { :controller => :songs, :action => :create }, remote: true do |f| %>
+<!-- ↑simple_form_for(gem)でないとうまく機能しない -->
+<!-- ↑form_forはpathを勘違い(自動認識)してエラーになるのでurlを書いてあげてる←これに気付くのに1時間... -->
+
+<tr>
+  <td>
+ <p  class="text-left">曲順：  </p>
+  </td>
+  <td>
+  <%= f.input :song_track %>
+  </td>
+  <td>
+  </td>
+</tr>
+
+<tr>
+  <td>
+ <p  class="text-left">曲のタイトル：  </p>
+  </td>
+  <td>
+  <%= f.input :song_title %>
+  </td>
+  <td>
+  </td>
+</tr>
+
+  <%= f.button :submit ,"登録" %>
+<% end %>
+
+

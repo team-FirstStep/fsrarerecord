@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+# ↓実験台のページ
+get 'admin/users' => 'admin/users#index'
+
   devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
@@ -22,22 +26,23 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/products/search' => 'products#search', as: 'search_products'
-    resources :products
+    resources :products do
       get '/products/check/:id' => 'products#check', as: 'check_product'
+        resources :discs, only: [:new, :create] do
+          resources :songs, only: [:new, :create, :edit, :update]
   end
+  end
+  end
+
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products, only: [:show]
-
-  end
-
-  namespace :admin do
-    resources :songs
   end
 
   namespace :admin do
     resources :carts, only: [:show]
   end
+
   scope module: :public do
     resources :carts
   end
@@ -45,6 +50,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :orders
   end
+
   scope module: :public do
     resources :orders, only: [:create]
   end

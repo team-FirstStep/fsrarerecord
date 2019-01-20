@@ -26,6 +26,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def destroy
+    User.transaction do
+      user.deleted_at
+    end
+    
+  end
 
 
   # GET /resource/edit
