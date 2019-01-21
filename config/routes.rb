@@ -21,7 +21,9 @@ get 'admin/users' => 'admin/users#index'
     resources :users
   end
   scope module: :public do
-    resources :users, only: [:show, :edit, :update, :create]
+    resources :users, only: [:show, :edit, :update, :create] do
+      resources :addresses, only: [:new, :create, :edit, :update]
+  end
   end
 
   namespace :admin do
@@ -54,16 +56,6 @@ get 'admin/users' => 'admin/users#index'
   scope module: :public do
     resources :orders, only: [:create]
   end
-
-  namespace :admin do
-    resources :addresses
-  end
-
-  scope module: :public do
-    resources :addresses
-  end
-
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
