@@ -11,8 +11,8 @@ class Public::AddressesController < Public::ApplicationController
 	end
 
 	def edit
-		@edit_address = Address.find(params[:id])
-		edit_address = user_id
+		@user = User.find(params[:id])
+		@add_address = Address.find(@user.id)
 	end
 
 	def update

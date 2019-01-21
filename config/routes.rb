@@ -42,9 +42,6 @@ get 'admin/users' => 'admin/users#index'
 end
 
 
-
-
-
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products, only: [:show]
