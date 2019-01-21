@@ -41,8 +41,8 @@ end
 end
 
   scope module: :public do
-    resources :products
     get '/products/search' => 'products#search', as: 'search_products'
+    resources :products
   end
 
   namespace :admin do
