@@ -11,6 +11,7 @@ class Public::ProductsController < Public::ApplicationController
   def search
   #ViewのFormで取得したパラメータをモデルに渡す
     @products = Product.search(params[:search])
+    @products2 = Product.page(params[:page]).reverse_order
   end
 
 # private
