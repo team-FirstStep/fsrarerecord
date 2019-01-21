@@ -8,7 +8,6 @@ class Public::ProductsController < Public::ApplicationController
 
   def index
     @products = Product.page(params[:page]).reverse_order
-
     @select = Select.new
 
   end
@@ -16,6 +15,12 @@ class Public::ProductsController < Public::ApplicationController
   def show
     @product = Product.find(params[:id])
     @select = Select.new
+  end
+
+  def search
+  #ViewのFormで取得したパラメータをモデルに渡す
+    @products = Product.search(params[:search])
+    @products2 = Product.page(params[:page]).reverse_order
   end
 
 private
