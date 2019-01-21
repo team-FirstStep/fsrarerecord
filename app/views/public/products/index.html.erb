@@ -13,48 +13,49 @@
     	<h1>main</h1>
     	<div class="col-md-12">
     		<div class="row">
-    			<% @products.each do |products| %>
+    			<% @products.each do |product| %>
 	    			<div class="col-md-4" style="margin-bottom:30px">
 			    		<table>
 			    			<thead>
 			    				<tr>
-			    					<%= attachment_image_tag products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+			    					<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
 			    					<td>アーティスト名</td>
 			    					<td>
-			    					<%= products.artists %>
+			    					<%= product.artists %>
 			    					</td>
 			    				</tr>
-
 			    				<tr>
 			    					<td>シングル/アルバム名</td>
 			    					<td>
-			    					<%= products.cd_title %>
+
 			    					</td>
 			    				</tr>
 
 			    				<tr>
 			    					<td>値段</td>
 			    					<td>
-			    						<%= products.price %>
+			    						<%= product.price %>
 			    					</td>
 			    				</tr>
 
 			    				<tr>
 			    					<td>在庫ステータス</td>
 			    					<td>
-			    						<%= products.status %>
+			    						<%= product.status %>
 			    					</td>
 			    				</tr>
 			    			</thead>
 			    		</table>
 			    	</div>
-			    	<p><%= form_for(@product, url: root_path) do |f| %>
-				<%= fields_for :discs do |disc| %>
-				<%= disc.number_field :value, :size => "10*10" %>
-				<% end %>
-				<% end %>枚</p>
-			    <% end %>
-			    
+			    	<p><%= form_for [product, @select], url: selects_path do |f| %>
+			    		<%= f.hidden_field :product_id, :value => product.id %>
+							<%= f.fields_for :discs do |disc| %>
+							<%= disc.number_field :value, :size => "10*10" %>
+							<% end %>
+						<%= link_to 'カートに入れる', carts_path, class: 'fbtn' %>
+						<% end %>枚</p>
+				    <% end %>
+
 			</div>
 	</div>
 </div>

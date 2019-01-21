@@ -3,10 +3,12 @@ class Public::ProductsController < Public::ApplicationController
 
   def index
   	@products = Product.all
-    @product = Product.new
+    @select = Select.new
   end
 
   def show
+    @product = Product.find(params[:id])
+    @select = Select.new
   end
 
   def search

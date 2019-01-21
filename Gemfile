@@ -74,3 +74,4 @@ gem 'kaminari','~> 1.1.1'
 gem 'paranoia'
 # ↓曲の新規投稿で使用
 gem 'simple_form'
+gem 'pry-rails'

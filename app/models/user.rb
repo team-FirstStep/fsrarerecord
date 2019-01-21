@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
    has_many :addresses, dependent: :destroy
+   has_many :cats
    accepts_nested_attributes_for :addresses
 end

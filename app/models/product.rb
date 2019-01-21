@@ -7,13 +7,13 @@ class Product < ApplicationRecord
 
 	acts_as_paranoid
 
-	has_many :line_items
-	before_destroy :referenced_by_line_item
+	has_many :selects
+	before_destroy :referenced_by_select
 
 	private
-	def referenced_by_line_item
+	def referenced_by_select
 
-		if line_items.empty?
+		if selects.empty?
 			return true
 		else
 			errors.add(:base, '品目が存在します。')
