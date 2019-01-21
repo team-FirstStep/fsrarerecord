@@ -1,5 +1,5 @@
  <h4>追加配送先の編集</h4>
-            <%= form_for (@edit_address), :url => { :controller => :addresses, :action => :update } do |f| %>
+            <%= form_for (@edit_address), :url => {:controller => :addresses, :action => :update} do |f| %>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -29,7 +29,6 @@
                 <%= f.text_field :add_address %>
             </div>
             <%= f.submit "変更を保存する", class: "btn btn-default" %>
-                                    <%= @edit_address.add_last_name %>
             <% end %>
             <table class="pagination">
                 <th>
