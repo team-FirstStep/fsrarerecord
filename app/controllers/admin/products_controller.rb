@@ -9,7 +9,7 @@ class Admin::ProductsController < Admin::ApplicationController
   def show
     @product = Product.find(params[:id])
     @disc = Disc.find(@product.id)
-    @song = Song.find(@disc.id)
+    @songs = Song.find(@disc.id)
   end
 
   def new
