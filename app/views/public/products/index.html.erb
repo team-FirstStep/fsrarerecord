@@ -1,6 +1,54 @@
 <h1>Products#index</h1>
 
 <body>
+<div class="container">
+    <div class="row">
+    	<h1>main</h1>
+    	<div class="col-md-12">
+    		<div class="row">
+    			<% @products.each do |product| %>
+	    			<div class="col-md-4" style="margin-bottom:30px">
+			    		<table>
+			    			<thead>
+			    				<tr>
+			    					<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+			    					<td>アーティスト名</td>
+			    					<td>
+			    					<%= product.artists %>
+			    					</td>
+			    				</tr>
+			    				<tr>
+			    					<td>シングル/アルバム名</td>
+			    					<td>
+
+			    					</td>
+			    				</tr>
+
+			    				<tr>
+			    					<td>値段</td>
+			    					<td>
+			    						<%= product.price %>
+			    					</td>
+			    				</tr>
+
+			    				<tr>
+			    					<td>在庫ステータス</td>
+			    					<td>
+			    						<%= product.status %>
+			    					</td>
+			    				</tr>
+			    			</thead>
+			    		</table>
+			    	</div>
+			    	<p><%= form_for [product, @select], url: selects_path do |f| %>
+			    		<%= f.hidden_field :product_id, :value => product.id %>
+							<%= f.fields_for :discs do |disc| %>
+							<%= disc.number_field :value, :size => "10*10" %>
+							<% end %>
+						<%= link_to 'カートに入れる', carts_path, class: 'fbtn' %>
+						<% end %>枚</p>
+				    <% end %>
+
 	<div class="container">
 	    <div class="row">
 	    	<h1>main</h1>

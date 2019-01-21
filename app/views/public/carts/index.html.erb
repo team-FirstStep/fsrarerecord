@@ -1,2 +1,7 @@
-<h1>public Carts#index</h1>
-<p>Find me in app/views/carts/index.html.erb</p>
+<h1>カート一覧</h1>
+
+<% @selects.each do |select| %>
+	<%= select.product.cd_title %>
+	<%= select.product.price %>
+	<%= select.product.artists %>
+<% end %>

@@ -17,22 +17,34 @@ get 'admin/users' => 'admin/users#index'
 
   root 'public/products#index'
 
+
+
   namespace :admin do
     resources :users
   end
   scope module: :public do
-    resources :users, only: [:show, :edit, :update, :create]
+
+    resources :users, only: [:show, :edit, :update, :create] do
+      resources :addresses, only: [:new, :create, :edit, :update]
+      resources :selects, only: [:create, :update, :destory]
+  end
   end
 
+
   namespace :admin do
-    get '/products/search' => 'products#search', as: 'search_products'
+    resources :products, only: [:new, :create, :update, :destory, :index, :edit]
+    end
+
+    get '/products/check/:id' => 'products#check', as: 'check_product'
     resources :products do
-      get '/products/check/:id' => 'products#check', as: 'check_product'
         resources :discs, only: [:new, :create] do # productsの子
           resources :songs, only: [:new, :create, :edit, :update] # productsの孫
   end
-  end
-  end
+end
+
+
+
+
 
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
@@ -54,16 +66,6 @@ get 'admin/users' => 'admin/users#index'
   scope module: :public do
     resources :orders, only: [:create]
   end
-
-  namespace :admin do
-    resources :addresses
-  end
-
-  scope module: :public do
-    resources :addresses
-  end
-
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
