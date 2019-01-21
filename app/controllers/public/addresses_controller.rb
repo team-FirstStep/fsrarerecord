@@ -27,6 +27,13 @@ class Public::AddressesController < Public::ApplicationController
 		redirect_to user_path(current_user)
 	end
 
+	def destroy
+		# @user = current_user
+		# @addresses = Address.where(user_id: @user)
+		# @addresses.destroy
+		redirect_to user_path(current_user)
+	end
+
 end
 
 private

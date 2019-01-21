@@ -2,13 +2,14 @@ class Public::UsersController < Public::ApplicationController
   # before_action :set_user
 
   def show
-    @user = User.find(params[:id])
-
-    @addresses = @user.addresses
+    @user = current_user
+    @addresses = Address.find(@user.id)
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
+    @addresses = Address.find(@user.id)
+    # @user = User.find(params[:id])
     @user.addresses.build
   end
 
@@ -17,12 +18,6 @@ class Public::UsersController < Public::ApplicationController
     @user.update(user_params)
     redirect_to user_path(current_user)
   end
-
-  # def create
-  #   @new_address = Address.new(user_params)
-  #   @new_address.save
-  #   redirect_to user_path(current_user)
-  # end
 
 private
 	def user_params
