@@ -2,8 +2,9 @@ class Public::CartsController < Public::ApplicationController
 
 
 	def index
-		@selects = Select.all
+		@selects = Select.page(params[:page]).reverse_order
 	end
+
 
 	def create
 		# @cart = current_cart

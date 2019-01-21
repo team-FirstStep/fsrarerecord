@@ -1,4 +1,10 @@
 class Public::AddressesController < Public::ApplicationController
+
+	def index
+		@user = current_user
+		@addresses = Address.where(user_id: @user)
+	end
+
 	def new
 		@add_address = Address.new
 	end
@@ -11,8 +17,13 @@ class Public::AddressesController < Public::ApplicationController
 	end
 
 	def edit
+<<<<<<< HEAD
+		
+=======
+
 		@edit_address = Address.find(params[:id])
-		edit_address = user_id
+		@edit_address.user_id = current_user
+>>>>>>> 9d47ab591a25601447500428641e4ad0d97b8bb1
 	end
 
 	def update

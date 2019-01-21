@@ -3,8 +3,7 @@ class Public::UsersController < Public::ApplicationController
 
   def show
     @user = User.find(params[:id])
-
-    @addresses = @user.addresses
+    @addresses = Address.where(user_id: @user)
   end
 
   def edit

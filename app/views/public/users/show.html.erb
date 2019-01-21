@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+<%= @edit_address.id %>
+=======
 <div class="container">
 	<div class="row">
 		<h2>ユーザー登録情報</h2>
@@ -9,7 +12,7 @@
 			<%= link_to "編集", edit_user_path(@user), class: 'btn btn-default' %>
 		</div>
 
-
+			<%= link_to "配送先一覧", user_addresses_path(@user), class: 'btn btn-default' %>
 
 		<div class="col-md-4">
 			<p>配送先一覧</p>
@@ -29,12 +32,13 @@
 					<li>〒 <%= address.add_zip %></li>
 					<li>住所 <%= address.add_address %></li>
 				</ul>
-		      <%= link_to "追加配送先の編集", edit_user_address_path(@addresses), class: "btn btn-default" %>
+		      <%= link_to "追加配送先の編集", edit_user_address_path(address), class: "btn btn-default" %>
 
 			<% end %>
 		</div>
 		<h2>購入履歴</h2>
 	</div>
 </div>
+>>>>>>> 9d47ab591a25601447500428641e4ad0d97b8bb1
 
 
