@@ -12,6 +12,7 @@ class Public::AddressesController < Public::ApplicationController
 
 	def edit
 		@edit_address = Address.find(params[:id])
+		edit_address = user_id
 	end
 
 	def update
