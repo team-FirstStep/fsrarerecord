@@ -28,8 +28,8 @@ get 'admin/users' => 'admin/users#index'
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products do
       get '/products/check/:id' => 'products#check', as: 'check_product'
-        resources :discs, only: [:new, :create] do
-          resources :songs, only: [:new, :create, :edit, :update]
+        resources :discs, only: [:new, :create] do # productsの子
+          resources :songs, only: [:new, :create, :edit, :update] # productsの孫
   end
   end
   end
