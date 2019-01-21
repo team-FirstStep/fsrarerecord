@@ -1,3 +1,4 @@
 class Cart < ApplicationRecord
-	has_many :selects, dependent: :detroy
+	has_many :selects
+	belongs_to :user
 end
