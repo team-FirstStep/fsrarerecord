@@ -1,5 +1,5 @@
  <h4>追加配送先の編集</h4>
-            <%= form_for @add_address, :url => {:controller => :addresses, :action => :update} do |f| %>
+            <%= form_for @edit_address, :url => {:controller => :addresses, :action => :update} do |f| %>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
@@ -37,4 +37,3 @@
                     <p>3</p>
                 </th>
             </table>
-                        <%= @add_address.add_last_name %>
