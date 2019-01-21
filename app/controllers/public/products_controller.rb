@@ -7,8 +7,8 @@ class Public::ProductsController < Public::ApplicationController
   end
 
   def index
-
     @products = Product.page(params[:page]).reverse_order
+
     @select = Select.new
 
   end
