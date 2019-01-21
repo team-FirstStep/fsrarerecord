@@ -2,7 +2,6 @@
 	<h2 style="margin-left:30px">検索結果</h2>
 	<br></br>
 	<div class="container" >
-		
 			<% @products.each do |product| %>
 				<div class="row" style="margin-bottom:30px">
 					<div class="row">
@@ -32,18 +31,14 @@
 							<label style="margin-left:50px"><h2>値段 ;</h2></label>
 							<span style="font-size: 30px"><%= product.price %></span>
 							<span>円</span>
-							<p style="margin-top:10px">在庫ステータス </p>
-							<span style="font-size: 10px"><%= product.status %></span>
-							<br></br>
-							<span style="font-size:30px">
-								
-							 	枚
+							<p style="margin-top:10px">在庫ステータス</p>
+							<span style="font-size: 10px">
+								<%= product.status %>
 							</span>
 						</div>
 					</div>
 				</div>
 			<% end %>
-		
 	</div>
 	<%= paginate @products2, class: "paginate" %>
 </body>
