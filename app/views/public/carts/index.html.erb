@@ -1,15 +1,30 @@
 <h1>カート一覧</h1>
-
-<% @selects.each do |select| %>
-	<%= attachment_image_tag @products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
-	<p>商品タイトル: <%= select.product.cd_title %></p>
-	<p>アーティスト名: <%= select.product.artists %></p>
-	<p>値段: <%= select.product.price %></p>
-	<p>在庫ステータス</p>
-	<%= form_for [@product, select], url: selects_path do |f| %>
-	<%= f.fields_for :discs do |disc| %>
-	<%= disc.number_field :value, :size => "10*10" %>
-	<% end %>
-	<p><%= link_to "削除", root_path, method: :delete %></p>
-<% end %>
-<% end %>
+	<div class="container">
+		<div class="row">
+			<% @selects.each do |select| %>
+			<table>
+					<tr>
+						<%= attachment_image_tag @products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+						<td> <p>商品タイトル: <%= select.product.cd_title %></p></td>
+					</tr>
+					<tr>
+						<td> <p>アーティスト名: <%= select.product.artists %></p></td>
+					</tr>
+					<tr>
+						<td> <p>値段: <%= select.product.price %></p></td>
+					</tr>
+						<tr>
+							<td> <p>在庫ステータス</p></td>
+						<%= form_for [@product, select], url: selects_path do |f| %>
+						<%= f.fields_for :discs do |disc| %>
+						<td> <%= disc.number_field :value, :size => "10*10" %></td>
+						<% end %>
+						<td> <p><%= link_to "削除", root_path, method: :delete %></p></td>
+						</tr>
+					<% end %>
+			<% end %>
+			</table>
+		</div>
+	</div>
+			<p>合計の値段</p>
+			<p>購入</p>

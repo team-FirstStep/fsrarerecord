@@ -8,11 +8,8 @@ class Admin::ProductsController < Admin::ApplicationController
 
   def show
     @product = Product.find(params[:id])
-<<<<<<< HEAD
-=======
     @disc = Disc.find(@product.id)
     @song = Song.find(@disc.id)
->>>>>>> 73e35224c87b543c5be2fb8c8de8d06221f4fd12
   end
 
   def new

@@ -2,7 +2,8 @@ class Public::ProductsController < Public::ApplicationController
   # before_action :set_product
 
   def index
-  	@products = Product.page(params[:page]).reverse_order
+    @products = Product.page(params[:page]).reverse_order
+
     @select = Select.new
 
   end

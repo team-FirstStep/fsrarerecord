@@ -1,5 +1,5 @@
 <h4>配送先の追加</h4>
-            <%= form_for @add_address do |add| %>
+            <%= form_for @add_address, :url => { :controller => :addresses, :action => :create } do |add| %>
             <div class="container">
             <div class="row">
                 <div class="col-md-6">
