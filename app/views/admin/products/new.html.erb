@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
   <%= stylesheet_link_tag "admin/products", :media => "all" %>
   <title>product_new</title>
 </head>
@@ -13,13 +8,12 @@
     <h2 class="product-new-title">商品新規登録</h2>
                   <div class="row">
   <!-- プロフィール画像 -->
-<%= form_for(@product, url: admin_products_path) do |f| %>
+<%= form_for @product, :url => { :controller => :products, :action => :create } do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
     </div>
   <% end %>
-       <h5 class="product-new-text text-center">Disc 1</h5>
    	<tr>
    	  <td>
        <p  class="text-right">登録枚数：  </p>

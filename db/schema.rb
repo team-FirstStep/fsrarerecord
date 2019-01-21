@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_17_115817) do
+ActiveRecord::Schema.define(version: 2019_01_20_105620) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2019_01_17_115817) do
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "updated_at", null: false
+    t.string "add_phone"
   end
 
   create_table "admins", force: :cascade do |t|
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_01_17_115817) do
     t.string "password_confirmation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 2019_01_17_115817) do
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "updated_at", null: false
+    t.integer "disc_num"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -85,14 +88,14 @@ ActiveRecord::Schema.define(version: 2019_01_17_115817) do
     t.string "cd_title"
     t.integer "price"
     t.string "label"
-    t.integer "genre"
-    t.integer "stock"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "deleted_at"
     t.datetime "updated_at", null: false
     t.string "image_id"
+    t.string "genre"
+    t.string "stock"
   end
 
   create_table "selects", force: :cascade do |t|
@@ -107,11 +110,11 @@ ActiveRecord::Schema.define(version: 2019_01_17_115817) do
 
   create_table "songs", force: :cascade do |t|
     t.integer "disc_id"
-    t.integer "song_no"
     t.string "song_title"
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "updated_at", null: false
+    t.integer "song_track"
   end
 
   create_table "users", force: :cascade do |t|
@@ -132,6 +135,7 @@ ActiveRecord::Schema.define(version: 2019_01_17_115817) do
     t.string "password_confirmation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

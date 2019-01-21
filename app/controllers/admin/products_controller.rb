@@ -8,6 +8,11 @@ class Admin::ProductsController < Admin::ApplicationController
 
   def show
     @product = Product.find(params[:id])
+<<<<<<< HEAD
+=======
+    @disc = Disc.find(@product.id)
+    @song = Song.find(@disc.id)
+>>>>>>> 73e35224c87b543c5be2fb8c8de8d06221f4fd12
   end
 
   def new
@@ -32,7 +37,7 @@ class Admin::ProductsController < Admin::ApplicationController
         @product.admin_id = current_admin.id
         @product.save
 
-        redirect_to new_admin_song_path
+        redirect_to new_admin_product_disc_path(@product.id)
 
   end
 
@@ -45,7 +50,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
   # def count
   #   cnt = Product.where(cd_title: '').count
-  #   render text: "検索結果　#{cnt}件ヒットしました。"
+  #   render text: "検索結果#{cnt}件ヒットしました。"
 private
     def product_params
         params.require(:product).permit(:image,:artists, :cd_title, :price, :label, :genre, :stock, discs_attributes: [:value])

@@ -28,27 +28,31 @@ get 'admin/users' => 'admin/users#index'
     resources :selects, only: [:create, :update, :destory]
   end
 
-
+get '/products/search' => 'products#search', as: 'search_products'
 
   namespace :admin do
-    get '/products/search' => 'products#search', as: 'search_products'
     resources :products, only: [:new, :create, :update, :destory, :index, :edit]
-      get '/products/check/:id' => 'products#check', as: 'check_product'
+    end
+
+    get '/products/check/:id' => 'products#check', as: 'check_product'
+    resources :products do
+        resources :discs, only: [:new, :create] do
+          resources :songs, only: [:new, :create, :edit, :update]
   end
+end
+
+
+
+
+
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products, only: [:show]
 
-  end
-
-
-  namespace :admin do
-    resources :songs
-  end
-
   namespace :admin do
     resources :carts, only: [:show]
   end
+
   scope module: :public do
     resources :carts
   end
@@ -56,11 +60,10 @@ get 'admin/users' => 'admin/users#index'
   namespace :admin do
     resources :orders
   end
+
   scope module: :public do
     resources :orders, only: [:create]
   end
-
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
