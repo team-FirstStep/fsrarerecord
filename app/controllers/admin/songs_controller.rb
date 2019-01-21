@@ -1,5 +1,7 @@
 class Admin::SongsController < Admin::ApplicationController
   # before_action :set_song
+# productsの孫
+# discsの子
   def index
     @songs = Song.where(id: params[:disc_id])
   end
@@ -19,13 +21,14 @@ class Admin::SongsController < Admin::ApplicationController
     @product = Product.find(params[:product_id])
     @disc = Disc.find(params[:disc_id])
     @new_song = Song.new(song_params)
-    @product = @new_song.disc_id
+    @new_song.disc_id = @disc.id
     respond_to do |format|
       if @new_song.save!
     @new_song.errors.full_messages
         format.html
         format.js
-    @songs = Song.all
+    @new_songs = Song.where(disc_id: @disc)
+# @new_songs = Song.where(disc_id: @disc)で現在のdiscで登録した曲一覧表示
 # 値を受け取って、saveに成功すればformat.jsに該当するcreate.js.erbが実行
       else
         format.js {render :new}
