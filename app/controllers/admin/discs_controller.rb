@@ -1,4 +1,5 @@
 class Admin::DiscsController < Admin::ApplicationController
+# productsの子
   def new
   @product = Product.find(params[:product_id])
   @disc = @product.discs.build

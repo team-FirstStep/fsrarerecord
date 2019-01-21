@@ -1,3 +1,5 @@
+<% if @new_songs.present? %>
+<% @new_songs.each do |song| %>
 <tr>
   <td>
  <p  class="text-left">曲順:</p>
@@ -20,3 +22,5 @@
   </td>
 </tr>
 <!-- 入力し投稿したsong_no、song_titleを表示 -->
+<% end %>
+<% end %>
