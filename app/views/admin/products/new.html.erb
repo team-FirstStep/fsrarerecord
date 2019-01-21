@@ -7,7 +7,7 @@
   <table class="product-new">
     <h2 class="product-new-title">商品新規登録</h2>
                   <div class="row">
-  <!-- プロフィール画像 -->
+
 <%= form_for @product, :url => { :controller => :products, :action => :create } do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -78,7 +78,7 @@
       <p class="text-right">ジャンル：  </p>
      </td>
      <td>
-<%= f.select(:genre, [["期間限定生産", 1], ["初回限定生産", 2], ["非売品", 3], ["イベント限定販売品", 4], ["生産終了品", 5]]) %>
+<%= f.select(:genre, [["期間限定生産", "期間限定生産"], ["初回限定生産", "初回限定生産"], ["非売品", "非売品"], ["イベント限定販売品", "イベント限定販売品"], ["生産終了品", "生産終了品"]]) %>
      </td>
    </tr>
      <td>
