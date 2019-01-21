@@ -25,7 +25,7 @@ get 'admin/users' => 'admin/users#index'
   scope module: :public do
 
     resources :users, only: [:show, :edit, :update, :create] do
-      resources :addresses, only: [:new, :create, :edit, :update]
+      resources :addresses, only: [:new, :create, :edit, :update, :index]
       resources :selects, only: [:create, :update, :destory]
   end
   end
