@@ -27,7 +27,6 @@ get 'admin/users' => 'admin/users#index'
     resources :users, only: [:show, :edit, :update, :create] do
 
       resources :addresses, only: [:new, :create, :edit, :update, :index]
-      resources :selects, only: [:create, :update, :destory]
   end
   end
       resources :selects, only: [:create, :update, :destory]
@@ -36,17 +35,18 @@ get 'admin/users' => 'admin/users#index'
     resources :products, only: [:new, :create, :update, :destory, :index, :edit]
     end
 
+  namespace :admin do
     get '/products/check/:id' => 'products#check', as: 'check_product'
     resources :products do
-        resources :discs, only: [:new, :create] do # productsの子
-          resources :songs, only: [:new, :create, :edit, :update] # productsの孫
-  end
+        resources :discs, only: [:new, :create] do
+          resources :songs, only: [:new, :create, :edit, :update]
+end
+end
 end
 
-
   scope module: :public do
-    get '/products/search' => 'products#search', as: 'search_products'
     resources :products, only: [:show]
+    get '/products/search' => 'products#search', as: 'search_products'
   end
 
   namespace :admin do
