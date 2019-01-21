@@ -49,6 +49,8 @@
 					<li>〒 <%= address.add_zip %></li>
 					<li>住所 <%= address.add_address %></li>
 				</ul>
+		      <%= link_to "追加配送先の編集", edit_user_address_path(@addresses), class: "btn btn-default" %>
+
 			<% end %>
 		</div>
 		<h2>購入履歴</h2>

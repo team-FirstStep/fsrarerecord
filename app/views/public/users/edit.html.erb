@@ -59,8 +59,7 @@
 
         <div class="col-md-4">
 
-            <%= link_to "配送先を追加する", new_address_path, class: "btn btn-default" %>
-            <%= link_to "追加配送先の編集", edit_address_path(current_user), class: "btn btn-default" %>
+            <%= link_to "配送先を追加する", new_user_address_path(@user.id), class: "btn btn-default" %>
 
         </div>
     </div>
