@@ -1,11 +1,12 @@
+<h2>その他の登録配送先</h2>
 <% @addresses.each do |address| %>
-<p>その他の登録配送先</p>
-				<ul>
-					<li>カナ <%= address.add_last_name_kana %><%= address.add_first_name_kana %></li>
-					<li>名前 <%= address.add_last_name %><%= address.add_first_name %></li>
-					<li>〒 <%= address.add_zip %></li>
-					<li>住所 <%= address.add_address %></li>
-				</ul>
-		      <%= link_to "追加配送先の編集", edit_user_address_path(@user.id,address), class: "btn btn-default" %>
-
-			<% end %>
+	<ul>
+		<li>カナ <%= address.add_last_name_kana %><%= address.add_first_name_kana %></li>
+		<li>名前 <%= address.add_last_name %><%= address.add_first_name %></li>
+		<li>〒 <%= address.add_zip %></li>
+		<li>住所 <%= address.add_address %></li>
+	</ul>
+	<%= link_to "追加配送先の編集", edit_user_address_path(@user.id,address), class: "btn btn-default" %>
+	<%= link_to "削除", user_address_path(@user.id,address), method: :delete, class: "btn btn-danger" %>
+<% end %>
+<%= link_to "戻る", user_path(current_user), class: "btn btn-default" %>
