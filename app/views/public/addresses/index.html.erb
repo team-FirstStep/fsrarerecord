@@ -1,12 +1,25 @@
-<h2>その他の登録配送先</h2>
-<% @addresses.each do |address| %>
-	<ul>
-		<li>カナ <%= address.add_last_name_kana %><%= address.add_first_name_kana %></li>
-		<li>名前 <%= address.add_last_name %><%= address.add_first_name %></li>
-		<li>〒 <%= address.add_zip %></li>
-		<li>住所 <%= address.add_address %></li>
-	</ul>
-	<%= link_to "追加配送先の編集", edit_user_address_path(@user.id,address), class: "btn btn-default" %>
-	<%= link_to "削除", user_address_path(@user.id,address), method: :delete, class: "btn btn-danger" %>
-<% end %>
-<%= link_to "戻る", user_path(current_user), class: "btn btn-default" %>
+<div class="container">
+	<div class="row">
+		<h2>その他の登録配送先</h2>
+		<% @addresses.drop(1).each_with_index do |address,i| %>
+
+
+			<div class="col-md-4">
+				<h4><%= "配送先" + "#{i+1}" %></h4>
+				<ul>
+					<li>カナ <%= address.add_last_name_kana %><%= address.add_first_name_kana %></li>
+					<li>名前 <%= address.add_last_name %><%= address.add_first_name %></li>
+					<li>〒 <%= address.add_zip %></li>
+					<li>住所 <%= address.add_address %></li>
+					<li>電話番号 <%= address.add_phone %></li>
+				</ul>
+				<%= link_to "追加配送先の編集", edit_user_address_path(@user.id,address), class: "btn btn-default" %>
+				<%= link_to "削除", user_address_path(@user.id,address), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
+			</div>
+		<% end %>
+
+		<%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-default" %>
+	</div>
+</div>
+
+
