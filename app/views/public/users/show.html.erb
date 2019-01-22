@@ -1,44 +1,31 @@
-<<<<<<< HEAD
-<%= @edit_address.id %>
-=======
 <div class="container">
 	<div class="row">
-		<h2>ユーザー登録情報</h2>
+		<h2>ユーザー情報</h2>
 
-		<div class="col-md-4">
-			<%#= attachment_image_tag @user, :profile_image, format: 'jepg', fallback:"no.image.jpg", size: "150x150" %>
+		<div class="col-md-6">
 			<p><%= @user.last_name %> <%= @user.first_name %></p>
 			<p><%= @user.last_name_kana %> <%= @user.first_name_kana %></p>
 			<%= link_to "編集", edit_user_path(@user), class: 'btn btn-default' %>
-		</div>
 
 			<%= link_to "配送先一覧", user_addresses_path(@user), class: 'btn btn-default' %>
+			<%= link_to "配送先を追加する", new_user_address_path(@user.id), class: "btn btn-default" %>
+		</div>
 
-		<div class="col-md-4">
-			<p>配送先一覧</p>
-			<% @addresses.each do |address| %>
+		<div class="col-md-6">
+			<h3>登録住所</h3>
 				<ul>
-					<li>電話番号 <%= address.phone %></li>
+					<li>電話番号 <%= @addresses.phone %></li>
 					<li>e-mail <%= @user.email %></li>
-					<li>〒 <%= address.zip %></li>
-					<li>住所 <%= address.address %></li>
+					<li>〒 <%= @addresses.zip %></li>
+					<li>住所 <%= @addresses.address %></li>
 				</ul>
 		</div>
-			<div class="col-md-4">
-				<p>その他の登録配送先</p>
-				<ul>
-					<li>カナ <%= address.add_last_name_kana %><%= address.add_first_name_kana %></li>
-					<li>名前 <%= address.add_last_name %><%= address.add_first_name %></li>
-					<li>〒 <%= address.add_zip %></li>
-					<li>住所 <%= address.add_address %></li>
-				</ul>
-		      <%= link_to "追加配送先の編集", edit_user_address_path(address), class: "btn btn-default" %>
-
-			<% end %>
-		</div>
+	</div>
+	<div class="row">
 		<h2>購入履歴</h2>
 	</div>
 </div>
->>>>>>> 9d47ab591a25601447500428641e4ad0d97b8bb1
+
+
 
 
