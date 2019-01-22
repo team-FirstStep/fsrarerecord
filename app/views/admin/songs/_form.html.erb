@@ -8,7 +8,7 @@
  <p  class="text-left">曲順：  </p>
   </td>
   <td>
-  <%= f.input :song_track %>
+  <%= f.number_field :song_track, min:0, max:100 %>
   </td>
   <td>
   </td>
@@ -19,7 +19,7 @@
  <p  class="text-left">曲のタイトル：  </p>
   </td>
   <td>
-  <%= f.input :song_title %>
+  <%= f.text_field :song_title %>
   </td>
   <td>
   </td>

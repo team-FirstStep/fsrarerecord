@@ -35,7 +35,7 @@ get 'admin/users' => 'admin/users#index'
     get '/products/check/:id' => 'products#check', as: 'check_product'
     resources :products do
         resources :discs, only: [:new, :create] do
-          resources :songs, only: [::new, :create, :edit, :update]
+          resources :songs, only: [:new, :create, :edit, :update]
 end
 end
 end
