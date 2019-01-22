@@ -28,6 +28,7 @@ get 'admin/users' => 'admin/users#index'
       resources :addresses, only: [:new, :create, :edit, :update, :index]
     end
   end
+
     resources :selects, only: [:create, :update, :destory]
 
   namespace :admin do
