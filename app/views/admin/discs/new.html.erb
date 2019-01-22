@@ -18,7 +18,7 @@
        <p  class="text-right">登録枚数：  </p>
    	  </td>
    	  <td>
-    <%= f.number_field :value %>
+    <%= f.number_field :value , min:0, max:100 %>
    	  </td>
     </tr>
    <tr>
