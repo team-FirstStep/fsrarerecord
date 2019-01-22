@@ -14,6 +14,16 @@
       <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
     </div>
   <% end %>
+   	<tr>
+   	  <td>
+       <p  class="text-right">登録枚数：  </p>
+   	  </td>
+   	  <td>
+  <%= f.fields_for :discs do |disc| %>
+    <%= disc.number_field :value, min:0, max:100,  %>
+    <% end %>
+   	  </td>
+    </tr>
    <tr>
     <td>
       <p  class="text-right">ジャケット：  </p>
@@ -60,7 +70,7 @@
       <p class="text-right">在庫数：  </p>
      </td>
      <td>
-    <%= f.number_field :stock, class: "product_stock" %>
+    <%= f.number_field :stock, min:0, max:100, class: "product_stock" %>
      </td>
    </tr>
    <tr>
