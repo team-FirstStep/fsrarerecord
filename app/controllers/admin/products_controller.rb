@@ -8,14 +8,11 @@ class Admin::ProductsController < Admin::ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @disc = Disc.find(@product.id)
-    @songs = Song.find(@disc.id)
   end
 
   def new
     @product = Product.new
     @product.discs.build
-
   end
 
   def edit
@@ -50,7 +47,7 @@ class Admin::ProductsController < Admin::ApplicationController
   #   render text: "検索結果#{cnt}件ヒットしました。"
 private
     def product_params
-        params.require(:product).permit(:image,:artists, :cd_title, :price, :label, :genre, :stock, discs_attributes: [:value])
+        params.require(:product).permit(:image,:artists, :cd_title, :price, :label, :genre, :stock)
     end
 
     end

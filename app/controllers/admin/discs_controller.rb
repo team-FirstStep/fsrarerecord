@@ -15,7 +15,7 @@ class Admin::DiscsController < Admin::ApplicationController
 
 private
     def disc_params
-        params.require(:disc).permit(:disc_num)
+        params.require(:disc).permit(:value, :disc_num)
     end
 
     end
