@@ -25,7 +25,6 @@ get 'admin/users' => 'admin/users#index'
   scope module: :public do
 
     resources :users, only: [:show, :edit, :update, :create] do
-
       resources :addresses, only: [:new, :create, :edit, :update, :index]
   end
   end
@@ -42,7 +41,7 @@ end
 
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
-    resources :products
+    resources :products, only: [:show, ]
   end
 
   namespace :admin do

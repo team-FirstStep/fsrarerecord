@@ -1,31 +1,44 @@
-<h2>検索結果</h2>
+<body>
+	<h2 style="margin-left:30px">検索結果</h2>
+	<br></br>
+	<div class="container" >
+			<% @products.each do |product| %>
+				<div class="row" style="margin-bottom:30px">
+					<div class="row">
+						<div class="col-xs-3">
+							<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200" %>
+						</div>
 
-<% @products.each do |product| %>
-
-
-
-<table>
-    <tbody>
-	    <tr>
-	    	<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
-		    <td>商品名</td>
-		    <td><%= product.cd_title %></td>
-	    </tr>
-	    <tr>
-	    	<td>アーティスト名</td>
-	    	<td><%= product.artists %></td>
-	    </tr>
-	    <tr>
-	    	<td>ジャンル</td>
-	    	<td><%= product.genre %></td>
-	    </tr>
-	</tbody>
-</table>
-
-
-<label>値段</label>
-<%= product.price %>
-
-<%= product.status %>
-
-<% end %>
+						<div class="col-xs-5" style="margin-top:45px">
+							<table>
+							    <tbody>
+								    <tr>
+									    <td><h4><商品名></h4></td>
+									    <td><h4><%= product.cd_title %></h4></td>
+								    </tr>
+								    <tr>
+								    	<td><h4><アーティスト名></h4></td>
+								    	<td><h4><%= product.artists %></h4></td>
+								    </tr>
+								    <tr>
+								    	<td><h4><ジャンル></h4></td>
+								    	<td><h4><%= product.genre %></h4></td>
+								    </tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="col-xs-4">
+							<label style="margin-left:50px"><h2>値段 ;</h2></label>
+							<span style="font-size: 30px"><%= product.price %></span>
+							<span>円</span>
+							<p style="margin-top:10px">在庫ステータス</p>
+							<span style="font-size: 10px">
+								<%= product.status %>
+							</span>
+						</div>
+					</div>
+				</div>
+			<% end %>
+	</div>
+	<%= paginate @products2, class: "paginate" %>
+</body>

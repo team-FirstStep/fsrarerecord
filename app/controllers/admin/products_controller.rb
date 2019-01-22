@@ -8,14 +8,13 @@ class Admin::ProductsController < Admin::ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @disc = Disc.find(@product.id)
-    @songs = Song.find(@disc.id)
+    @discs = Disc.find(@product.id)
+    @songs = Song.find(@discs.id)
   end
 
   def new
     @product = Product.new
     @product.discs.build
-
   end
 
   def edit
