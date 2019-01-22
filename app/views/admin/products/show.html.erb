@@ -8,14 +8,6 @@
     <h2 class="product-show-title">商品詳細</h2>
                   <div class="row">
   <table class="product-show">
-   	<tr>
-   	  <td>
-       <p class="text-left">登録枚数：  </p>
-   	  </td>
-      <td>
-        <%= @discs.value %>
-      </td>
-    </tr>
 
    <tr>
    <td>
@@ -74,35 +66,38 @@
     <%= @product.genre %>
      </td>
    </tr>
+  </table>
+
+<h4>シングル/アルバム内の曲名</h4>
+    <% @product.discs.each do |disc| %>
+  <table class="product-new_song">
    <tr>
      <td>
      <h5 class="text-left">　　　Disc:</h5>
      </td>
      <td>
-    <%= @discs.disc_num %>
+    <%= disc.disc_num %>
      </td>
    </tr>
-  </table>
-
-<h4>シングル/アルバム内の曲名</h4>
-  <table class="product-new_song">
-    <%# @songs.each do |song| %>
+    <% disc.songs.each do |song| %>
 	<tr>
 		<td>
-      <p class="text-left">トラック  </p>
+      <p class="text-left">トラック:</p>
 	    </td>
 		<td>
-		    <%= @songs.song_track %>
+		    <%= song.song_track %>
 		</td>
 	</tr>
 	<tr>
 		<td>
-      <p class="text-left">曲名  </p>
+      <p class="text-left">曲名:</p>
 		</td>
 		<td>
-			<%= @songs.song_title %>
+			<%= song.song_title %>
 		</td>
 	</tr>
+    <% end %>
+    <% end %>
 	<tr>
 		<td>
 		</td>
@@ -110,7 +105,6 @@
             < 在庫ステータスの表示 >
 		</td>
 	</tr>
-    <%# end %>
 	<tr>
         <td>
             <%= link_to "登録完了", admin_products_path %>
