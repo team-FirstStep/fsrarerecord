@@ -5,37 +5,55 @@
 			<% @products.each do |product| %>
 				<div class="row" style="margin-bottom:30px">
 					<div class="row">
-						<div class="col-xs-3">
-							<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200" %>
-						</div>
+						<%= link_to product_path(product.id) do %>
+							<div class="col-xs-3">
+								<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200" %>
+							</div>
 
-						<div class="col-xs-5" style="margin-top:45px">
-							<table>
-							    <tbody>
-								    <tr>
-									    <td><h4><商品名></h4></td>
-									    <td><h4><%= product.cd_title %></h4></td>
-								    </tr>
-								    <tr>
-								    	<td><h4><アーティスト名></h4></td>
-								    	<td><h4><%= product.artists %></h4></td>
-								    </tr>
-								    <tr>
-								    	<td><h4><ジャンル></h4></td>
-								    	<td><h4><%= product.genre %></h4></td>
-								    </tr>
-								</tbody>
-							</table>
-						</div>
-						<div class="col-xs-4">
-							<label style="margin-left:50px"><h2>値段 ;</h2></label>
-							<span style="font-size: 30px"><%= product.price %></span>
-							<span>円</span>
-							<p style="margin-top:10px">在庫ステータス</p>
-							<span style="font-size: 10px">
-								<%= product.status %>
-							</span>
-						</div>
+							<div class="col-xs-5" style="margin-top:45px">
+								<table>
+								    <tbody>
+									    <tr>
+										    <td><h4><商品名></h4></td>
+										    <td><h4><%= product.cd_title %></h4></td>
+									    </tr>
+									    <tr>
+									    	<td><h4><アーティスト名></h4></td>
+									    	<td><h4><%= product.artists %></h4></td>
+									    </tr>
+									    <tr>
+									    	<td><h4><ジャンル></h4></td>
+									    	<td><h4><%= product.genre %></h4></td>
+									    </tr>
+									</tbody>
+								</table>
+							</div>
+						<% end %>
+							<div class="col-xs-4">
+								<label style="margin-left:50px"><h2>値段 ;</h2></label>
+								<span style="font-size: 30px"><%= product.price %></span>
+								<span>円</span>
+								<p style="margin-top:10px">在庫ステータス</p>
+								<span style="font-size: 10px">
+									<%= product.status %>
+								</span>
+								<span>
+									<p>
+										<%= form_for [product, @select], url: selects_path do |f| %>
+											<%= f.hidden_field :product_id, :value => product.id %>
+											<%= f.fields_for :discs do |disc| %>
+												<%= disc.number_field :value, min:0,max:100, :size => "5*5" %>
+											<% end %>
+											枚
+											<span class="btn btn-default">
+												<%= link_to carts_path, class: 'fbtn' do %>
+													<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+												<% end %>
+											</span>
+										<% end %>
+									</p>
+								</span>
+							</div>
 					</div>
 				</div>
 			<% end %>
