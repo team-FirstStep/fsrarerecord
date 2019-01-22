@@ -2,6 +2,7 @@ class Public::UsersController < Public::ApplicationController
   # before_action :set_user
 
   def show
+
     @user = current_user
     @addresses = Address.find(@user.id)
   end

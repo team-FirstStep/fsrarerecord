@@ -1,9 +1,13 @@
 class Public::ProductsController < Public::ApplicationController
   # before_action :set_product
 
-  def index
+  def search
+  #ViewのFormで取得したパラメータをモデルに渡す
+    @products = Product.search(params[:search])
+  end
 
-  	@products = Product.all
+  def index
+    @products = Product.page(params[:page]).reverse_order
     @select = Select.new
 
   end
@@ -16,6 +20,7 @@ class Public::ProductsController < Public::ApplicationController
   def search
   #ViewのFormで取得したパラメータをモデルに渡す
     @products = Product.search(params[:search])
+    @products2 = Product.page(params[:page]).reverse_order
   end
 
 private

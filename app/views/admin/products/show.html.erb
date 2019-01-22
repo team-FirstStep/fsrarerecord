@@ -5,10 +5,9 @@
 </head>
 
                   <div class="container">
-  <table class="product-show">
     <h2 class="product-show-title">商品詳細</h2>
                   <div class="row">
-
+  <table class="product-show">
    	<tr>
    	  <td>
        <p class="text-left">登録枚数：  </p>
@@ -75,38 +74,57 @@
     <%= @product.genre %>
      </td>
    </tr>
-     <td>
    <tr>
      <td>
      </td>
      <td>
      </td>
    </tr>
-     </div>
- <div class="row">
-     <h3 class="text-center">シングル/アルバム内の曲名</h3>
+   <tr>
+     <td>
      <h5 class="text-center">　　　Disc:</h5>
-    <%= @disc.disc_num %>
-  <table class="product-new_song">
-   <tr>
-     <td>
-    <%= @song.song_track %>
      </td>
      <td>
-    <%= @song.song_title %>
+    <%= @disc.disc_num %>
      </td>
    </tr>
+  </table>
 
 <h4>シングル/アルバム内の曲名</h4>
-
-< 在庫ステータスの表示 >
-
-    <td>
-<%= link_to "登録完了", admin_products_path %>
-    </td>
-    <td>
-<%= link_to "Discの追加", new_admin_product_disc_path(@product.id) %>
-    </td>
- </div>
+  <table class="product-new_song">
+    <%# @songs.each do |song| %>
+	<tr>
+		<td>
+      <p class="text-left">トラック  </p>
+	    </td>
+		<td>
+		    <%= @songs.song_track %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+      <p class="text-left">曲名  </p>
+		</td>
+		<td>
+			<%= @songs.song_title %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+            < 在庫ステータスの表示 >
+		</td>
+	</tr>
+    <%# end %>
+	<tr>
+        <td>
+            <%= link_to "登録完了", admin_products_path %>
+        </td>
+        <td>
+            <%= link_to "Discの追加", new_admin_product_disc_path(@product.id) %>
+        </td>
+	</tr>
   </table>
+    </div>
    </div>
