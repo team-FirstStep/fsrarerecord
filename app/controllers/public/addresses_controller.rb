@@ -13,23 +13,24 @@ class Public::AddressesController < Public::ApplicationController
 		@add_address = Address.new(address_params)
 		@add_address.user_id = current_user.id
     	@add_address.save
-    	redirect_to user_path(current_user)
+    	redirect_to user_addresses_path(current_user)
 	end
 
 	def edit
-<<<<<<< HEAD
-		
-=======
-
 		@edit_address = Address.find(params[:id])
 		@edit_address.user_id = current_user
->>>>>>> 9d47ab591a25601447500428641e4ad0d97b8bb1
 	end
 
 	def update
 		@edit_address = Address.find(params[:id])
 		@edit_address.update(address_params)
-		redirect_to user_path(current_user)
+		redirect_to user_addresses_path(current_user)
+	end
+
+	def destroy
+		@addresses = Address.find(params[:id])
+		@addresses.destroy
+		redirect_to user_addresses_path(current_user)
 	end
 
 end
@@ -37,5 +38,5 @@ end
 private
 	def address_params
     	params.require(:address).permit(:add_last_name, :add_first_name, :add_last_name_kana, :add_first_name_kana,
-      	:add_address, :add_zip)
+      	:add_address, :add_zip, :add_phone)
   	end

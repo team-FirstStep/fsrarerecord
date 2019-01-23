@@ -24,14 +24,16 @@ get 'admin/users' => 'admin/users#index'
   end
 
   scope module: :public do
-    resources :users, only: [:show, :edit, :update, :create] do
-      resources :addresses, only: [:new, :create, :edit, :update, :index]
+      resources :users, only: [:show, :edit, :update, :create] do
+        resources :addresses
     end
+end
+
+  scope module: :public do
+    resources :carts
   end
+
     resources :selects, only: [:create, :update, :destory]
-
-
-
 
   namespace :admin do
     get '/products/check/:id' => 'products#check', as: 'check_product'
@@ -51,9 +53,6 @@ get 'admin/users' => 'admin/users#index'
     resources :carts, only: [:show]
   end
 
-  scope module: :public do
-    resources :carts
-  end
 
   namespace :admin do
     resources :orders
@@ -62,6 +61,7 @@ get 'admin/users' => 'admin/users#index'
   scope module: :public do
     resources :orders, only: [:create]
   end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

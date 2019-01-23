@@ -13,13 +13,20 @@
       <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
     </div>
   <% end %>
-
+   	<tr>
+   	  <td>
+       <p  class="text-right">登録枚数：  </p>
+   	  </td>
+   	  <td>
+    <%= f.number_field :value , min:0, max:100 %>
+   	  </td>
+    </tr>
    <tr>
      <td>
       <p class="text-right">Disc：  </p>
      </td>
      <td>
-    <%= f.number_field :disc_num, class: "disc_num" %>
+    <%= f.number_field :disc_num, min:0, max:100, class: "disc_num" %>
      </td>
    </tr>
 

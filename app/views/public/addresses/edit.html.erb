@@ -1,25 +1,30 @@
- <h4>追加配送先の編集</h4>
-            <%= form_for @edit_address, :url => {:controller => :addresses, :action => :update} do |f| %>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>名前(姓)</label><br>
-                        <%= f.text_field :add_last_name %>
-                        <br>
-                        <label>名前(セイ)</label><br>
-                        <%= f.text_field :add_last_name_kana %>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label>名前(名)</label><br>
-                        <%= f.text_field :add_first_name %>
-                        <br>
-                        <label>名前(メイ)</label><br>
-                        <%= f.text_field :add_first_name_kana %>
-                    </div>
-                </div>
+<div class="container">
+    <div class="row">
+        <h4>追加配送先の編集</h4>
+        <%= form_for @edit_address, :url => {:controller => :addresses, :action => :update} do |f| %>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>名前(姓)</label><br>
+                <%= f.text_field :add_last_name %>
+                <br>
+                <label>名前(セイ)</label><br>
+                <%= f.text_field :add_last_name_kana %>
             </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>名前(名)</label><br>
+                <%= f.text_field :add_first_name %>
+                <br>
+                <label>名前(メイ)</label><br>
+                <%= f.text_field :add_first_name_kana %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
             <div class="form-group">
                 <label>郵便番号</label><br>
                 <%= f.text_field :add_zip %>
@@ -28,12 +33,17 @@
                 <label>住所</label><br>
                 <%= f.text_field :add_address %>
             </div>
+            <div class="form-group">
+                <label>電話番号</label><br>
+                <%= f.text_field :add_phone %>
+            </div>
+
             <%= f.submit "変更を保存する", class: "btn btn-default" %>
             <% end %>
-            <table class="pagination">
-                <th>
-                    <p>1</p>
-                    <p>2</p>
-                    <p>3</p>
-                </th>
-            </table>
+            <br>
+            <%= link_to "戻る", user_addresses_path(current_user), class: 'btn btn-default' %>
+        </div>
+    </div>
+</div>
+
+

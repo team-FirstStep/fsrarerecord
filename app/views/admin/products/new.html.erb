@@ -20,7 +20,7 @@
    	  </td>
    	  <td>
   <%= f.fields_for :discs do |disc| %>
-    <%= disc.number_field :value %>
+    <%= disc.number_field :value, min:0, max:100 %>
     <% end %>
    	  </td>
     </tr>
@@ -70,7 +70,7 @@
       <p class="text-right">在庫数：  </p>
      </td>
      <td>
-    <%= f.number_field :stock, class: "product_stock" %>
+    <%= f.number_field :stock, min:0, max:100, class: "product_stock" %>
      </td>
    </tr>
    <tr>

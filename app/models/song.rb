@@ -8,5 +8,5 @@ belongs_to :disc, optional: true
 # ↓を参照した
 # Rail5からbelongs_toのデフォルトが関連先の値を検査するようになった。
 # Rails4と同様に関連先を検査しないようにするには、belongs_toにoptional: trueを付与すれば良い。
-
+belongs_to :product, optional: true
 end

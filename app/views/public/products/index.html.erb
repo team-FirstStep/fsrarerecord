@@ -1,61 +1,63 @@
 <h1>Products#index</h1>
-
 <body>
 	<div class="container">
 	    <div class="row">
 	    	<h1>main</h1>
-	    	<div class="col-md-10">
+	    	<div class="col-md-9">
 	    		<div class="row">
-	    			<% @products.each do |product| %>
-			    		<div class="col-md-4" style="margin-bottom:30px">
-					    	<table>
-					    		<%= link_to product_path(product.id) do %>
-					    		<thead>
-					    			<tr>
-					    				<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
-					    				<td>アーティスト名</td>
-					    				<td>
-					    				<%= product.artists %>
-					    				</td>
-					    			</tr>
+			    	<% @products.each do |product| %>
+					    <div class="col-md-4" style="margin-bottom:30px">
+					    	<%= link_to product_path(product.id) do %>
+							    <table>
+								    <thead>
+								    	<tr>
+								    		<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
+								    		<td>アーティスト名</td>
+								    		<td>
+								    			<%= product.artists %>
+								    		</td>
+								    	</tr>
 
-					    			<tr>
-					    				<td>シングル/アルバム名</td>
-					    				<td>
-					   						<%= product.cd_title %>
-					    				</td>
-					   				</tr>
+								    	<tr>
+								    		<td>シングル/アルバム名</td>
+								    		<td>
+								   				<%= product.cd_title %>
+								    		</td>
+								   		</tr>
 
-					   				<tr>
-					   					<td>値段</td>
-					   					<td>
-					   						<%= product.price %>
-				    					</td>
-				    				</tr>
+						   				<tr>
+						   					<td>値段</td>
+						   					<td>
+						   						<%= product.price %>
+						  					</td>
+						  				</tr>
 
-				    				<tr>
-					   					<td>在庫ステータス</td>
-					   					<td>
-					   						<%= product.status %>
-					   					</td>
-					   				</tr>
-					    		</thead>
-					    		<% end %>
-					    	</table>
-					    	<%= form_for [product, @select], url: selects_path do |f| %>
-								<%= f.hidden_field :product_id, :value => product.id %>
-								<%= f.fields_for :discs do |disc| %>
-									<%= disc.number_field :value, :size => "5*5" %>
-								<% end %>
-								<span class="btn btn-default">
-									<%= link_to carts_path, class: 'fbtn' do %>
-										<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-									<% end %>
-								</span>
+					    				<tr>
+						   					<td>在庫ステータス</td>
+											<td>
+								   				<%= product.status %>
+								   			</td>
+								   		</tr>
+								    </thead>
+							    </table>
 							<% end %>
+							<p>
+							   	<%= form_for [product, @select], url: selects_path do |f| %>
+									<%= f.hidden_field :product_id, :value => product.id %>
+									<%= f.fields_for :discs do |disc| %>
+										<%= disc.number_field :value, min:0, max:100, :size => "4*4" %>
+											枚
+									<% end %>
+									<span class="btn btn-default">
+										<%= f.submit "あ", class: "btn" %>
+											<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+									</span>
+								<% end %>
+							</p>
 					    </div>
 				    <% end %>
 				</div>
+			</div>
 			<div class="col-md-2">
 				<%= render 'public/products/side'%>
 			</div>
@@ -63,5 +65,4 @@
 	</div>
 	<%= paginate @products, class: "paginate" %>
 </body>
-
 
