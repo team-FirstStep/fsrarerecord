@@ -14,11 +14,8 @@ class Public::ProductsController < Public::ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    # @products = Song.all
-    # @disc = Disc.find(@product.id)
-    # @songs = Song.find(@disc.id)
+    @select = Select.new
     @product.selects.build
-    @select = Select.find(@product.id)
   end
 
   def create

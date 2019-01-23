@@ -33,12 +33,14 @@ end
     resources :carts
   end
 
+  scope module: :public do
     resources :selects, only: [:create, :update, :destory]
+end
 
   namespace :admin do
     get '/products/check/:id' => 'products#check', as: 'check_product'
     resources :products do
-        resources :discs, only: [:new, :create] do
+        resources :discs, only: [:new, :create, :edit, :update] do
           resources :songs, only: [:new, :create, :edit, :update]
         end
     end
