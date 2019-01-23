@@ -22,7 +22,7 @@ class Admin::DiscsController < Admin::ApplicationController
   def update
     @product = Product.find(params[:product_id])
     @disc = Disc.find(params[:id])
-    @song = @disc.songs.build
+    @song = Song.find(@disc.id)
     @song.update(song_params)
     redirect_to admin_product_path(@product.id)
   end
