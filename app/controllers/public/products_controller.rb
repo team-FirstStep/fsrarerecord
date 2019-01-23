@@ -9,9 +9,14 @@ class Public::ProductsController < Public::ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @disc = Disc.find(@product.id)
-    @songs = Song.find(@disc.id)
     @select = Select.new
+    @product.selects.build
+  end
+
+  def create
+
+
+
   end
 
   def search
@@ -23,7 +28,7 @@ class Public::ProductsController < Public::ApplicationController
 
 private
     def product_params
-        params.require(:product).permit(:image_id,:artists, :cd_title, :price, :label, :genre, :stock, discs_attributes: [:value])
+        params.require(:product).permit(:image_id,:artists, :cd_title, :price, :label, :genre, :stock, selects_attributes: [:value_plan])
     end
 
 end

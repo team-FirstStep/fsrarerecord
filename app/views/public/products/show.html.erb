@@ -3,7 +3,7 @@
     <h2>商品詳細</h2>
     <div class="row">
         <div class="col-md-4">
-            <%= attachment_image_tag @products, :size => '200x200' %>
+            <%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %>
         </div>
 
         <div class="col-md-4">
@@ -36,26 +36,28 @@
 	            </tbody>
             </table>
             <span>
-				<%= form_for [@products, @select], url: selects_path do |f| %>
-					<%= f.hidden_field :@products_id, :value => @products.id %>
-					<%= f.fields_for :discs do |disc| %>
-						<%= disc.number_field :value, min:0, max:100, :size => "5*5" %>
+				<%= form_for @select, :url => selects_path do |f| %>
+					<%= f.hidden_field :product_id, :value => @product.id %>
+					<%= f.fields_for :selects do |select| %>
+						<%= select.number_field :value_plan, min:0, max:100, :size => "5*5" %>
 					<% end %>
 					<span class="btn btn-default">
-						<%= link_to carts_path, class: 'fbtn' do %>
-							<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-						<% end %>
+						<%= f.submit %>
+						<%#= link_to carts_path(@product.id), class: 'fbtn' do %>
+							<!-- <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> -->
+						<%# end %>
 					</span>
 				<% end %>
 			</span>
         </div>
 
-        <div class="col-md-4">
+        <!-- <div class="col-md-4"> -->
             <h4>シングル/アルバム内の曲名</h4>
-            <% @songs.each do |song| %>
-                <%= song.song_no %>
+            <% @product.discs.each do |disc| %>
+                <%= disc.disc_num %>
+            <% disc.songs.each do |song| %>
                 <%= song.song_title %>
             <% end %>
-
+            <% end %>
             <%= @product.status %>
         </div>

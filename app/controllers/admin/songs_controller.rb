@@ -37,13 +37,15 @@ class Admin::SongsController < Admin::ApplicationController
   end
 
   def edit
-    @song = Song.find(params[:id])
+    # @product = Product.find(params[:product_id])
+    # @songs = Song.where(id: params[:disc_id])
+    # @song = Song.find(params[:id])
   end
 
-  def updata
-    @song = Song.find(params[:id])
-    @song.update
-    redirect_to admin_product_path(@song.id)
+  def update
+    # @song = Song.find(params[:id])
+    # @song.update
+    # redirect_to admin_product_path(@product.id)
   end
 
   # def destroy
