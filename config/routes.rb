@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-# ↓実験台のページ
-get 'admin/users' => 'admin/users#index'
-
   devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
@@ -23,7 +20,6 @@ get 'admin/users' => 'admin/users#index'
     resources :users
   end
   scope module: :public do
-
     resources :users, only: [:show, :edit, :update, :create] do
       resources :addresses
     end
