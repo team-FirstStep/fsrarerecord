@@ -14,20 +14,6 @@
       <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
     </div>
   <% end %>
-   	<tr>
-   	  <td>
-       <p  class="text-right">登録枚数：  </p>
-   	  </td>
-   	  <td>
-  <%= f.fields_for :discs do |disc| %>
-<<<<<<< HEAD
-    <%= disc.number_field :value, min:0, max:100  %>
-=======
-    <%= disc.number_field :value, min:0, max:100 %>
->>>>>>> 2af9cf36d3029a62fbc1243f3a5db9982886e0b0
-    <% end %>
-   	  </td>
-    </tr>
    <tr>
     <td>
       <p  class="text-right">ジャケット：  </p>
@@ -41,7 +27,7 @@
       <p  class="text-right">アーティスト名：  </p>
      </td>
      <td>
-    <%= f.text_field :artists, class: "product_artists" %>
+    <%= f.text_field :artists, class: "product_new_artists" %>
      </td>
    </tr>
    <tr>
@@ -49,7 +35,7 @@
       <p class="text-right">　　　　　　シングル/アルバム名：  </p>
      </td>
      <td>
-    <%= f.text_field :cd_title, class: "product_cd_title" %>
+    <%= f.text_field :cd_title, class: "product_new_cd_title" %>
      </td>
    </tr>
    <tr>
@@ -58,7 +44,7 @@
       <p class="text-right">値段：  </p>
      </td>
      <td>
-    <%= f.text_field :price, class: "product_price" %>
+    <%= f.text_field :price, class: "product_new_price" %>
      </td>
    </tr>
    <tr>
@@ -66,7 +52,7 @@
       <p class="text-right">レーベル名：  </p>
      </td>
      <td>
-    <%= f.text_field :label, class: "product_label" %>
+    <%= f.text_field :label, class: "product_new_label" %>
      </td>
    </tr>
    <tr>
@@ -74,7 +60,7 @@
       <p class="text-right">在庫数：  </p>
      </td>
      <td>
-    <%= f.number_field :stock, min:0, max:100, class: "product_stock" %>
+    <%= f.number_field :stock, min:0, max:100, class: "product_new_stock" %>
      </td>
    </tr>
    <tr>
@@ -82,7 +68,7 @@
       <p class="text-right">ジャンル：  </p>
      </td>
      <td>
-<%= f.select(:genre, [["期間限定生産", "期間限定生産"], ["初回限定生産", "初回限定生産"], ["非売品", "非売品"], ["イベント限定販売品", "イベント限定販売品"], ["生産終了品", "生産終了品"]]) %>
+<%= f.select(:genre, [["期間限定生産", "期間限定生産"], ["初回限定生産", "初回限定生産"], ["非売品", "非売品"], ["イベント限定販売品", "イベント限定販売品"], ["生産終了品", "生産終了品"]]), class: "product_new_genre" %>
      </td>
    </tr>
      <td>
