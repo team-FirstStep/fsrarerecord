@@ -49,9 +49,8 @@
 											枚
 									<% end %>
 									<span class="btn btn-default">
-										<%= link_to carts_path, class: 'fbtn' do %>
+										<%= f.submit "あ", class: "btn" %>
 											<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-										<% end %>
 									</span>
 								<% end %>
 							</p>
@@ -66,5 +65,4 @@
 	</div>
 	<%= paginate @products, class: "paginate" %>
 </body>
-
 

@@ -3,6 +3,7 @@ class Public::CartsController < Public::ApplicationController
 
 	def index
 		@selects = Select.page(params[:page]).reverse_order
+    @user = current_user.id
 	end
 
 

@@ -1,4 +1,4 @@
-class Public::SelectsController < ApplicationController
+class Public::SelectsController < Public::ApplicationController
 
 	 # before_action :set_select
 
@@ -12,14 +12,19 @@ class Public::SelectsController < ApplicationController
   	end
 
 	def create
-  		@user = current_user.id
-  		@cart = Cart.find_or_create_by(user_id: @user)
-  		@select = Select.new(product_id: params[:select][:product_id])
-  		# @select.product_id = @product.id
-  		@select.cart_id = @cart.id
+      @user = User.new
+  		@user.id = current_user.id
+  		@cart = Cart.find_by(user_id: @user.id)
+      @select = Select.new(product_id: params[:select][:product_id])
+      @select.product_id = product_id
+      @select.cart_id = @cart.id
   		@select.save
-  		redirect_to root_path
+  		redirect_to carts_path
     end
+
+
+      
+
 
  #  	def create
  #  		@cart = current_cart

@@ -1,8 +1,11 @@
 <h1>カート一覧</h1>
 	<div class="container">
 		<div class="row">
+			<div class="col-md-12">
+			<div class="row">
 			<% @selects.each do |select| %>
-			<table>
+			<div class="col-md-4">
+				<table>
 					<tr>
 						<%= attachment_image_tag @products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
 						<td> <p>商品タイトル: <%= select.product.cd_title %></p></td>
@@ -21,9 +24,12 @@
 						<% end %>
 						<td> <p><%= link_to "削除", root_path, method: :delete %></p></td>
 						</tr>
-					<% end %>
+						<% end %>
+				</table>
+			</div>
 			<% end %>
-			</table>
+			</div>
+			</div>
 		</div>
 	</div>
 			<p>合計の値段</p>
