@@ -14,7 +14,9 @@ class Admin::ProductsController < Admin::ApplicationController
     @product.discs.build
   end
 
-  def edit
+  def
+    edit
+    @product = Product.find(params[:id])
   end
 
   def check
@@ -22,6 +24,9 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to admin_product_path(@product.id)
   end
 
   def create
@@ -46,4 +51,6 @@ private
         params.require(:product).permit(:image,:artists, :cd_title, :price, :label, :genre, :stock)
     end
 
-    end
+end
+
+
