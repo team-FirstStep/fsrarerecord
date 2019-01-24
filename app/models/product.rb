@@ -12,7 +12,11 @@ class Product < ApplicationRecord
 	acts_as_paranoid
 
 	has_many :selects
+	accepts_nested_attributes_for :selects, allow_destroy: true
+
 	before_destroy :referenced_by_select
+
+	attachment :image
 
 	private
 	def referenced_by_select
@@ -24,17 +28,5 @@ class Product < ApplicationRecord
 			retuen false
 		end
 	end
-
-  attachment :image
-
-
-has_many :selects
-has_many :discs
-accepts_nested_attributes_for :discs, allow_destroy: true
-acts_as_paranoid
-
-
-
-
 
 end

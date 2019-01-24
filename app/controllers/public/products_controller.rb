@@ -6,6 +6,7 @@ class Public::ProductsController < Public::ApplicationController
     @products = Product.search(params[:search])
   end
 
+
   def index
     @products = Product.page(params[:page]).reverse_order
     @select = Select.new

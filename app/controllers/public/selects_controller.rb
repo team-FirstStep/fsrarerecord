@@ -22,27 +22,24 @@ class Public::SelectsController < Public::ApplicationController
   		redirect_to carts_path
     end
 
+  	# def create
+  	# 	@cart = current_cart
 
-      
+  	# 	product = Product.find(params[:product_id])
 
+  	# 	@select = @cart.selects.build(product: product)
 
- #  	def create
- #  		@cart = current_cart
+  	# 	respond_to do |format|
+   #      if @select.save
+   #        format.html { redirect_to @select.cart, notice: 'カートに商品が追加されました。' }
+   #        format.json { render :show, status: :created, location: @select }
+   #      else
+   #        format.html { render :new }
+   #        format.json { render json: @select.errors, status: :unprocessable_entity }
+   #      end
+   #      end
+  	# end
 
-	# 	product = Product.find(params[:product_id])
-
-	# 	@select = @cart.selects.build(product: product)
-
-	# 	respond_to do |format|
- #      if @select.save
- #        format.html { redirect_to @select.cart, notice: 'カートに商品が追加されました。' }
- #        format.json { render :show, status: :created, location: @select }
- #      else
- #        format.html { render :new }
- #        format.json { render json: @select.errors, status: :unprocessable_entity }
- #      end
- #      end
-	# end
 
     def update
     respond_to do |format|

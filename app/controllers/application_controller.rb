@@ -22,19 +22,6 @@ class ApplicationController < ActionController::Base
     	root_path
  	end
 
-
-  # private
-  # def current_cart
-
-  #   Cart.find(session[:cart_id])
-
-  #   rescue ActiveRecord::RecordNotFound
-  #     cart = Cart.create
-  #     session[:cart_id] = cart.id
-  #     cart
-  # end
-
-
 protected
 
     def configure_permitted_parameters
@@ -50,6 +37,18 @@ protected
     def configure_sign_up_params
       devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, addresses_attributes: [:id, :address, :phone, :zip]])
 
+    end
+
+private
+
+    def current_cart
+
+      Cart.find(session[:cart_id])
+
+      rescue ActiveRecord::RecordNotFound
+        cart = Cart.create
+        session[:cart_id] = cart.id
+        cart
     end
 
 end
