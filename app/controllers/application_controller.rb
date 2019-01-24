@@ -22,6 +22,23 @@ class ApplicationController < ActionController::Base
     	root_path
  	end
 
+
+
+  protect_from_forgery with: :exception
+# <script> タグなどを使って意図に反して勝手にPOSTリクエストが送られてしまう可能性がある
+# そのためprotect_from_forgery with: :exception をつける
+  helper_method :current_cart
+
+  def current_cart
+    if session[:cart_id]
+      @cart = Cart.find(session[:cart_id])
+    else
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
+    end
+  end
+
+
 protected
 
     def configure_permitted_parameters
@@ -39,16 +56,5 @@ protected
 
     end
 
-private
-
-    def current_cart
-
-      Cart.find(session[:cart_id])
-
-      rescue ActiveRecord::RecordNotFound
-        cart = Cart.create
-        session[:cart_id] = cart.id
-        cart
-    end
 
 end

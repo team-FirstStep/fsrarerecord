@@ -14,9 +14,13 @@ class Product < ApplicationRecord
 	has_many :selects
 	accepts_nested_attributes_for :selects, allow_destroy: true
 
-	before_destroy :referenced_by_select
 
 	attachment :image
+
+	before_destroy :referenced_by_select
+
+    has_many :carts, through: :selects
+
 
 	private
 	def referenced_by_select

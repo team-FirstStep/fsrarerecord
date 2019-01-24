@@ -21,8 +21,6 @@ class Public::ProductsController < Public::ApplicationController
 
   def create
 
-
-
   end
 
   def search
@@ -34,7 +32,11 @@ class Public::ProductsController < Public::ApplicationController
 
 private
     def product_params
-        params.require(:product).permit(:image_id,:artists, :cd_title, :price, :label, :genre, :stock, selects_attributes: [:value_plan])
+        params.require(:product).permit(:image_id,:artists, :cd_title, :price, :label, :genre, :stock, selects_attributes: [:quantity, :log_price])
+    end
+
+    def select_params
+        params.require(:select).permit(:quantity, :log_price)
     end
 
 end
