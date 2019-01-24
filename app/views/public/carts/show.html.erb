@@ -1,33 +1,33 @@
-<h2>カート一覧</h2>
+<h2>カートの中身</h2>
 
-<% @products.each do |product| %>
+<% @cart.selects.each do |select| %>
 
-<%= product.jacket_img %>
 
+<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %>
 
 <table>
     <tbody>
 	    <tr>
 		    <td>商品名</td>
-		    <td><%= product.cd_title %></td>
+		    <td><%= select.product.cd_title %></td>
 	    </tr>
 	    <tr>
 	    	<td>アーティスト名</td>
-	    	<td><%= product.artist %></td>
+	    	<td><%= select.product.artists %></td>
 	    </tr>
 	</tbody>
 </table>
 
 
 <label>値段</label>
-<%= product.price %>
+<%= select.log_price %>
 
-<%= product.status %>
+<%= select.product.status %>
 
 <input type="number">
 
-<%= link_to "削除", cart_path(@cart.id), method: :delete class: 'btn btn-default' do %>
-<% end %>
+<%#= link_to "削除", cart_path(@cart.id), method: :delete, class: 'btn btn-default' do %>
+<%# end %>
 
 <% end %>
 

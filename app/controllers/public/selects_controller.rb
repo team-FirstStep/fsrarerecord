@@ -12,37 +12,20 @@ class Public::SelectsController < Public::ApplicationController
   	end
 
 	def create
-      @user = User.new
-  		@user.id = current_user.id
-  		@cart = Cart.find_by(user_id: @user.id)
-      @select = Select.new(product_id: params[:select][:product_id])
-      @select.product_id = product_id
+      @user = current_user
+
+      @cart = Cart.new
+      @cart.user_id = current_user.id
+      @cart.save
+      # ↓cartをsaveしてからでないと@select.cart_id = @cart.idが上手くいかず
+      # ↓selectのsaveがバグってデータが入らない
+      @select = Select.new(select_params)
+      #binding.pry←gem'pry'を立ち上げるやつ
+      # @select.quantity = params["select"]["selects"]["quantity"].to_i
       @select.cart_id = @cart.id
   		@select.save
-  		redirect_to carts_path
+  		redirect_to cart_path(@cart.id)
     end
-
-
-      
-
-
- #  	def create
- #  		@cart = current_cart
-
-	# 	product = Product.find(params[:product_id])
-
-	# 	@select = @cart.selects.build(product: product)
-
-	# 	respond_to do |format|
- #      if @select.save
- #        format.html { redirect_to @select.cart, notice: 'カートに商品が追加されました。' }
- #        format.json { render :show, status: :created, location: @select }
- #      else
- #        format.html { render :new }
- #        format.json { render json: @select.errors, status: :unprocessable_entity }
- #      end
- #      end
-	# end
 
     def update
     respond_to do |format|
@@ -70,6 +53,6 @@ private
    #  end
 
     def select_params
-      params.require(:select).permit(:product_id, :cart_id, :value_plan, :log_price,)
+      params.require(:select).permit(:product_id, :log_price, selects_attributes: [:quantity])
     end
 end

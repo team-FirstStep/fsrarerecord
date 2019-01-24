@@ -17,20 +17,14 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :users
+    resources :users do
+      resources :addresses
+    end
   end
   scope module: :public do
       resources :users, only: [:show, :edit, :update, :create] do
         resources :addresses
     end
-end
-
-  scope module: :public do
-    resources :carts
-  end
-
-  scope module: :public do
-    resources :selects, only: [:create, :update, :destory]
 end
 
   namespace :admin do
@@ -45,7 +39,18 @@ end
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products
+    resources :selects, only: [:create, :update, :destory]
   end
+
+  scope module: :public do
+    resources :carts
+  end
+
+  scope module: :public do
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete '/delete_item' => 'carts#delete_item'
+ end
 
   namespace :admin do
     resources :carts, only: [:show]

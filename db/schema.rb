@@ -10,13 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_20_105620) do
+ActiveRecord::Schema.define(version: 2019_01_24_071121) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "user_id"
-    t.string "zip"
-    t.string "address"
-    t.string "phone"
     t.string "add_zip"
     t.string "add_address"
     t.string "add_last_name"
@@ -68,7 +65,6 @@ ActiveRecord::Schema.define(version: 2019_01_20_105620) do
     t.integer "disc_num"
   end
 
-
   create_table "orders", force: :cascade do |t|
     t.integer "cart_id"
     t.integer "status"
@@ -100,13 +96,14 @@ ActiveRecord::Schema.define(version: 2019_01_20_105620) do
   end
 
   create_table "selects", force: :cascade do |t|
-    t.integer "cart_id"
-    t.integer "product_id"
-    t.integer "value_plan"
+    t.integer "quantity"
     t.integer "log_price"
+    t.integer "product_id"
+    t.integer "cart_id"
     t.datetime "created_at", null: false
-    t.datetime "update_at"
     t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_selects_on_cart_id"
+    t.index ["product_id"], name: "index_selects_on_product_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -137,6 +134,9 @@ ActiveRecord::Schema.define(version: 2019_01_20_105620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.string "zip"
+    t.string "address"
+    t.string "phone"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
