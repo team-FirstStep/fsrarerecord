@@ -4,6 +4,5 @@ class Select < ApplicationRecord
 
 	attachment :image
 
-	validates: user_id
-	presence: {if: '!user_id.nil?'}
 end
+

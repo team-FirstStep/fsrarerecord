@@ -1,1 +1,47 @@
-<h1>は？</h1>
+<h1>商品編集</h1>
+<%= form_for @product, :url => { :controller => :products, :action => :update } do |f| %>
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<span>ジャケット :</span>
+				</td>
+				<td>
+					<span>
+						<%= f.attachment_field :image %>
+						<%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
+					</span>
+				</td>
+			</tr>
+			<tr>
+				<td>アーティスト名</td>
+				<td><%= f.text_field :artists %></td>
+			</tr>
+			<tr>
+				<td>タイトル</td>
+				<td><%= f.text_field :cd_title %></td>
+			</tr>
+			<tr>
+				<td>値段</td>
+				<td><%= f.text_field :price %></td>
+			</tr>
+			<tr>
+				<td>レーベル名</td>
+				<td><%= f.text_field :label %></td>
+			</tr>
+			<tr>
+				<td>在庫数</td>
+				<td><%= f.number_field :stock, min:0, max:100 %></td>
+			</tr>
+			<tr>
+				<td>ジャンル</td>
+				<td>
+					<%= f.select(:genre, [["期間限定生産", "期間限定生産"], ["初回限定生産", "初回限定生産"], ["非売品", "非売品"], ["イベント限定販売品", "イベント限定販売品"], ["生産終了品", "生産終了品"]]) %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<%= f.submit '更新' %>
+<% end %>
+

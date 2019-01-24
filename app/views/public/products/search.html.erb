@@ -34,8 +34,15 @@
 								<span style="font-size: 30px"><%= product.price %></span>
 								<span>円</span>
 								<p style="margin-top:10px">在庫ステータス</p>
-								<span style="font-size: 10px">
-									<%= product.status %>
+								<span style="font-size:10px">
+									<% product.stock %>
+									<h4>
+										<% if product.stock == 0 then %>
+										<p><%= 売り切れ %></p>
+										<% else %>
+										<p><%= product.stock %>個有り</p>
+										<% end %>
+									</h4>
 								</span>
 								<span>
 									<p>

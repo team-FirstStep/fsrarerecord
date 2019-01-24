@@ -74,14 +74,21 @@
 						   				<tr>
 						   					<td>値段</td>
 						   					<td>
-						   						<%= product.price %>
+						   						<%= product.price %>円
 						  					</td>
 						  				</tr>
 
 					    				<tr>
 						   					<td>在庫ステータス</td>
 											<td>
-								   				<%= product.status %>
+								   				<% product.stock %>
+												<p>
+												<% if product.stock == 0 then %>
+												<p><%= 売り切れ %></p>
+												<% else %>
+												<p><%= product.stock %>個有り</p>
+												<% end %>
+												</p>
 								   			</td>
 								   		</tr>
 								    </thead>
@@ -95,7 +102,7 @@
 											枚
 									<% end %>
 									<span class="btn btn-default">
-										<%= f.submit "あ", class: "btn" %>
+										<%= f.submit "カート", class: "btn" %>
 											<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
 									</span>
 								<% end %>
