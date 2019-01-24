@@ -2,9 +2,8 @@ class Public::UsersController < Public::ApplicationController
   # before_action :set_user
 
   def show
-
     @user = User.find(params[:id])
-        @address = Address.find_by(user_id: @user.id)
+    @address = Address.find_by(user_id: @user.id)
 
   end
 

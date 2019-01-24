@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_01_20_105620) do
     t.integer "disc_num"
   end
 
+
   create_table "orders", force: :cascade do |t|
     t.integer "cart_id"
     t.integer "status"
