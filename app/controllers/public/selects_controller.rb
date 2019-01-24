@@ -13,7 +13,6 @@ class Public::SelectsController < Public::ApplicationController
 
 	def create
       @user = current_user
-
       @cart = Cart.new
       @cart.user_id = current_user.id
       @cart.save
@@ -53,6 +52,6 @@ private
    #  end
 
     def select_params
-      params.require(:select).permit(:product_id, :log_price, selects_attributes: [:quantity])
+      params.require(:select).permit(:product_id, :log_price, :quantity)
     end
 end
