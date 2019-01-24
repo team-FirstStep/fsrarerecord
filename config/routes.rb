@@ -29,14 +29,6 @@ get 'admin/users' => 'admin/users#index'
     end
 end
 
-  scope module: :public do
-    resources :carts
-  end
-
-  scope module: :public do
-    resources :selects, only: [:create, :update, :destory]
-end
-
   namespace :admin do
     get '/products/check/:id' => 'products#check', as: 'check_product'
     resources :products do
@@ -49,7 +41,18 @@ end
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products
+    resources :selects, only: [:create, :update, :destory]
   end
+
+  scope module: :public do
+    resources :carts
+  end
+
+  scope module: :public do
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete '/delete_item' => 'carts#delete_item'
+ end
 
   namespace :admin do
     resources :carts, only: [:show]
