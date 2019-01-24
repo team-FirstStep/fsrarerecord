@@ -20,7 +20,7 @@ class Public::SelectsController < Public::ApplicationController
       # ↓selectのsaveがバグってデータが入らない
       @select = Select.new(select_params)
       #binding.pry←gem'pry'を立ち上げるやつ
-      # @select.quantity = params["select"]["selects"]["quantity"].to_i
+      #@select.quantity = params["select"]["selects"]["quantity"].to_i
       @select.cart_id = @cart.id
   		@select.save
   		redirect_to cart_path(@cart.id)

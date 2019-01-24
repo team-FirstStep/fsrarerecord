@@ -13,6 +13,7 @@
                         <% @disc.songs.each do |song| %>
                         <%= form_for song, :url => { :controller => :discs, :action => :update } do |f| %>
                         <label>曲順</label><br>
+                        <%= f.hidden_field :song_id, :value => song.id %>
                         <%= f.number_field :song_track, min:0, max:100 %>
                         <br>
                         <label>曲のタイトル</label><br>
