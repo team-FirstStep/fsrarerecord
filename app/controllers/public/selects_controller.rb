@@ -52,6 +52,6 @@ private
    #  end
 
     def select_params
-      params.require(:select).permit(:product_id, :log_price, selects_attributes: [:quantity])
+      params.require(:select).permit(:product_id, :log_price, :quantity)
     end
 end
