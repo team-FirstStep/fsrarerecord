@@ -13,7 +13,6 @@ class Public::SelectsController < Public::ApplicationController
 
 	def create
       @user = current_user
-
       @cart = Cart.new
       @cart.user_id = current_user.id
       @cart.save
