@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-# ↓実験台のページ
-get 'admin/users' => 'admin/users#index'
-
   devise_for :users, controllers: {
   sessions:      'users/sessions',
   passwords:     'users/passwords',
@@ -25,16 +22,7 @@ get 'admin/users' => 'admin/users#index'
 
   scope module: :public do
       resources :users, only: [:show, :edit, :update, :create] do
-        resources :addresses
     end
-end
-
-  scope module: :public do
-    resources :carts
-  end
-
-  scope module: :public do
-    resources :selects, only: [:create, :update, :destory]
 end
 
   namespace :admin do
@@ -49,7 +37,18 @@ end
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products
+    resources :selects, only: [:create, :update, :destory]
   end
+
+  scope module: :public do
+    resources :carts
+  end
+
+  scope module: :public do
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete '/delete_item' => 'carts#delete_item'
+ end
 
   namespace :admin do
     resources :carts, only: [:show]

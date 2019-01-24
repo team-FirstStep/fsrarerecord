@@ -1,8 +1,7 @@
 class Select < ApplicationRecord
-	belongs_to :cart
-	belongs_to :product
 
-	attachment :image
+  belongs_to :product, optional: true
+  belongs_to :cart
 
 end
 

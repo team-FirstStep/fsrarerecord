@@ -1,12 +1,13 @@
 <div class="container">
     <div class="row">
-    <h2>ユーザー情報編集</h2>
+    <h2>管理者用ユーザー情報編集</h2>
         <div class="col-md-12">
 
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <%= form_for(@user) do |f| %>
+                    	<h3>基本情報</h3>
+                        <%= form_for @user, :url => { :controller => :users, :action => :update } do |f| %>
                         <label>名前(姓)</label><br>
                         <%= f.text_field :last_name %>
                         <br>
@@ -47,7 +48,7 @@
             </div>
             <%= f.submit "変更を保存する", class: "btn btn-default" %>
             <% end %>
-            <%= link_to "戻る", user_path(current_user), class: "btn btn-default" %>
+            <%= link_to "戻る", admin_user_path(@user.id), class: "btn btn-default" %>
         </div>
     </div>
 </div>

@@ -36,16 +36,13 @@
 	            </tbody>
             </table>
             <span>
-				<%= form_for @select, :url => selects_path do |f| %>
+				<%= form_for @select, :url => { :controller => :selects, :action => :create } do |f| %>
 					<%= f.hidden_field :product_id, :value => @product.id %>
-					<%= f.fields_for :selects do |select| %>
-						<%= select.number_field :value_plan, min:0, max:100, :size => "5*5" %>
-					<% end %>
-					<span class="btn btn-default">
-						<%= f.submit %>
-						<%#= link_to carts_path(@product.id), class: 'fbtn' do %>
-							<!-- <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> -->
-						<%# end %>
+					<%= f.hidden_field :log_price, :value => @product.price %>
+						<%= f.number_field :quantity, min:0, max:100, :size => "5*5" %>
+						<%= f.submit do %>
+							<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
+						<% end %>
 					</span>
 				<% end %>
 			</span>
@@ -56,6 +53,7 @@
             <% @product.discs.each do |disc| %>
                 <%= disc.disc_num %>
             <% disc.songs.each do |song| %>
+                <%= song.song_track %>
                 <%= song.song_title %>
             <% end %>
             <% end %>
