@@ -37,6 +37,9 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to admin_products_path
   end
 
   def search
@@ -48,7 +51,7 @@ class Admin::ProductsController < Admin::ApplicationController
   #   render text: "検索結果#{cnt}件ヒットしました。"
 private
     def product_params
-        params.require(:product).permit(:image,:artists, :cd_title, :price, :label, :genre, :stock)
+        params.require(:product).permit(:image, :artists, :cd_title, :price, :label, :genre, :stock)
     end
 
 end

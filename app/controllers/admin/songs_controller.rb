@@ -48,11 +48,11 @@ class Admin::SongsController < Admin::ApplicationController
     # redirect_to admin_product_path(@product.id)
   end
 
-  # def destroy
-  #   song = Song.find(params[:id])
-  #   song.destroy
-  #   redirect_to admin_products_path
-  # end
+  def destroy
+    @song = Song.find(params[:id])
+    @song.destroy
+    redirect_to admin_products_path
+  end
 
 private
   def song_params

@@ -30,8 +30,8 @@ end
   namespace :admin do
     get '/products/check/:id' => 'products#check', as: 'check_product'
     resources :products do
-        resources :discs, only: [:new, :create, :edit, :update] do
-          resources :songs, only: [:new, :create, :edit, :update]
+        resources :discs, only: [:new, :create, :edit, :update, :destroy] do
+          resources :songs, only: [:new, :create, :edit, :update, :destroy]
         end
     end
   end
@@ -39,7 +39,7 @@ end
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products
-    resources :selects, only: [:create, :update, :destory]
+    resources :selects, only: [:create, :update, :destroy]
   end
 
   scope module: :public do

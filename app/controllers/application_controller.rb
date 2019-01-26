@@ -56,4 +56,5 @@ protected
       devise_parameter_sanitizer.permit(:sign_up, keys: [:zip, :address, :phone, :last_name, :first_name, :last_name_kana, :first_name_kana])
     end
 
+
 end
