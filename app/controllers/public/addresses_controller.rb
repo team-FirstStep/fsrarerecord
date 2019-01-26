@@ -2,7 +2,7 @@ class Public::AddressesController < Public::ApplicationController
 
 	def index
 		@user = current_user
-		@addresses = Address.where(user_id: @user)
+		# @addresses = Address.where(user_id: @user)
 	end
 
 	def new
@@ -10,9 +10,12 @@ class Public::AddressesController < Public::ApplicationController
 	end
 
 	def create
+		@user = current_user
 		@add_address = Address.new(address_params)
 		@add_address.user_id = current_user.id
-    	@add_address.save
+		# @add_address.user_id = @user.id
+    	@add_address.save!
+    	@add_address.errors.full_messages
     	redirect_to user_addresses_path(current_user)
 	end
 
@@ -33,10 +36,10 @@ class Public::AddressesController < Public::ApplicationController
 		redirect_to user_addresses_path(current_user)
 	end
 
-end
 
 private
 	def address_params
     	params.require(:address).permit(:add_last_name, :add_first_name, :add_last_name_kana, :add_first_name_kana,
       	:add_address, :add_zip, :add_phone)
   	end
+end

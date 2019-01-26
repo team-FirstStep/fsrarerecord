@@ -30,17 +30,17 @@
                 </div>
 
 
-                <%= f.fields_for :address do |al| %><%# 子レコードへの入力 %>
+                <%#= f.fields_for :address do |al| %><%# 子レコードへの入力 %>
 
-                    <%= al.label :郵便番号 %>
-                    <%= al.text_field :zip, autofocus: true %></br>
+                    <%= f.label :郵便番号 %>
+                    <%= f.text_field :zip, autofocus: true %></br>
 
-                    <%= al.label :住所 %>
-                    <%= al.text_field :address, autofocus: true %></br>
+                    <%= f.label :住所 %>
+                    <%= f.text_field :address, autofocus: true %></br>
 
-                    <%= al.label :電話番号 %>
-                    <%= al.text_field :phone, autofocus: true %>
-                <% end %>
+                    <%= f.label :電話番号 %>
+                    <%= f.text_field :phone, autofocus: true %>
+                <%# end %>
 
 
                 <div class="field">
