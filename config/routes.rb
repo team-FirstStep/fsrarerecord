@@ -17,11 +17,13 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :users
+    resources :users do
+      resources :addresses
+    end
   end
-
   scope module: :public do
       resources :users, only: [:show, :edit, :update, :create] do
+        resources :addresses
     end
 end
 
