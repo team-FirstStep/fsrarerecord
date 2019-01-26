@@ -16,7 +16,6 @@ class Admin::DiscsController < Admin::ApplicationController
   def edit
     @product = Product.find(params[:product_id])
     @disc = Disc.find(params[:id])
-    @song = Song.find(@disc.id)
   end
 
   def update
@@ -32,6 +31,11 @@ class Admin::DiscsController < Admin::ApplicationController
     redirect_to admin_product_path(@product.id)
   end
 
+  def destroy
+    @disc = Disc.find(params[:id])
+    @disc.destroy
+    redirect_to admin_products_path
+  end
 
 private
     def disc_params

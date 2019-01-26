@@ -4,4 +4,5 @@ class Cart < ApplicationRecord
 	before_destroy :referenced_by_select
 
 	belongs_to :user
+
 end

@@ -1,8 +1,54 @@
-<h1>Products#index</h1>
 <body>
-	<div class="container">
+	<div id="container">
+	<div id="test-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+
+  <!-- 何枚目かの画像かを表すインディケーター -->
+  <ol class="carousel-indicators">
+    <li data-target="#test-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#test-carousel" data-slide-to="1" class=""></li>
+    <li data-target="#test-carousel" data-slide-to="2" class=""></li>
+    <li data-target="#test-carousel" data-slide-to="3" class=""></li>
+  </ol>
+
+  <!-- 実際の画像の表示処理 -->
+  <div class="carousel-inner" style="margin: 5px 0px 0px 216px;">
+  	<span class="item active">    <!-- activeをつけたものがページ表示時に表示される -->	
+	    <span1>
+	    	<%= image_tag 'test1.jpeg', :size =>'1008x470' %>
+	    </span1>
+	</span>
+	<span class="item">
+	    <span1>
+	      	<%= image_tag 'test2.jpg', :size =>'1008x470' %>
+	    </span1>
+	</span>
+	<span class="item">
+	      <span1>
+	      	<%= image_tag 'test3.jpg', :size =>'1008x470' %>
+	      </span1>
+	</span>
+	<span class="item">
+	      <span1>
+	      	<%= image_tag 'test4.jpg', :size =>'1008x470' %>
+	      </span1>
+	</span>
+  </div>
+
+  <!-- 前の画像へ戻るための矢印ポインタ -->
+  <a class="left carousel-control" href="#test-carousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+
+  <!-- 次の画像へ進むための矢印ポインタ -->
+  <a class="right carousel-control" href="#test-carousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
+</div>
+    <div class="container">
 	    <div class="row">
-	    	<h1>main</h1>
+	    	<br></br>
+	    	<h1 style="margin-left: 350px">商品一覧</h1>
 	    	<div class="col-md-9">
 	    		<div class="row">
 			    	<% @products.each do |product| %>
@@ -28,14 +74,21 @@
 						   				<tr>
 						   					<td>値段</td>
 						   					<td>
-						   						<%= product.price %>
+						   						<%= product.price %>円
 						  					</td>
 						  				</tr>
 
 					    				<tr>
 						   					<td>在庫ステータス</td>
 											<td>
-								   				<%= product.status %>
+								   				<% product.stock %>
+												<p>
+												<% if product.stock == 0 then %>
+												<p><%= 売り切れ %></p>
+												<% else %>
+												<p><%= product.stock %>個有り</p>
+												<% end %>
+												</p>
 								   			</td>
 								   		</tr>
 								    </thead>
@@ -49,7 +102,6 @@
 											枚
 									<%# end %>
 									<span class="btn btn-default">
-										<%#= f.submit "あ", class: "btn" %>
 											<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
 									</span>
 								<%# end %>
