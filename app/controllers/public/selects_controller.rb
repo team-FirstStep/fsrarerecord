@@ -13,14 +13,15 @@ class Public::SelectsController < Public::ApplicationController
 
 	def create
       @user = current_user
-      @cart = Cart.new
-      @cart.user_id = current_user.id
-      @cart.save
+      @cart = current_cart
       # ↓cartをsaveしてからでないと@select.cart_id = @cart.idが上手くいかず
+      # 追記、sessionで保持しているからcart.saveいらない
+
       # ↓selectのsaveがバグってデータが入らない
       @select = Select.new(select_params)
-      #binding.pry←gem'pry'を立ち上げるやつ
-      #@select.quantity = params["select"]["selects"]["quantity"].to_i
+
+      # binding.pry #←gem'pry'を立ち上げるやつ
+      # @select.quantity = params["select"]["selects"]["quantity"].to_i
       @select.cart_id = @cart.id
   		@select.save
   		redirect_to cart_path(@cart.id)
