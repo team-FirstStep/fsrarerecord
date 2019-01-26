@@ -3,10 +3,10 @@ class Product < ApplicationRecord
   	attachment :image
 
 
-	has_many :discs
+	has_many :discs, dependent: :delete_all
 	accepts_nested_attributes_for :discs, allow_destroy: true
 
-	has_many :songs
+	has_many :songs, dependent: :delete_all
 	accepts_nested_attributes_for :songs, allow_destroy: true
 
 	acts_as_paranoid
