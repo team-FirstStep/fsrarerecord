@@ -11,20 +11,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
 
-  def create
-    begin
-      ActiveRecord::Base.transaction do
-        super
-        ###新規登録したユーザー（親）が保有する住所（子）を作成する
+  # def create
+  #   begin
+  #     ActiveRecord::Base.transaction do
+  #       super
+  #       ###新規登録したユーザー（親）が保有する住所（子）を作成する
 
-        resource.addresses.build
-        resource.addresses[0].address = params[:user][:address][:address]
-        resource.addresses[0].zip = params[:user][:address][:zip]
-        resource.addresses[0].phone = params[:user][:address][:phone]
-        resource.save!
-      end
-    end
-  end
+  #       resource.addresses.build
+  #       resource.addresses[0].address = params[:user][:address][:address]
+  #       resource.addresses[0].zip = params[:user][:address][:zip]
+  #       resource.addresses[0].phone = params[:user][:address][:phone]
+  #       resource.save!
+  #     end
+  #   end
+  # end
 
 
   # GET /resource/edit
