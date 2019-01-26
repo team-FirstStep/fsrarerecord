@@ -54,7 +54,12 @@
 						<p class="text-left">在庫数：  </p>
 					</td>
 					<td class="text-left product_show_stock">
-						<%= @product.stock %>
+						<% @product.stock %>
+							<% if @product.stock == 0 then %>
+							<p>売り切れ</p>
+							<% else %>
+							<p><%= @product.stock %>個有り</p>
+						<% end %>
 					</td>
 				</tr>
 				<tr>
