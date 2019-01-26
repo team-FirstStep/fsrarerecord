@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-    <h2>管理者用ユーザー情報編集</h2>
+        <h2>管理者用ユーザー情報編集</h2>
         <div class="col-md-12">
 
             <div class="row">
@@ -27,28 +27,28 @@
             </div>
 
             <div class="form-group">
-                  <label>email</label><br>
-                  <%= f.email_field :email %>
+              <label>email</label><br>
+              <%= f.email_field :email %>
+          </div>
+          <div class="profile-address">
+            <%#= fields_for @address do |address| %>
+            <div class="form-group">
+                <label>電話番号</label><br>
+                <%= f.text_field :phone %>
             </div>
-            <div class="profile-address">
-                <%= fields_for @address do |address| %>
-                <div class="form-group">
-                    <label>電話番号</label><br>
-                    <%= address.text_field :phone %>
-                </div>
-                <div class="form-group">
-                    <label>郵便番号</label><br>
-                    <%= address.text_field :zip %>
-                </div>
-                <div class="form-group">
-                    <label>住所</label><br>
-                    <%= address.text_field :address %>
-                </div>
-                <% end %>
+            <div class="form-group">
+                <label>郵便番号</label><br>
+                <%= f.text_field :zip %>
             </div>
-            <%= f.submit "変更を保存する", class: "btn btn-default" %>
-            <% end %>
-            <%= link_to "戻る", admin_user_path(@user.id), class: "btn btn-default" %>
+            <div class="form-group">
+                <label>住所</label><br>
+                <%= f.text_field :address %>
+            </div>
+            <%# end %>
         </div>
+        <%= f.submit "変更を保存する", class: "btn btn-default" %>
+        <% end %>
+        <%= link_to "戻る", admin_user_path(@user.id), class: "btn btn-default" %>
     </div>
+</div>
 </div>
