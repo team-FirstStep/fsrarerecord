@@ -122,28 +122,29 @@
 					<td>
 					</td>
 					<td>
-                <%= link_to "削除する", admin_product_disc_path(@product.id, disc), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+                <%= link_to "Discを削除する", admin_product_disc_path(@product.id, disc), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
 					</td>
 				</tr>
 				<% end %>
 			</div>
 			<tr>
 				<td>
-				</td>
-				<td>
-					<%= "　　　　　　　　　　　　" %>
+					<%= "　　　　　" %>
 				</td>
 				<td>
 					<%= link_to "Discの追加", new_admin_product_disc_path(@product.id), class: "new_admin_product_disc_#{@product.id}" %>
 				</td>
 				<td>
-				<%= link_to "削除", admin_product_path(@product.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
+					<%= "　　　　　" %>
+				</td>
+				<td>
+				<%= link_to "商品を削除する", admin_product_path(@product.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
 				</td>
 				<td>
 					<%= "　　　　　" %>
 				</td>
 				<td>
-					<%= link_to "登録完了", admin_products_path, class: "admin_products" %>
+					<%= link_to "登録完了", admin_products_path, class: "btn admin_products" %>
 				</td>
 			</tr>
 		</table>
