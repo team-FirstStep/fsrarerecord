@@ -2,6 +2,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
+<% @total_price = 0 %>
+<!-- ↑ここで0を定義しないと合計の計算ができない(エラーになる) -->
       <% @cart.selects.each do |select| %>
 
       <%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '80x80' %>
@@ -23,8 +25,14 @@
         <%= select.product.status %></br>
         <label>購入数：</label>
         <%= select.quantity %></br>
-        　　　<% end %>
+<% @subtotal_price = select.log_price * select.quantity %>
+<!-- ↑小計の計算 -->
+                         <label>小計</label><label><%= @subtotal_price %></label><label>円</label></br>
 
+<% @total_price = @total_price + @subtotal_price %>
+
+        　　　<% end %>
+        <label>合計金額</label><label><%= @total_price %></label><label>円</label>
         <label><%= link_to "カートの中身に戻る", cart_path(@cart.id), class: "btn btn-default" %></label>
         <label></label>
         <label></label>

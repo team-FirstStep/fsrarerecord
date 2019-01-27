@@ -10,29 +10,28 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
-  <header>
-    <div style="margin-left: 400px">
-      <%= image_tag 'rerere.png', size:'550x60' %>
-    </div>
-    <div class="header-search">
-      <%= form_tag(search_products_path, :method => 'get') do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag '検索', :name => nil %>
-      <% end %>
-    </div>
-    <!-- ハンバーガーアイコン -->
-    <div id="sp-menu">
-      <h1>menu</h1>
-      <ul>
+  <body>
+    <header>
+      <div style="margin-left: 400px">
+        <%= image_tag 'rerere.png', size:'550x60' %>
+      </div>
+      <div class="header-search">
+        <%= form_tag(search_products_path, :method => 'get') do %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag '検索', :name => nil %>
+        <% end %>
+      </div>
+      <!-- ハンバーガーアイコン -->
+      <div id="sp-menu">
+        <h1>menu</h1>
+        <ul>
         <% if user_signed_in? %>
-        <li>ようこそ <%= current_user.last_name %> <%= current_user.first_name %> さん</li>
-        <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
-        <li><%= link_to user_path(current_user), class: '' do %> マイページ <% end %></li>
-        <li><%= link_to cart_path(current_cart.id), class: '' do %> カート <% end %></li>
-        <li><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
-        <li><%= link_to user_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <% end %></li>
-
+          <li>ようこそ <%= current_user.last_name %> <%= current_user.first_name %> さん</li>
+          <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
+          <li><%= link_to user_path(current_user), class: '' do %> マイページ <% end %></li>
+          <li><%= link_to cart_path(current_cart.id), class: '' do %> カート <% end %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
+          <li><%= link_to user_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <% end %></li>
 
         <% elsif admin_signed_in? %>
         <li><%= current_admin.last_name %> <%= current_admin.first_name %> さんがログイン中</li>
