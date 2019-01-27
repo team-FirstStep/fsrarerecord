@@ -32,16 +32,14 @@
 				    				</tr>
 
 				    				<tr>
-				    					<td>在庫ステータス</td>
+				    					<td>在庫数</td>
 				    					<td>
-				    						<% products.stock %>
-											<p>
-											<% if products.stock == 0 then %>
-											<p><%= 売り切れ %></p>
-											<% else %>
-											<p><%= products.stock %>個有り</p>
-											<% end %>
-											</p>
+												<% stock = products.stock %>
+												<% if stock == 0 then %>
+												<p>売り切れ</p>
+												<% else %>
+												<p><%= stock %>個有り</p>
+												<% end %>
 				    					</td>
 				    				</tr>
 				    			</thead>

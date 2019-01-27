@@ -12,8 +12,9 @@
 
   <body>
     <header>
-      <%= image_tag 'fs-logo.jpg', :size =>'95x80' %>
-
+      <div style="margin-left: 400px">
+        <%= image_tag 'rerere.png', size:'550x60' %>
+      </div>
       <div class="header-search">
         <%= form_tag(search_products_path, :method => 'get') do %>
           <%= text_field_tag :search, params[:search] %>
