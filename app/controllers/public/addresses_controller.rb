@@ -1,5 +1,13 @@
 class Public::AddressesController < Public::ApplicationController
 
+	def show
+        @cart = Cart.find(params[:cart_id])
+		@user = current_user
+		@address = Address.find(params[:id])
+        @order = Order.new
+		# 追加アドレス先の選択後の購入確認画面に使用させていただいております。
+	end
+
 	def index
 		@user = current_user
 		# @addresses = Address.where(user_id: @user)

@@ -14,6 +14,7 @@ class Public::OrdersController < Public::ApplicationController
       # @select.quantity = params["select"]["selects"]["quantity"].to_i
       @order.cart_id = @cart.id
   		@order.save
+        session[:cart_id] = nil
   		redirect_to user_path(@user.id)
   end
     def order_params
