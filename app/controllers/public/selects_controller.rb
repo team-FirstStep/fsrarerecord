@@ -28,24 +28,41 @@ class Public::SelectsController < Public::ApplicationController
     end
 
     def update
-    respond_to do |format|
-      if @select.update(select_params)
-        format.html { redirect_to @select, notice: 'Line item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @select }
-      else
-        format.html { render :edit }
-        format.json { render json: @select.errors, status: :unprocessable_entity }
-      end
-      end
-  	end
-
-  	def destroy
-    @select.destroy
-    respond_to do |format|
-      format.html { redirect_to selects_url, notice: 'Line item was successfully destroyed.' }
-      format.json { head :no_content }
+      @cart = current_cart
+      @select = Select.find(params[:id])
+      @select.update(select_params)
+      redirect_to cart_path(@cart.id)
     end
-  	end
+
+    # ↓誰かが書いていたのでとりあえず消さずに保留
+   #  def update
+   #  respond_to do |format|
+   #    if @select.update(select_params)
+   #      format.html { redirect_to @select, notice: 'Line item was successfully updated.' }
+   #      format.json { render :show, status: :ok, location: @select }
+   #    else
+   #      format.html { render :edit }
+   #      format.json { render json: @select.errors, status: :unprocessable_entity }
+   #    end
+   #    end
+  	# end
+
+  # カート詳細画面から、「削除」を押した時のアクション
+  def destroy
+    @cart = current_cart
+    @select = Select.find(params[:id])
+    @select.destroy
+    redirect_to cart_path(@cart.id)
+  end
+
+    # ↓誰かが書いていたのでとりあえず消さずに保留
+  	# def destroy
+   #  @select.destroy
+   #  respond_to do |format|
+   #    format.html { redirect_to selects_url, notice: 'Line item was successfully destroyed.' }
+   #    format.json { head :no_content }
+   #  end
+  	# end
 
 private
   	# def set_select
