@@ -23,6 +23,7 @@ class Public::ProductsController < Public::ApplicationController
     @products = Product.search(params[:search])
     @products2 = Product.page(params[:page]).reverse_order
     @select = Select.new
+    @selects = Select.all
   end
 
 private

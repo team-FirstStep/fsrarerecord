@@ -2,32 +2,38 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-			<div class="row">
-			<% @selects.each do |select| %>
-			<div class="col-md-4">
-				<table>
-					<tr>
-						<%= attachment_image_tag @products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
-						<td> <p>商品タイトル: <%= select.product.cd_title %></p></td>
-					</tr>
-					<tr>
-						<td> <p>アーティスト名: <%= select.product.artists %></p></td>
-					</tr>
-					<tr>
-						<td> <p>値段: <%= select.product.price %></p></td>
-					</tr>
-						<tr>
-							<td> <p>在庫ステータス</p></td>
-
-						<td> <p><%= link_to "削除", root_path, method: :delete %></p></td>
-						</tr>
-						<% end %>
-				</table>
-			</div>
-			<% end %>
-			</div>
+				<div class="row">
+					<% @selects.each do |select| %>
+						<div class="col-md-4">
+							<table>
+								<tr>
+									<%= attachment_image_tag @products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
+									<td>
+										<p>商品タイトル: <%= select.product.cd_title %></p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>アーティスト名: <%= select.product.artists %></p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>値段: <%= select.product.price %></p>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>在庫ステータス</p>
+									</td>
+									<td>
+										<p><%= link_to "削除", root_path, method: :delete %></p>
+									</td>
+								</tr>
+							</table>
+						</div>
+					<% end %>
+				</div>
 			</div>
 		</div>
 	</div>
-			<p>合計の値段</p>
-			<p>購入</p>
