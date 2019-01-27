@@ -1,2 +1,22 @@
-<h1>publicOrders#index</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
+<h2>購入履歴</h2>
+<% @order.each do |order| %>
+<label>購入日時</label>
+<%= order.created_at %><br>
+
+<label>選択配送先</label><br>
+<%= order.log_last_name_kana %><%= order.log_first_name_kana %><br>
+<%= order.log_last_name %><%= order.log_first_name %><br>
+<%= order.log_zip %><%= order.log_address %><br>
+
+<% @product.each do |p| %>
+<label>商品名</label>
+<%= p.cd_title %><br>
+
+<label>単価</label>
+<%= p.price %><br>
+
+<label>合計金額</label><br>
+<br>
+<%#= order. %>
+<% end %>
+<% end %>
