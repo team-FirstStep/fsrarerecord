@@ -9,7 +9,6 @@ class Public::ProductsController < Public::ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @product = Product.find(params[:id])
     @select = Select.new
     @product.selects.build
