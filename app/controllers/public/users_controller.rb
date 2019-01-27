@@ -3,8 +3,9 @@ class Public::UsersController < Public::ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @order = Order.where(:cart_id)
     # @address = Address.find_by(user_id: @user.id)
+    @order = Order.where(params[:cart_id])
+    # @cart = Cart.find(params[:order_id])
 
   end
 

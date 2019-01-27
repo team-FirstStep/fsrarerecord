@@ -44,8 +44,12 @@ end
   end
 
   scope module: :public do
-    resources :carts
     get '/carts/:id/check' => 'carts#check', as: 'check_cart'
+    resources :carts do
+    resources :users, only: [:show] do
+    resources :addresses, only: [:show]
+  end
+  end
   end
 
   scope module: :public do
@@ -64,7 +68,7 @@ end
   end
 
   scope module: :public do
-    resources :orders, only: [:create]
+    resources :orders, only: [:create, :index, :show]
   end
 
 

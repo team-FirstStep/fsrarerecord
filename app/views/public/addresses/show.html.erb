@@ -33,30 +33,28 @@
       <div class="col-md-6">
         <h3>配送先</h3>
         <h5>配送先宛名</h5>
-        <p><%= @user.last_name %> <%= @user.first_name %></p>
-        <p><%= @user.last_name_kana %> <%= @user.first_name_kana %></p>
+        <p><%= @address.add_last_name %> <%= @address.add_first_name %></p>
+        <p><%= @address.add_last_name_kana %> <%= @address.add_first_name_kana %></p>
 
         <h5>登録住所</h5>
         <label>電話番号 </label>
-        <%= @user.phone %><br>
-        <label>e-mail </label>
-        <%= @user.email %><br>
+        <%= @address.add_phone %><br>
         <label>〒 </label>
-        <%= @user.zip %><br>
+        <%= @address.add_zip %><br>
         <label>住所</label>
-        <%= @user.address %>
+        <%= @address.add_address %>
 
 
         <label></label><br>
         <label></label><br>
 
         <%= form_for @order, :url => { :controller => :orders, :action => :create } do |f| %>
-        <%= f.hidden_field :log_last_name, :value => @user.last_name %>
-        <%= f.hidden_field :log_first_name, :value => @user.first_name %>
-        <%= f.hidden_field :log_last_name_kana, :value => @user.last_name_kana %>
-        <%= f.hidden_field :log_first_name_kana, :value => @user.first_name_kana %>
-        <%= f.hidden_field :log_zip, :value => @user.zip %>
-        <%= f.hidden_field :log_address, :value => @user.address %>
+        <%= f.hidden_field :log_last_name, :value => @address.add_last_name %>
+        <%= f.hidden_field :log_first_name, :value => @address.add_first_name %>
+        <%= f.hidden_field :log_last_name_kana, :value => @address.add_last_name_kana %>
+        <%= f.hidden_field :log_first_name_kana, :value => @address.add_first_name_kana %>
+        <%= f.hidden_field :log_zip, :value => @address.add_zip %>
+        <%= f.hidden_field :log_address, :value => @address.add_address %>
 
         <%= f.submit "購入確定", class: "btn btn-warning" %>
         <% end %>

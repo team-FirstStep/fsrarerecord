@@ -24,26 +24,6 @@
 		</div>
 	</div>
 	<div class="row">
-		<h2>購入履歴</h2>
-		<% @order.each do |order| %>
-		<label>購入日時</label>
-		<%= order.created_at %>
-
-		<label>商品名</label>
-		<%= order.created_at %>
-
-		<label>選択配送先</label>
-		<%= order.log_last_name_kana %><%= order.log_first_name_kana %>
-		<%= order.log_last_name %><%= order.log_first_name %>
-		<%= order.log_zip %><%= order.address %>
-
-		<label>単価</label>
-		<%= order.created_at %>
-		
-		<label>合計金額</label>
-		<%= order.created_at %>
-		<% end %>
-
-
+		<%= link_to "注文履歴一覧", orders_path %>
 	</div>
 </div>

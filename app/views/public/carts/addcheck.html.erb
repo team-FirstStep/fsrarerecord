@@ -4,6 +4,7 @@
     <div class="col-md-6">
       <% @cart.selects.each do |select| %>
 
+
       <%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '80x80' %>
       <table>
         <tbody>
