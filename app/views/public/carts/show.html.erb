@@ -6,6 +6,8 @@
 <% if @cart.selects.empty? %>
 <h4>現在、カートは空です。</h4>
 <% end %>
+<% @total_price = 0 %>
+<!-- ↑ここで0を定義しないと合計の計算ができない(エラーになる) -->
 				<% @cart.selects.each do |select| %>
 				<div class="col-md-4">
 					<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %></br>
@@ -25,28 +27,38 @@
 							<%= f.number_field :quantity, min:1, max:100 %>
 							<%= f.submit "購入数を変更する", class: "btn" %>
 							<% end %>
-
+<% @subtotal_price = select.log_price * select.quantity %>
+<!-- ↑小計の計算 -->
+		                     <label>小計</label><label><%= @subtotal_price %></label><label>円</label></br>
 							<%= link_to "カートから削除", select_path(select), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
 						</div>
+<% @total_price = @total_price + @subtotal_price %>
 						<% end %>
 					</div>
 					<label></label></br>
 					<label><%= link_to "買い物を続ける", products_path, class: "btn btn-default" %></label>
+				<label>合計金額</label><label><%= @total_price %></label><label>円</label>
+
 				</div>
 			</div>
 		</div>
 	</div>
 
 
-	
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 	<h3>配送先の選択</h3>
-	<h4>アカウント登録時の住所へ配送を希望する場合</h4>
+	<h4>①アカウント登録時の住所へ配送を希望する場合</h4>
 	<%= link_to "購入確認画面へ", check_cart_path(@cart.id), class: "btn btn-info" %>
 
-	<h4>追加登録した住所へ配送を希望する場合</h4>
+	<h4>②追加登録した住所へ配送を希望する場合</h4>
+
+<% if @user.addresses.empty? %>
+<label></label></br>
+<h4>現在、追加配送先は登録しておりません。</h4>
+<% end %>
 
 	<% @user.addresses.each_with_index do |address,i| %>
 
@@ -65,6 +77,3 @@
 		</div>
 	</div>
 </div>
-<% if @user.addresses.empty? %>
-<h4>現在、使配送先は登録しておりません。</h4>
-<% end %>

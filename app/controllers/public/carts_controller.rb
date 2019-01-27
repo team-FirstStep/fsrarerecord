@@ -11,8 +11,7 @@ class Public::CartsController < Public::ApplicationController
   def show
     @cart = Cart.find(params[:id])
     @user = current_user
-    # @selects = Select.find(current_cart.selects)
-    # @selects = current_cart.selects
+    # 商品一覧画面から、「商品購入」を押した時のアクション
   end
 
   # 商品一覧画面から、「商品購入」を押した時のアクション
