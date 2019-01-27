@@ -68,7 +68,7 @@ end
   end
 
   scope module: :public do
-    resources :orders, only: [:create]
+    resources :orders, only: [:create, :index, :show]
   end
 
 
