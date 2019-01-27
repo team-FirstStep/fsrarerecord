@@ -8,4 +8,5 @@ class ApplicationRecord < ActiveRecord::Base
 	      Product.all #全て表示。
 	    end
   	end
+
 end
