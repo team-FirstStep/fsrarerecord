@@ -23,8 +23,6 @@ class Public::CartsController < Public::ApplicationController
 
 
 
-
-
 	private
 
 	def product_params

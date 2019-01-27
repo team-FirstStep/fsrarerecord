@@ -1,9 +1,9 @@
 class Public::OrdersController < Public::ApplicationController
   # before_action :set_order
   def index
-    @order = Order.where(params[:cart_id])
-    @product = Product.where(params[:id])
     @user = current_user
+    @order = Order.find(@user)
+
   end
 
   def create
