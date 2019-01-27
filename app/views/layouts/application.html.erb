@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-  <meta charset="UTF-8">
-    <title>Rarerecord</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rarerecord</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    </head>
 
   <body>
     <header>
@@ -33,33 +33,33 @@
           <li><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
           <li><%= link_to user_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <% end %></li>
 
-        <% elsif admin_signed_in? %>
-          <li><%= current_admin.last_name %> <%= current_admin.first_name %> さんがログイン中</li>
-          <li><%= link_to admin_products_path, class: '' do %> 商品一覧 <% end %></li>
-          <li><%= link_to admin_users_path, class: '' do %> ユーザー一覧 <% end %></li>
-          <li><%= link_to destroy_admin_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
-          <!-- <li><%#= link_to admin_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <%# end %></li> -->
+                    <% elsif admin_signed_in? %>
+                        <li><%= current_admin.last_name %> <%= current_admin.first_name %> さんがログイン中</li>
+                        <li><%= link_to admin_products_path, class: '' do %> 商品一覧 <% end %></li>
+                        <li><%= link_to admin_users_path, class: '' do %> ユーザー一覧 <% end %></li>
+                        <li><%= link_to destroy_admin_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
+                    <!-- <li><%#= link_to admin_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <%# end %></li> -->
 
-        <% else %>
-          <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
-          <li><%= link_to new_user_session_path, class: 'sign_in' do %>ログイン<% end %></li>
-          <li><%= link_to new_user_registration_path, class: 'sign_up' do %> 新規会員登録 <% end %></li>
-          <% end %>
-        </ul>
-      </div>
+                    <% else %>
+                        <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
+                        <li><%= link_to new_user_session_path, class: 'sign_in' do %>ログイン<% end %></li>
+                        <li><%= link_to new_user_registration_path, class: 'sign_up' do %> 新規会員登録 <% end %></li>
+                    <% end %>
+                </ul>
+            </div>
 
-      <div id="hm-icon">
-        <a class="menu-trigger" href="#">
-          <span></span>
-          <span></span>
-          <span></span>
-        </a>
-      </div>
-    </header>
+            <div id="hm-icon">
+                <a class="menu-trigger" href="">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
+            </div>
+        </header>
 
-    <%= yield %>
-    <footer>
-      <p>©︎2019 RareRecord inc. All Right Reserved.</p>
-    </footer>
-  </body>
+        <%= yield %>
+        <footer>
+        <p>©︎2019 RareRecord inc. All Right Reserved.</p>
+        </footer>
+    </body>
 </html>
