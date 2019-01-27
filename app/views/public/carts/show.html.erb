@@ -3,9 +3,11 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
+<% if @cart.selects.empty? %>
+<h4>現在、カートは空です。</h4>
+<% end %>
 				<% @cart.selects.each do |select| %>
 				<div class="col-md-4">
-
 					<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %></br>
 
 					<label>商品名</label>
@@ -34,12 +36,15 @@
 			</div>
 		</div>
 	</div>
+
+
+	
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 	<h3>配送先の選択</h3>
 	<h4>アカウント登録時の住所へ配送を希望する場合</h4>
-	<%= link_to "購入確認画面へ", check_cart_path(@cart.id), class: "btn btn-default" %>
+	<%= link_to "購入確認画面へ", check_cart_path(@cart.id), class: "btn btn-info" %>
 
 	<h4>追加登録した住所へ配送を希望する場合</h4>
 
@@ -54,10 +59,12 @@
 		<li>住所 <%= address.add_address %></li>
 		<li>電話番号 <%= address.add_phone %></li>
 	</ul>
-	<%= link_to "追加配送先の編集", edit_user_address_path(@user.id,address), class: "btn btn-default" %>
-	<%= link_to "削除", user_address_path(@user.id,address), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
+	<%= link_to "この住所を使う", cart_user_address_path(@cart.id, @user.id, address.id), class: "btn btn-success" %>
 		    </div>
 	<% end %>
 		</div>
 	</div>
 </div>
+<% if @user.addresses.empty? %>
+<h4>現在、使配送先は登録しておりません。</h4>
+<% end %>
