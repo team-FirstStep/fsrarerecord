@@ -14,8 +14,7 @@ class Admin::ProductsController < Admin::ApplicationController
     @product.discs.build
   end
 
-  def
-    edit
+  def edit
     @product = Product.find(params[:id])
   end
 
