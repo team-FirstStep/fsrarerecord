@@ -21,6 +21,9 @@ class Product < ApplicationRecord
 
     has_many :carts, through: :selects
 
+    def current_stock
+    	stock - log_quantity
+    end
 
 	private
 	def referenced_by_select
