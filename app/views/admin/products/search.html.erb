@@ -42,22 +42,6 @@
 										<p><%= stock %>個有り</p>
 									<% end %>
 								</span>
-								<span>
-									<p>
-										<%= form_for [product, @select], url: selects_path do |f| %>
-											<%= f.hidden_field :product_id, :value => product.id %>
-											<%= f.fields_for :discs do |disc| %>
-												<%= disc.number_field :value, min:0, max:100, :size => "5*5" %>
-											<% end %>
-											枚
-											<span class="btn btn-default">
-												<%= link_to carts_path, class: 'fbtn' do %>
-													<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-												<% end %>
-											</span>
-										<% end %>
-									</p>
-								</span>
 							</div>
 					</div>
 				</div>

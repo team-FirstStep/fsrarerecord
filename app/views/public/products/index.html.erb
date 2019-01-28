@@ -1,4 +1,5 @@
-<body>
+
+
 	<div id="container">
 	<div id="test-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
 
@@ -11,51 +12,56 @@
   </ol>
 
   <!-- 実際の画像の表示処理 -->
-  <div class="carousel-inner" style="margin: 5px 0px 0px 216px;">
-  	<span class="item active">    <!-- activeをつけたものがページ表示時に表示される -->	
+  <div class="carousel-inner">
+  	<span class="item active">    <!-- activeをつけたものがページ表示時に表示される -->
 	    <span1>
-	    	<%= image_tag 'test1.jpeg', :size =>'1008x470' %>
+	    	<%= image_tag 'fs1.jpeg', :size =>'1008x470' %>
 	    </span1>
 	</span>
 	<span class="item">
 	    <span1>
-	      	<%= image_tag 'test2.jpg', :size =>'1008x470' %>
+	      	<%= image_tag 'fs2.jpg', :size =>'1008x470' %>
 	    </span1>
 	</span>
 	<span class="item">
 	      <span1>
-	      	<%= image_tag 'test3.jpg', :size =>'1008x470' %>
+	      	<%= image_tag 'fs3.jpg', :size =>'1008x470' %>
 	      </span1>
 	</span>
 	<span class="item">
 	      <span1>
-	      	<%= image_tag 'test4.jpg', :size =>'1008x470' %>
+	      	<%= image_tag 'fs4.jpg', :size =>'1008x470' %>
 	      </span1>
 	</span>
   </div>
 
   <!-- 前の画像へ戻るための矢印ポインタ -->
-  <a class="left carousel-control" href="#test-carousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
+    <div class="left">
+		<a class="left carousel-control" href="#test-carousel" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left"></span>
+		</a>
+    </div>
 
   <!-- 次の画像へ進むための矢印ポインタ -->
-  <a class="right carousel-control" href="#test-carousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
+  	<div class="right">
+        <a class="right carousel-control" href="#test-carousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
 </div>
 </div>
+<div class="index">
     <div class="container">
 	    <div class="row">
-	    	<br></br>
-	    	<h1 style="margin-left: 350px">商品一覧</h1>
+	    	<p class="record">👑ー ー ー Record ー ー ー👑</p>
 	    	<div class="col-md-9">
 	    		<div class="row">
 			    	<% @products.each do |product| %>
-					    <div class="col-md-4" style="margin-bottom:30px">
+					    <div class="col-md-4">
 					    	<%= link_to product_path(product.id) do %>
-							    <table>
-								    <thead>
+							    <table class="table">
+							    	<thead></thead>
+								    <tbody class="tbody">
 								    	<tr>
 								    		<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
 								    		<td>アーティスト名</td>
@@ -79,7 +85,7 @@
 						  				</tr>
 
 					    				<tr>
-						   					<td>在庫ステータス</td>
+						   					<td>在庫数</td>
 											<td>
 								   				<% product.stock %>
 												<p>
@@ -91,30 +97,39 @@
 												</p>
 								   			</td>
 								   		</tr>
-								    </thead>
+								    </tbody>
 							    </table>
 							<% end %>
-							<!-- <p> -->
-							   	<%#= form_for [product, @select], url: selects_path do |f| %>
-									<%#= f.hidden_field :product_id, :value => product.id %>
-									<%#= f.fields_for :discs do |disc| %>
-										<%#= disc.number_field :value, min:0, max:100, :size => "4*4" %>
-											<!-- 枚 -->
-									<%# end %>
-									<!-- <span class="btn btn-default">
-											<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-									</span> -->
-								<%# end %>
-							<!-- </p> -->
 					    </div>
 				    <% end %>
 				</div>
 			</div>
 			<div class="col-md-2">
-				<%= render 'public/products/side'%>
+				<h2>世界の天気</h2>
+				<label> 都市名: </label>
+				<input id="cityname" type="text" size="14" maxlength="14" placeholder="Tokyo">
+				<button id="btn"><p class="kensaku">検索</p></button><br>
+				<span>場所 :</span>
+				<span id="place"></span><br>
+				<span>最高気温 :</span>
+				<span id="temp_max"></span>
+				<span> ℃</span><br>
+				<span>最低気温 :</span>
+				<span id="temp_min"></span>
+				<span> ℃</span><br>
+				<span>湿度 :</span>
+				<span id="humidity"></span>
+				<span> %</span><br>
+				<span>風速 :</span>
+				<span id="speed"></span>
+				<span> m/s</span><br>
+				<span>天気 :</span>
+				<span id="weather"></span>
+				<div id="icon"><img id="img"></div>
 			</div>
 		</div>
 	</div>
 	<%= paginate @products, class: "paginate" %>
-</body>
+</div>
+
 
