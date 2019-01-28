@@ -31,5 +31,5 @@ class Public::CartsController < Public::ApplicationController
 
 	def product_params
       params.require(:product).permit(:product_id, :cart_id)
-    end
+  end
 end

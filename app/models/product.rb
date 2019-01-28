@@ -21,6 +21,8 @@ class Product < ApplicationRecord
 
     has_many :carts, through: :selects
 
+    validates :artists, :cd_title, :price, presence: true
+
     def current_stock
     	stock - log_quantity
     end
