@@ -56,7 +56,11 @@
       </a>
     </div>
   </header>
-
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
   <%= yield %>
   <footer>
     <p>©︎2019 RareRecord inc. All Right Reserved.</p>
