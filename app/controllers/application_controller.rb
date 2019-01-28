@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   end
 
 	def after_sign_in_path_for(resource)
-		if current_user
-			root_path
-		else
+		if current_admin
 			admin_products_path
+		else
+			root_path
 		end
  	end
 
@@ -55,5 +55,6 @@ protected
     def configure_sign_up_params
       devise_parameter_sanitizer.permit(:sign_up, keys: [:zip, :address, :phone, :last_name, :first_name, :last_name_kana, :first_name_kana])
     end
+
 
 end

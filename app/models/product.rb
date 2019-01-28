@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   	attachment :image
 
 
-	has_many :discs
+	has_many :discs, dependent: :delete_all
 	accepts_nested_attributes_for :discs, allow_destroy: true
 
 	has_many :songs
@@ -21,6 +21,9 @@ class Product < ApplicationRecord
 
     has_many :carts, through: :selects
 
+    def current_stock
+    	stock - log_quantity
+    end
 
 	private
 	def referenced_by_select

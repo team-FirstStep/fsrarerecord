@@ -54,7 +54,12 @@
 						<p class="text-left">在庫数：  </p>
 					</td>
 					<td class="text-left product_show_stock">
-						<%= @product.stock %>
+						<% @product.stock %>
+							<% if @product.stock == 0 then %>
+							<p>売り切れ</p>
+							<% else %>
+							<p><%= @product.stock %>個有り</p>
+						<% end %>
 					</td>
 				</tr>
 				<tr>
@@ -65,13 +70,7 @@
 						<%= @product.genre %>
 					</td>
 				</tr>
-				<tr>
-					<td>
-					</td>
-					<td>
-						< 在庫ステータスの表示 >
-					</td>
-				</tr>
+				
 				<tr>
 					<td>
 						<%= link_to "商品情報編集", edit_admin_product_path(@product.id) %>
@@ -110,23 +109,27 @@
 					<td class="text-left product_show_song_title">
 						<%= song.song_title %>
 					</td>
-				</tr>
 				<% end %>
 				<tr>
 					<td>
 					</td>
 					<td>
-						<%= link_to "Disc編集", edit_admin_product_disc_path(@product.id, disc) %>
+						<%= link_to "収録曲の編集", edit_admin_product_disc_path(@product.id, disc) %>
 						<!-- ↑ここのpath(@product.id, disc)のdiscはブロック変数|disc| -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+                <%= link_to "Discを削除する", admin_product_disc_path(@product.id, disc), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
 					</td>
 				</tr>
 				<% end %>
 			</div>
 			<tr>
 				<td>
-				</td>
-				<td>
-					<%= "　　　　　　　　　　　　" %>
+					<%= "　　　　　" %>
 				</td>
 				<td>
 					<%= link_to "Discの追加", new_admin_product_disc_path(@product.id), class: "new_admin_product_disc_#{@product.id}" %>
@@ -135,7 +138,13 @@
 					<%= "　　　　　" %>
 				</td>
 				<td>
-					<%= link_to "登録完了", admin_products_path, class: "admin_products" %>
+				<%= link_to "商品を削除する", admin_product_path(@product.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
+				</td>
+				<td>
+					<%= "　　　　　" %>
+				</td>
+				<td>
+					<%= link_to "登録完了", admin_products_path, class: "btn admin_products" %>
 				</td>
 			</tr>
 		</table>

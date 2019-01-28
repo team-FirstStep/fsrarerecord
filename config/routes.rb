@@ -28,10 +28,9 @@ Rails.application.routes.draw do
 end
 
   namespace :admin do
-    get '/products/check/:id' => 'products#check', as: 'check_product'
     resources :products do
-        resources :discs, only: [:new, :create, :edit, :update] do
-          resources :songs, only: [:new, :create, :edit, :update]
+        resources :discs, only: [:new, :create, :edit, :update, :destroy] do
+          resources :songs, only: [:new, :create, :edit, :update, :destroy]
         end
     end
   end
@@ -39,17 +38,24 @@ end
   scope module: :public do
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products
-    resources :selects, only: [:create, :update, :destory]
+    resources :selects, only: [:create, :update, :destroy]
+    get 'select/edit'
+    post 'select/edit'
   end
 
   scope module: :public do
-    resources :carts
+    get '/carts/:id/check' => 'carts#check', as: 'check_cart'
+    resources :carts do
+    resources :users, only: [:show] do
+    resources :addresses, only: [:show]
+  end
+  end
   end
 
   scope module: :public do
-  post '/add_item' => 'carts#add_item'
-  post '/update_item' => 'carts#update_item'
-  delete '/delete_item' => 'carts#delete_item'
+  post '/add_item' => 'selects#add_item', as: 'carts_products'
+  post '/update_item' => 'selects#update_item', as: 'carts_update_item'
+  delete '/delete_item' => 'selects#delete_item', as: 'carts_delete_item'
  end
 
   namespace :admin do
@@ -62,7 +68,7 @@ end
   end
 
   scope module: :public do
-    resources :orders, only: [:create]
+    resources :orders, only: [:create, :index, :show]
   end
 
 

@@ -13,4 +13,6 @@ class User < ApplicationRecord
 
    accepts_nested_attributes_for :addresses, allow_destroy: true, reject_if: :all_blank
 
+   # validates :zip, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
+
 end

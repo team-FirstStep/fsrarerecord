@@ -1,40 +1,79 @@
+<div class="container">
 <h2>カートの中身</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+<% if @cart.selects.empty? %>
+<h4>現在、カートは空です。</h4>
+<% end %>
+<% @total_price = 0 %>
+<!-- ↑ここで0を定義しないと合計の計算ができない(エラーになる) -->
+				<% @cart.selects.each do |select| %>
+				<div class="col-md-4">
+					<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %></br>
+
+					<label>商品名</label>
+					<%= select.product.cd_title %></br>
+					<sapm>アーティスト名</spam>
+						<%= select.product.artists %></br>
+						<label>値段</label>
+						<%= select.log_price %>
+						<sapm>円</spam>
+							<%= select.product.status %></br>
+							<label>購入数：</label>
+							<%= select.quantity %></br>
+							<label>購入数の変更</label></br>
+							<%= form_for(select, url: select_path(select.id), html: {method: "patch"}) do |f| %>
+							<%= f.number_field :quantity, min:1, max:100 %>
+							<%= f.submit "購入数を変更する", class: "btn" %>
+							<% end %>
+<% @subtotal_price = select.log_price * select.quantity %>
+<!-- ↑小計の計算 -->
+		                     <label>小計</label><label><%= @subtotal_price %></label><label>円</label></br>
+							<%= link_to "カートから削除", select_path(select), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
+						</div>
+<% @total_price = @total_price + @subtotal_price %>
+						<% end %>
+					</div>
+					<label></label></br>
+					<label><%= link_to "買い物を続ける", products_path, class: "btn btn-default" %></label>
+				<label>合計金額</label><label><%= @total_price %></label><label>円</label>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-		<div class="row">
-			<% @cart.selects.each do |select| %>
-			<div class="col-md-4">
+	<h3>配送先の選択</h3>
+	<h4>①アカウント登録時の住所へ配送を希望する場合</h4>
+	<%= link_to "購入確認画面へ", check_cart_path(@cart.id), class: "btn btn-info" %>
 
-				<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %>
-				<table>
-				    <tbody>
-					    <tr>
-						    <td>商品名</td>
-						    <td><%= select.product.cd_title %></td>
-					    </tr>
-					    <tr>
-					    	<td>アーティスト名</td>
-					    	<td><%= select.product.artists %></td>
-					    </tr>
-					</tbody>
-				</table>
-			<label>値段</label>
-			<%= select.log_price %>
+	<h4>②追加登録した住所へ配送を希望する場合</h4>
 
-			<%= select.product.status %>
+<% if @user.addresses.empty? %>
+<label></label></br>
+<h4>現在、追加配送先は登録しておりません。</h4>
+<% end %>
 
-			<input type="number">
+	<% @user.addresses.each_with_index do |address,i| %>
 
-			<%#= link_to "削除", cart_path(@cart.id), method: :delete, class: 'btn btn-default' do %>
-			<%# end %>
-			</div>
-			<% end %>
-		</div>
-		</div>
+		    <div class="col-md-4">
+	<h4><%= "配送先" + "#{i+1}" %></h4>
+	<ul>
+		<li>カナ <%= address.add_last_name_kana %><%= address.add_first_name_kana %></li>
+		<li>名前 <%= address.add_last_name %><%= address.add_first_name %></li>
+		<li>〒 <%= address.add_zip %></li>
+		<li>住所 <%= address.add_address %></li>
+		<li>電話番号 <%= address.add_phone %></li>
+	</ul>
+	<%= link_to "この住所を使う", cart_user_address_path(@cart.id, @user.id, address.id), class: "btn btn-success" %>
+		    </div>
+	<% end %>
 		</div>
 	</div>
 </div>
-			<span>別の宛先で配送希望の場合</span>
-
-

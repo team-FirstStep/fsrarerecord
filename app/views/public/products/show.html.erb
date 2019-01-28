@@ -23,7 +23,14 @@
 		            </tr>
 		            <tr>
 			            <td>在庫数</td>
-			            <td><%= @product.stock %></td>
+			            <td>
+			            	<% stock = @product.stock %>
+								<% if stock == 0 then %>
+								<p>売り切れ</p>
+								<% else %>
+								<p><%= stock %>個有り</p>
+							<% end %>
+						</td>
 		            </tr>
 		            <tr>
 			            <td>ジャンル</td>

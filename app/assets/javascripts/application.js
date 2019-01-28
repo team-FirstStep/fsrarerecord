@@ -11,7 +11,7 @@
 // about supported directives.
 
 //= require rails-ujs
-  //= require turbolinks
+
   //= require jquery
   //= require jquery_ujs
   //= require_tree ../../../app/assets/javascripts/.
@@ -20,13 +20,13 @@
 
 
 $(function() {
- 
+
   $('.menu-trigger').on('click', function() {
     $(this).toggleClass('active');
     $('#sp-menu').fadeToggle();
     return false;
   });
- 
+
  });
 
 
@@ -37,7 +37,7 @@ $(document).ready(function () {
 });
 
 API_KEY = "21bf352314ed4ed72ecc050ee66e8ecd";
- 
+
 $(function(){
   $('#btn').on('click', function() {
     // 入力された都市名でWebAPIに天気情報をリクエスト

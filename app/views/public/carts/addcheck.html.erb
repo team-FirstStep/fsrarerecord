@@ -1,0 +1,67 @@
+<h2>注文確認画面</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <% @cart.selects.each do |select| %>
+
+
+      <%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '80x80' %>
+      <table>
+        <tbody>
+          <tr>
+            <td>商品名</td>
+            <td><%= select.product.cd_title %></td>
+          </tr>
+          <tr>
+            <td>アーティスト名</td>
+            <td><%= select.product.artists %></td>
+          </tr>
+        </tbody>
+      </table>
+      <label>値段</label>
+      <%= select.log_price %>
+      <sapm>円</spam>
+        <%= select.product.status %></br>
+        <label>購入数：</label>
+        <%= select.quantity %></br>
+        　　　<% end %>
+
+        <label><%= link_to "カートの中身に戻る", cart_path(@cart.id), class: "btn btn-default" %></label>
+        <label></label>
+        <label></label>
+        <label><%= link_to "買い物を続ける", products_path, class: "btn btn-default" %></label>
+      </div>
+      <div class="col-md-6">
+        <h3>配送先</h3>
+        <h5>配送先宛名</h5>
+        <p><%= @user.last_name %> <%= @user.first_name %></p>
+        <p><%= @user.last_name_kana %> <%= @user.first_name_kana %></p>
+
+        <h5>登録住所</h5>
+        <label>電話番号 </label>
+        <%= @user.phone %><br>
+        <label>e-mail </label>
+        <%= @user.email %><br>
+        <label>〒 </label>
+        <%= @user.zip %><br>
+        <label>住所</label>
+        <%= @user.address %>
+
+
+        <label></label><br>
+        <label></label><br>
+
+        <%= form_for @order, :url => { :controller => :orders, :action => :create } do |f| %>
+        <%= f.hidden_field :log_last_name, :value => @user.last_name %>
+        <%= f.hidden_field :log_first_name, :value => @user.first_name %>
+        <%= f.hidden_field :log_last_name_kana, :value => @user.last_name_kana %>
+        <%= f.hidden_field :log_first_name_kana, :value => @user.first_name_kana %>
+        <%= f.hidden_field :log_zip, :value => @user.zip %>
+        <%= f.hidden_field :log_address, :value => @user.address %>
+
+        <%= f.submit "購入確定", class: "btn btn-warning" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
