@@ -1,9 +1,10 @@
 #container{
-  height: 450px;
+  height: 486px;
+  background-color: #000;
+  border-top: 8px solid #FFF;
+  border-bottom: 8px solid #FFF;
  }
-.span1 {
 
-}
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +18,32 @@ a {
   content: "";
   display: block;
   clear: both;
+}
+
+.item {
+  margin: 0px 0px 0px 216px;
+}
+
+.index {
+  background-color: #000
+}
+.col-md-4 {
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  margin:15px 0px 15px 0px;
+}
+.record {
+  font-size: 40px;
+  margin: 10px 400px 5px 220px;
+  color: #FFF;
+}
+
+tbody.tbody {
+  overflow-y: scroll;
+  height: 150px; 
+}
+td,tr{
+  width: 120px;
 }
 
 .product-new {
@@ -90,3 +117,21 @@ input#product_image{
   padding-top: 70px;
   padding-left: 200px;
 }
+
+.col-md-2 {
+  color: #FFF;
+  font-size: 20px;
+}
+#btn {
+  width: 42px;
+  height: 30px;
+}
+.kensaku {
+  color: #000;
+}
+
+.paginate {
+  color: #000;
+}
+
+
