@@ -16,7 +16,6 @@
 						<%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
 					</td>
 				</tr>
-
 				<tr>
 					<td>
 						<p class="text-left">アーティスト名：  </p>
@@ -109,7 +108,17 @@
 					<td class="text-left product_show_song_title">
 						<%= song.song_title %>
 					</td>
+				    <tr>
+					<td><p></p>
+					</td>
+					<td><p></p>
+					</td>
 				<% end %>
+				    <tr>
+					<td><p></p>
+					</td>
+					<td><p></p>
+					</td>
 				<tr>
 					<td>
 					</td>
@@ -117,34 +126,40 @@
 						<%= link_to "収録曲の編集", edit_admin_product_disc_path(@product.id, disc) %>
 						<!-- ↑ここのpath(@product.id, disc)のdiscはブロック変数|disc| -->
 					</td>
-				</tr>
-				<tr>
 					<td>
-					</td>
-					<td>
-                <%= link_to "Discを削除する", admin_product_disc_path(@product.id, disc), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+                <%= link_to "Discを削除する", admin_product_disc_path(@product.id, disc), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-danger" %>
 					</td>
 				</tr>
+				    <tr>
+					<td><p></p>
+					</td>
+					<td><p></p>
+					</td>
 				<% end %>
+				    <tr>
+					<td><p></p>
+					</td>
+					<td><p></p>
+					</td>
 			</div>
 			<tr>
 				<td>
 					<%= "　　　　　" %>
 				</td>
 				<td>
-					<%= link_to "Discの追加", new_admin_product_disc_path(@product.id), class: "new_admin_product_disc_#{@product.id}" %>
+					<%= link_to "Discの追加", new_admin_product_disc_path(@product.id), class: "btn btn-primary new_admin_product_disc_#{@product.id}" %>
 				</td>
 				<td>
 					<%= "　　　　　" %>
 				</td>
 				<td>
-				<%= link_to "商品を削除する", admin_product_path(@product.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
+				<%= link_to "商品を削除する", admin_product_path(@product.id), method: :delete, class:"btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
 				</td>
 				<td>
 					<%= "　　　　　" %>
 				</td>
 				<td>
-					<%= link_to "登録完了", admin_products_path, class: "btn admin_products" %>
+					<%= link_to "登録完了", admin_products_path, class:"btn btn-warning admin_products" %>
 				</td>
 			</tr>
 		</table>
