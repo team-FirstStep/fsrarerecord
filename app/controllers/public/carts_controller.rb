@@ -21,9 +21,11 @@ class Public::CartsController < Public::ApplicationController
     @order = Order.new
   end
 
-
-
-
+  def index
+    @user = current_user
+    @cart = Cart.where(user_id: @user)
+    @order = Order.where(cart_id: @cart)
+  end
 
 	private
 
