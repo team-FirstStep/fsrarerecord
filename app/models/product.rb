@@ -34,7 +34,7 @@ class Product < ApplicationRecord
 			return true
 		else
 			errors.add(:base, '品目が存在します。')
-			retuen false
+
 		end
 	end
 

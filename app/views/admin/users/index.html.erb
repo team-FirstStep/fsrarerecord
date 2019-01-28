@@ -2,7 +2,7 @@
 	<div class="row">
 		<h2>ユーザー一覧</h2>
 		<% @users.each do |user| %>
-			<div class="col-md-2">
+			<div class="col-md-3">
 				<%= link_to "USER ID：#{user.id}", admin_user_path(user.id) %><br>
 				<label>カナ：</label><%= user.last_name_kana %> <%= user.first_name_kana %><br>
 				<label>名前：</label><%= user.last_name %> <%= user.first_name %><br>
