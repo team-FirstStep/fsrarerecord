@@ -57,8 +57,7 @@
 
         <label></label><br>
         <label></label><br>
-
-        <%= form_for @order, :url => { :controller => :orders, :action => :create } do |f| %>
+<%= form_for @order, :url => { :controller => :orders, :action => :create } do |f| %>
         <%= f.hidden_field :log_last_name, :value => @user.last_name %>
         <%= f.hidden_field :log_first_name, :value => @user.first_name %>
         <%= f.hidden_field :log_last_name_kana, :value => @user.last_name_kana %>

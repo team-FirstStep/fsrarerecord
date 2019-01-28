@@ -21,9 +21,11 @@ class Product < ApplicationRecord
 
     has_many :carts, through: :selects
 
-    def current_stock
-    	stock - log_quantity
-    end
+    validates :stock, numericality: {
+            only_integer: true, greater_than_or_equal_to: 0
+          }
+    #only_integer: trueを指定しないとgreater_than_or_equal_to:は発動しない
+
 
 	private
 	def referenced_by_select
