@@ -57,15 +57,13 @@
 
         <label></label><br>
         <label></label><br>
-
-        <%= form_for @order, :url => { :controller => :orders, :action => :create } do |f| %>
+<%= form_for @order, :url => { :controller => :orders, :action => :create } do |f| %>
         <%= f.hidden_field :log_last_name, :value => @user.last_name %>
         <%= f.hidden_field :log_first_name, :value => @user.first_name %>
         <%= f.hidden_field :log_last_name_kana, :value => @user.last_name_kana %>
         <%= f.hidden_field :log_first_name_kana, :value => @user.first_name_kana %>
         <%= f.hidden_field :log_zip, :value => @user.zip %>
         <%= f.hidden_field :log_address, :value => @user.address %>
-
         <%= f.submit "購入確定", class: "btn btn-warning" %>
         <% end %>
       </div>

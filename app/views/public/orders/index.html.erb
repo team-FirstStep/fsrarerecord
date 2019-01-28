@@ -1,5 +1,21 @@
+<h2>廃墟</h2>
+<!-- <head>
+  <%#= stylesheet_link_tag "public/orders", :media => "all" %>
+  <title>order_index</title>
+</head>
+
+<div class="container">
 <h2>購入履歴</h2>
-<% @order.each do |order| %>
+	<div class="row">
+		<div class="col-md-18">
+
+<%# if @order.empty? %>
+<h4>現在、注文は承っておりません。</h4>
+<%# end %>
+
+<%# @order.each do |order| %>
+<div class='border'></div>
+			<div class="row">
 <label>購入日時</label>
 <%= order.created_at %><br>
 
@@ -7,16 +23,41 @@
 <%= order.log_last_name_kana %><%= order.log_first_name_kana %><br>
 <%= order.log_last_name %><%= order.log_first_name %><br>
 <%= order.log_zip %><%= order.log_address %><br>
+<label>注文ステータス：</label>
+<%= order.order_status %></br>
 
-<% @product.each do |p| %>
-<label>商品名</label>
-<%= p.cd_title %><br>
 
-<label>単価</label>
-<%= p.price %><br>
+<%# @total_price = 0 %>
 
-<label>合計金額</label><br>
-<br>
-<%#= order. %>
-<% end %>
-<% end %>
+<%# order.cart.each do |cart| %>
+<%# order.cart.selects.each do |select| %>
+				<div class="col-md-4">
+					<%#= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %></br>
+
+					<label>商品名</label>
+					<%#= select.product.cd_title %></br>
+					<sapm>アーティスト名</spam>
+						<%#= select.product.artists %></br>
+						<label>値段</label>
+						<%#= select.log_price %>
+						<label>円</label>
+							<label>商品ステータス：</label>
+							<%#= select.product.status %></br>
+							<label>購入数：</label>
+							<%#= select.quantity %></br>
+<%# @subtotal_price = select.log_price * select.quantity %>
+<!-- ↑小計の計算 -->
+		                     <label>小計</label><label><%#= @subtotal_price %></label><label>円</label></br>
+<%# @total_price = @total_price + @subtotal_price %>
+				</div>
+						<%# end %>
+<%# end %>
+
+				<label>合計金額</label><label><%#= @total_price %></label><label>円</label>
+
+			</div>
+<%# end %>
+		</div>
+	</div>
+
+ -->

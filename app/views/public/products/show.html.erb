@@ -42,15 +42,15 @@
 		            </tr>
 	            </tbody>
             </table>
+
             <span>
             	<% if current_user %>
 				<%= form_for @select, :url => { :controller => :selects, :action => :create } do |f| %>
 					<%= f.hidden_field :product_id, :value => @product.id %>
 					<%= f.hidden_field :log_price, :value => @product.price %>
 					<%= f.number_field :quantity, min:0, max:100, :size => "5*5" %>
-					<%= f.submit do %>
-						<i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
-					<% end %>
+					<span class="glyphicon glyphicon-shopping-cart aria-hidden="truet"><%= f.submit "カートに入れる", class: "btn btn-info"  %>
+					</span>
 				<% end %>
 				<% else %>
 					<h2>ログインまたは新規会員登録後、カートへの追加が可能です。</h2>
@@ -67,9 +67,7 @@
 					        </span>
 					    </div>
 				<% end %>
-			</span>
         </div>
-
         <!-- <div class="col-md-4"> -->
             <h4>シングル/アルバム内の曲名</h4>
             <% @product.discs.each do |disc| %>
@@ -82,3 +80,5 @@
             <%= @product.status %>
         </div>
     </div>
+		<label><%= link_to "商品一覧に戻る", products_path, class: "btn btn-default" %></label>
+

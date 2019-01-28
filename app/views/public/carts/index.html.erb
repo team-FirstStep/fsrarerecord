@@ -1,39 +1,61 @@
-<h1>カート一覧</h1>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<% @selects.each do |select| %>
-						<div class="col-md-4">
-							<table>
-								<tr>
-									<%= attachment_image_tag @products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100" %>
-									<td>
-										<p>商品タイトル: <%= select.product.cd_title %></p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>アーティスト名: <%= select.product.artists %></p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>値段: <%= select.product.price %></p>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<p>在庫ステータス</p>
-									</td>
-									<td>
-										<p><%= link_to "削除", root_path, method: :delete %></p>
-									</td>
-								</tr>
-							</table>
-						</div>
-					<% end %>
+
+<head>
+  <%= stylesheet_link_tag "public/orders", :media => "all" %>
+  <title>order_index</title>
+</head>
+
+<div class="container">
+<h2>購入履歴</h2>
+	<div class="row">
+		<div class="col-md-18">
+
+<% if @order.empty? %>
+<h4>現在、注文は承っておりません。</h4>
+<% end %>
+
+<% @order.each do |order| %>
+<div class='border'></div>
+			<div class="row">
+<label>購入日時</label>
+<%= order.created_at %><br>
+
+<label>選択配送先</label><br>
+<%= order.log_last_name_kana %><%= order.log_first_name_kana %><br>
+<%= order.log_last_name %><%= order.log_first_name %><br>
+<%= order.log_zip %><%= order.log_address %><br>
+<label>注文ステータス：</label>
+<%= order.order_status %></br>
+
+
+<% @total_price = 0 %>
+
+<%# order.cart.each do |cart| %>
+<% order.cart.selects.each do |select| %>
+				<div class="col-md-4">
+					<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %></br>
+
+					<label>商品名</label>
+					<%= select.product.cd_title %></br>
+					<sapm>アーティスト名</spam>
+						<%= select.product.artists %></br>
+						<label>値段</label>
+						<%= select.log_price %>
+						<label>円</label>
+							<label>商品ステータス：</label>
+							<%= select.product.status %></br>
+							<label>購入数：</label>
+							<%= select.quantity %></br>
+<% @subtotal_price = select.log_price * select.quantity %>
+<!-- ↑小計の計算 -->
+		                     <label>小計</label><label><%= @subtotal_price %></label><label>円</label></br>
+<% @total_price = @total_price + @subtotal_price %>
 				</div>
+						<% end %>
+<%# end %>
+
+				<label>合計金額</label><label><%= @total_price %></label><label>円</label>
+
 			</div>
+<% end %>
 		</div>
 	</div>
