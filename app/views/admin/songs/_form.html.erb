@@ -2,7 +2,10 @@
 <%= simple_form_for @new_song, :url => { :controller => :songs, :action => :create }, remote: true do |f| %>
 <!-- ↑simple_form_for(gem)でないとうまく機能しない -->
 <!-- ↑form_forはpathを勘違い(自動認識)してエラーになるのでurlを書いてあげてる←これに気付くのに1時間... -->
-
+<tr>
+  <td><p></p>
+  </td>
+</tr>
 <tr>
   <td>
  <p  class="text-left">収録曲の順番：  </p>
@@ -13,7 +16,10 @@
   <td>
   </td>
 </tr>
-
+<tr>
+  <td><p></p>
+  </td>
+</tr>
 <tr>
   <td>
  <p  class="text-left">曲のタイトル：  </p>

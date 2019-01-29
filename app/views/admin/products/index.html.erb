@@ -1,48 +1,58 @@
 <div class="container">
 	<div class="row">
-		<h1>main</h1>
-		<% @products.each do |products| %>
-		<%= link_to admin_product_path(products.id) do %>
-		<div class="col-md-4">
-			<table>
-				<tr>
-					<%= attachment_image_tag products, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
-					<td>アーティスト名</td>
-					<td>
-						<%= products.artists %>
-					</td>
-				</tr>
+		<p class="record">main</p>
+		<div class="col-md-10">
+			<div class="row">
+				<% @products.each do |product| %>
+				<div class="col-md-4">
+					<%= link_to admin_product_path(product.id) do %>
+					<table class="table">
+						<thead class="thead"></thead>
+						<tbody class="tbody">
+							<div class="tr-td">
+								<tr>
+									<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
+									<td>アーティスト名</td>
+									<td>
+										<%= product.artists %>
+									</td>
+								</tr>
 
-				<tr>
-					<td>シングル/アルバム名</td>
-					<td>
-						<%= products.cd_title %>
-					</td>
-				</tr>
+								<tr>
+									<td>シングル/アルバム名</td>
+									<td>
+										<%= product.cd_title %>
+									</td>
+								</tr>
 
-				<tr>
-					<td>値段</td>
-					<td>
-						<%= products.price%>円
-					</td>
-				</tr>
+								<tr>
+									<td>値段</td>
+									<td>
+										<%= product.price %>円
+									</td>
+								</tr>
 
-				<tr>
-					<td>在庫数</td>
-					<td>
-						<% stock = products.stock %>
-						<% if stock == 0 then %>
-						<p>売り切れ</p>
-						<% else %>
-						<p><%= stock %>個有り</p>
-						<% end %>
-					</td>
-				</tr>
-
-			</table>
+								<tr>
+									<td>在庫数</td>
+									<td>
+										<% product.stock %>
+										<p>
+											<% if product.stock == 0 then %>
+											<p>売り切れ</p>
+											<% else %>
+											<p><%= product.stock %>個有り</p>
+											<% end %>
+										</p>
+									</td>
+								</tr>
+							</div>
+						</tbody>
+					</table>
+					<% end %>
+				</div>
+				<% end %>
+			</div>
 		</div>
-		<% end %>
-		<% end %>
 	</div>
 
 	<div class="row" style="margin-bottom:30px" >
@@ -55,6 +65,5 @@
 			</div>
 		</div>
 	</div>
+	<%= paginate @products, class: "paginate" %>
 </div>
-<%= paginate @products, class: "paginate" %>
-
