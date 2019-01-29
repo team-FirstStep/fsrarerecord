@@ -26,6 +26,7 @@ class Public::CartsController < Public::ApplicationController
     @user = current_user
     @cart = Cart.where(user_id: @user)
     @order = Order.where(cart_id: @cart).order 'created_at desc'
+            # created_at descで新しい順になる
   end
 
 	private
