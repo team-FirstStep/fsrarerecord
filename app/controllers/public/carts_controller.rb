@@ -8,6 +8,7 @@ class Public::CartsController < Public::ApplicationController
   #   end
   # ーーーーーここまでApplicationControllerで定義ーーーーー
 
+
   def show
     @cart = Cart.find(params[:id])
     @user = current_user
@@ -24,12 +25,13 @@ class Public::CartsController < Public::ApplicationController
   def index
     @user = current_user
     @cart = Cart.where(user_id: @user)
-    @order = Order.where(cart_id: @cart)
+    @order = Order.where(cart_id: @cart).order 'created_at desc'
+            # created_at descで新しい順になる
   end
 
 	private
 
 	def product_params
       params.require(:product).permit(:product_id, :cart_id)
-    end
+  end
 end

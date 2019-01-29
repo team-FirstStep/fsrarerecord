@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
  	end
 
 
-
   protect_from_forgery with: :exception
 # <script> タグなどを使って意図に反して勝手にPOSTリクエストが送られてしまう可能性がある
 # そのためprotect_from_forgery with: :exception をつける

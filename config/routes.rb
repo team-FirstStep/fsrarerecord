@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users do
       resources :addresses
+      resources :carts, only: [:index]
     end
   end
   scope module: :public do
@@ -57,11 +58,6 @@ end
   post '/update_item' => 'selects#update_item', as: 'carts_update_item'
   delete '/delete_item' => 'selects#delete_item', as: 'carts_delete_item'
  end
-
-  namespace :admin do
-    resources :carts, only: [:show]
-  end
-
 
   namespace :admin do
     resources :orders

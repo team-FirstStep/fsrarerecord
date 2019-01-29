@@ -56,13 +56,14 @@
 			</div>
 	</div>
 	<div class="btn-wrapper">
-	<p class="col-md-4"></p>
-		<div class="row align-items-center" style="margin-bottom:30px" style="margin-top:30px">
-			<p class="btn btn-info col-xs-2 col-xs-offset-1">
-				<%= link_to "商品新規登録", new_admin_product_path %>
-			</p>
-		</div>
-	<%= paginate @products, class: "paginate" %>
+		<p class="col-md-4"></p>
+			<div class="row align-items-center" style="margin-bottom:30px" style="margin-top:30px">
+				<p class="btn btn-info col-xs-2 col-xs-offset-1">
+					<%= link_to "商品新規登録", new_admin_product_path %></p>
+				<p class="btn btn-success col-xs-2 col-xs-offset-1">
+                    <%= link_to "ユーザー一覧", admin_users_path %></p>
+			</div>
 	</div>
+	<%= paginate @products, class: "paginate" %>
 </div>
 
