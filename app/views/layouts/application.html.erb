@@ -13,7 +13,15 @@
   <body>
     <header>
       <div style="margin-left: 400px">
+          <% if user_signed_in? %>
+        <%= link_to root_path, class: 'rerere' do %>
         <%= image_tag 'rerere.png', size:'550x60' %>
+        <% end %>
+          <% elsif admin_signed_in? %>
+        <%= link_to admin_products_path, class: 'rerere' do %>
+        <%= image_tag 'rerere.png', size:'550x60' %>
+        <% end %>
+        <% end %>
       </div>
       <div class="header-search">
         <%= form_tag(search_products_path, :method => 'get') do %>
@@ -26,7 +34,19 @@
         <div style="color: #FFF">
           <h1>menu</h1>
           <ul>
-          <% if user_signed_in? %>
+          <% if user_signed_in? & admin_signed_in? %>
+          <li><%= current_admin.last_name %> <%= current_admin.first_name %> さんがログイン中</li>
+          <li><%= link_to admin_products_path, class: '' do %> 商品一覧 <% end %></li>
+          <li><%= link_to admin_users_path, class: '' do %> ユーザー一覧 <% end %></li>
+          <li><%= link_to destroy_admin_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
+            <li>ようこそ <%= current_user.last_name %> <%= current_user.first_name %> さん</li>
+            <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
+            <li><%= link_to user_path(current_user), class: '' do %> マイページ <% end %></li>
+            <li><%= link_to cart_path(current_cart.id), class: '' do %> カート <% end %></li>
+            <li><%= link_to destroy_user_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>
+            <li><%= link_to user_registration_path, method: :delete,"data-confirm" => "本当に退会しますか？", class: 'btn btn-danger btn-xs' do %> 退会 <% end %></li>
+
+          <% elsif user_signed_in? %>
             <li>ようこそ <%= current_user.last_name %> <%= current_user.first_name %> さん</li>
             <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
             <li><%= link_to user_path(current_user), class: '' do %> マイページ <% end %></li>
