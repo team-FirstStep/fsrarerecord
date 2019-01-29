@@ -10,7 +10,11 @@
 		<div class="col-md-18">
 
 <% if @order.empty? %>
-<h4>現在、注文は承っておりません。</h4>
+  <h4>現在、注文は承っておりません。</h4>
+<% end %>
+
+<% if user_signed_in? %>
+<h4><%= current_user.last_name %> <%= current_user.first_name %> さんの注文購入履歴一覧</h4>
 <% end %>
 
 <% @order.each do |order| %>
@@ -23,7 +27,7 @@
 <%= order.log_last_name_kana %><%= order.log_first_name_kana %><br>
 <%= order.log_last_name %><%= order.log_first_name %><br>
 <%= order.log_zip %><%= order.log_address %><br>
-<label>注文ステータス：</label>
+<label>注文ステータス： 注文済み</label>
 <%= order.order_status %></br>
 
 
@@ -52,9 +56,9 @@
 				</div>
 						<% end %>
 <%# end %>
-
-				<label>合計金額</label><label><%= @total_price %></label><label>円</label>
-
+			<div class="col-md-18 text-right">
+				<h4>合計金額<%= @total_price %>円</h4>
+			</div>
 			</div>
 <% end %>
 		</div>
