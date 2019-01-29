@@ -3,86 +3,86 @@
   <title>product_new</title>
 </head>
 
-                  <div class="container">
+<div class="container">
   <table class="product-new">
     <h2 class="product-new-title">商品新規登録</h2>
-                  <div class="row">
+    <div class="row">
 
-<%= form_for @product, :url => { :controller => :products, :action => :create } do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
+      <%= form_for @product, :url => { :controller => :products, :action => :create } do |f| %>
+      <% if @product.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
+      </div>
+      <% end %>
+      <tr>
+        <td>
+          <p  class="text-right">ジャケット：  </p>
+        </td>
+        <td>
+          <%= f.attachment_field :image %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p  class="text-right">アーティスト名：  </p>
+        </td>
+        <td>
+          <%= f.text_field :artists, class: "product_new_artists" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="text-right">　　　　　　シングル/アルバム名：  </p>
+        </td>
+        <td>
+          <%= f.text_field :cd_title, class: "product_new_cd_title" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+
+          <p class="text-right">値段：  </p>
+        </td>
+        <td>
+          <%= f.text_field :price, class: "product_new_price" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="text-right">レーベル名：  </p>
+        </td>
+        <td>
+          <%= f.text_field :label, class: "product_new_label" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="text-right">在庫数：  </p>
+        </td>
+        <td>
+          <%= f.number_field :stock, min:1, max:100, class: "product_new_stock" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="text-right">ジャンル：  </p>
+        </td>
+        <td class="product_new_genre">
+        <%= f.select(:genre, [["期間限定生産", "期間限定生産"], ["初回限定生産", "初回限定生産"], ["非売品", "非売品"], ["イベント限定販売品", "イベント限定販売品"], ["生産終了品", "生産終了品"]])  %>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+        </td>
+        <td>
+          <%= f.submit "次へ", class:"btn" %>
+          <% end %>
+        </td>
+      </tr>
     </div>
-  <% end %>
-   <tr>
-    <td>
-      <p  class="text-right">ジャケット：  </p>
-    </td>
-    <td>
-      <%= f.attachment_field :image %>
-    </td>
-   </tr>
-   <tr>
-     <td>
-      <p  class="text-right">アーティスト名：  </p>
-     </td>
-     <td>
-    <%= f.text_field :artists, class: "product_new_artists" %>
-     </td>
-   </tr>
-   <tr>
-     <td>
-      <p class="text-right">　　　　　　シングル/アルバム名：  </p>
-     </td>
-     <td>
-    <%= f.text_field :cd_title, class: "product_new_cd_title" %>
-     </td>
-   </tr>
-   <tr>
-     <td>
-
-      <p class="text-right">値段：  </p>
-     </td>
-     <td>
-    <%= f.text_field :price, class: "product_new_price" %>
-     </td>
-   </tr>
-   <tr>
-     <td>
-      <p class="text-right">レーベル名：  </p>
-     </td>
-     <td>
-    <%= f.text_field :label, class: "product_new_label" %>
-     </td>
-   </tr>
-   <tr>
-     <td>
-      <p class="text-right">在庫数：  </p>
-     </td>
-     <td>
-    <%= f.number_field :stock, min:1, max:100, class: "product_new_stock" %>
-     </td>
-   </tr>
-   <tr>
-     <td>
-      <p class="text-right">ジャンル：  </p>
-     </td>
-     <td class="product_new_genre">
-<%= f.select(:genre, [["期間限定生産", "期間限定生産"], ["初回限定生産", "初回限定生産"], ["非売品", "非売品"], ["イベント限定販売品", "イベント限定販売品"], ["生産終了品", "生産終了品"]])  %>
-
-     </td>
-   </tr>
-
-     <td>
-   <tr>
-     <td>
-     </td>
-     <td>
-  <%= f.submit "次へ", class:"btn" %>
-<% end %>
-     </td>
-   </tr>
   </table>
-                  </div>
-                  </div>
+</div>
+
 
