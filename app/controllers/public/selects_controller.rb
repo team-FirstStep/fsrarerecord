@@ -5,11 +5,11 @@ class Public::SelectsController < Public::ApplicationController
 
 	def index
     	@selects = Select.all
-  	end
+  end
 
-  	def new
+  def new
   		@select = Select.new
-  	end
+  end
 
 	def create
       @user = current_user

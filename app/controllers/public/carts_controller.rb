@@ -8,7 +8,6 @@ class Public::CartsController < Public::ApplicationController
   #   end
   # ーーーーーここまでApplicationControllerで定義ーーーーー
 
-
   def show
     @cart = Cart.find(params[:id])
     @user = current_user
@@ -26,6 +25,14 @@ class Public::CartsController < Public::ApplicationController
     @user = current_user
     @cart = Cart.where(user_id: @user)
     @order = Order.where(cart_id: @cart).order 'created_at desc'
+    
+    #仮でランキング？ここに作った↓viewはcarts_index
+    @rank = Select.where(product_id: @order).order('product_id desc').limit(6)
+    # @ranks = Select.group(:product).order('count_product_id desc').count(:product_id)
+  end
+
+  def rank
+   
   end
 
 	private
