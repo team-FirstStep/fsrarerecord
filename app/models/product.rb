@@ -21,6 +21,12 @@ class Product < ApplicationRecord
 
     has_many :carts, through: :selects
 
+    validates :artists, :cd_title, :price, presence: true
+
+    def current_stock
+    	stock - log_quantity
+    end
+
     validates :stock, numericality: {
             only_integer: true, greater_than_or_equal_to: 0
           }

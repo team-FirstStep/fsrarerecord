@@ -31,8 +31,11 @@ class Admin::ProductsController < Admin::ApplicationController
   def create
         @product = Product.new(product_params)
         @product.admin_id = current_admin.id
-        @product.save
+        if @product.save
         redirect_to new_admin_product_disc_path(@product.id)
+      else
+        render 'new'
+      end
   end
 
   def destroy
@@ -50,7 +53,7 @@ class Admin::ProductsController < Admin::ApplicationController
   #   render text: "検索結果#{cnt}件ヒットしました。"
 private
     def product_params
-        params.require(:product).permit(:image, :artists, :cd_title, :price, :label, :genre, :stock)
+        params.require(:product).permit(:image, :artists, :cd_title, :price, :label, :genre, :stock, :status)
     end
 
 end
