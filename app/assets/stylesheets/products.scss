@@ -37,13 +37,23 @@ a {
   margin: 10px 400px 5px 220px;
   color: #FFF;
 }
-
-tbody.tbody {
-  overflow-y: scroll;
-  height: 150px; 
+.table {
+  width: 262.484px;
 }
-td,tr{
-  width: 120px;
+
+.thead {
+  display: block;
+  width: 280px;
+}
+.tbody {
+  display: block;
+  overflow:auto ;
+  height: 200px;
+  width: 280px;
+}
+.tr-td {
+  width: 140px;
+  height: 30px;
 }
 
 .product-new {
