@@ -86,13 +86,13 @@ ActiveRecord::Schema.define(version: 2019_01_27_104532) do
     t.string "cd_title"
     t.integer "price"
     t.string "label"
-    t.integer "stock"
     t.datetime "created_at", null: false
     t.datetime "update_at"
     t.datetime "deleted_at"
     t.datetime "updated_at", null: false
     t.string "image_id"
     t.string "genre"
+    t.string "stock"
     t.string "status"
   end
 
