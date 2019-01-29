@@ -7,6 +7,18 @@ class Public::CartsController < Public::ApplicationController
   #     session[:cart_id] = @cart.id
   #   end
   # ーーーーーここまでApplicationControllerで定義ーーーーー
+  before_action :correct_user, only: [:show, :check]
+  before_action :authenticate_user!
+
+    def correct_user
+    @cart = Cart.find(params[:id])
+    @order = Order.new
+      if current_user.id != @cart.user_id
+    # ↑current_userは.idをつけないと@cart.user_idと認識しない
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+      end
+    end
 
   def show
     @cart = Cart.find(params[:id])

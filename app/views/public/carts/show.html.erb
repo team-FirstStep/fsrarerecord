@@ -18,8 +18,14 @@
 						<%= select.product.artists %></br>
 						<label>値段</label>
 						<%= select.log_price %>
-						<sapm>円</spam>
-							<%= select.product.status %></br>
+						<sapm>円</spam></br>
+							<label>在庫数：</label>
+							<% stock = select.product.stock %>
+							<% if stock == 0 then %>
+								<p>売り切れ</p>
+								<% else %>
+								<p><%= stock %>個有り</p>
+							<% end %>
 							<label>購入数：</label>
 							<%= select.quantity %></br>
 							<label>購入数の変更</label></br>

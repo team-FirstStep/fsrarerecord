@@ -1,6 +1,19 @@
 class Public::SelectsController < Public::ApplicationController
+  before_action :correct_user, only: [:update, :destroy]
+  before_action :authenticate_user!
 
-	 # before_action :set_select
+
+    def correct_user
+      @cart = current_cart
+      @select = Select.find(params[:id])
+      @select_product = @select.product
+      @product = Product.find(@select_product.id)
+      if current_user.id != @cart.user_id
+   　 # ↑current_userは.idをつけないと@cart.user_idと認識しない
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+      end
+    end
 
 
 	def index
