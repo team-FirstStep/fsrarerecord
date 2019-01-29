@@ -6,10 +6,10 @@
 <div class="container">
 	<h2 class="product-show-title">商品詳細</h2>
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-8">
 			<table class="product-show">
 				<tr>
-					<td>
+					<td width="200">
 						<p class="text-left">ジャケット：  </p>
 					</td>
 					<td class="text-left product_show_image">
@@ -18,58 +18,52 @@
 				</tr>
 				<tr>
 					<td>
-						<p class="text-left">アーティスト名：  </p>
+						<p class="text-left product_show_artists">アーティスト名：  <%= @product.artists %></p>
 					</td>
-					<td class="text-left product_show_artists">
-						<%= @product.artists %>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p class="text-left">シングル/アルバム名：  </p>
-					</td>
-					<td class="text-left product_show_cd_title">
-						<%= @product.cd_title %>
+					<td class="text-left ">
+						
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<p class="text-left">値段：  </p>
+						<p class="text-left product_show_cd_title">シングル/アルバム名：  <%= @product.cd_title %></p>
 					</td>
-					<td class="text-left product_show_price">
-						<%= @product.price %>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<p class="text-left">レーベル名：  </p>
-					</td>
-					<td class="text-left product_show_label">
-						<%= @product.label %>
+					<td class="text-left">
+						
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<p class="text-left">在庫数：  </p>
+						<p class="text-left product_show_price">値段：  <%= @product.price %></p>
 					</td>
-					<td class="text-left product_show_stock">
+					<td class="text-left">
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="text-left product_show_label">レーベル名：  <%= @product.label %></p>
+					</td>
+					<td class="text-left">
+						
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p class="text-left product_show_stock">在庫数：  
 						<% @product.stock %>
 							<% if @product.stock == 0 then %>
 							<p>売り切れ</p>
 							<% else %>
 							<p><%= @product.stock %>個有り</p>
-						<% end %>
+						<% end %></p>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<p class="text-left">ジャンル：  </p>
-					</td>
-					<td class="text-left product_show_genre">
-						<%= @product.genre %>
+						<p class="text-left product_show_genre">ジャンル：  <%= @product.genre %></p>
 					</td>
 				</tr>
-
 				<tr>
 					<td>
 						<%= link_to "商品情報編集", edit_admin_product_path(@product.id) %>
@@ -79,7 +73,7 @@
 				</tr>
 			</table>
 		</div>
-		<div class="col-md-5">
+		<div class="col-md-8">
 			<table class="product_show_song">
 				<h4>シングル/アルバム内の曲名</h4>
 				<% @product.discs.each do |disc| %>

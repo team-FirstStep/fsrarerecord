@@ -12,7 +12,10 @@ a {
   display: block;
   clear: both;
 }
-
+.product-show {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
 .blog-date {
   display: inline-block;
   font-size: 12px;

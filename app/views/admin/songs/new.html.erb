@@ -1,31 +1,48 @@
+<div class="container">
+	<h2 class="product-song-new">曲名登録</h2>
+	<div class="row">
+		<div class="col-md-18">
 
-<h2>曲名登録</h2>
+			<h3>シングル/アルバム内の曲名</h3>
 
-<h3>シングル/アルバム内の曲名</h3>
+			<table class="table" id="songs">
+				<!-- ↑create.js.erbの$('#songs').htmlにリンクするためにid="songs"を記入 -->
 
-<table class="table" id="songs">
-<!-- ↑create.js.erbの$('#songs').htmlにリンクするためにid="songs"を記入 -->
+				<%= render @new_song %>
+				<!-- render @new_songsより_song.html.erbの内容を表示 -->
 
-  <%= render @new_song %>
-<!-- render @new_songsより_song.html.erbの内容を表示 -->
+			</table>
+			<%= link_to "曲名を追加する", new_admin_product_disc_song_path, remote: true %>
+			<!-- remote: trueによりjavascript発動 -->
+			<!-- "曲名を追加する”のボタンを押すと、songsのnewアクションが実行される -->
+			<!-- link_toにremote:trueを加えることによって自動的にajaxでの処理にすることができる -->
 
-</table>
-<%= link_to "曲名を追加する", new_admin_product_disc_song_path, remote: true %>
-<!-- remote: trueによりjavascript発動 -->
-<!-- "曲名を追加する”のボタンを押すと、songsのnewアクションが実行される -->
-<!-- link_toにremote:trueを加えることによって自動的にajaxでの処理にすることができる -->
+			<div id="song-form"></div>
+			<!-- ↑new.js.erbの$('#song-form')にリンクするため記入 -->
 
-<div id="song-form"></div>
-<!-- ↑new.js.erbの$('#song-form')にリンクするため記入 -->
-
-<table class="link">
-
-<p class="btn">
-  <tr>
-    <td>
-       <%= link_to "登録内容確認画面へ", admin_product_path(@product.id) %>
-    </td>
-  </tr>
-</p>
-
-</table>
+			<table class="link">
+				<tr>
+					<td><p></p>
+					</td>
+				</tr>
+				<tr>
+					<td><p></p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= link_to "登録内容確認画面へ", admin_product_path(@product.id), class:"btn btn-default"  %>
+					</td>
+				</tr>
+				<tr>
+					<td><p></p>
+					</td>
+				</tr>
+				<tr>
+					<td><p></p>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
