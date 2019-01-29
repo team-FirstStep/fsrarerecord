@@ -2,35 +2,38 @@
   <title>disc_new</title>
 </head>
 
-                  <div class="container">
+<div class="container">
+        <h2></h2><br>
+        <h2 class="disc_new_num">Discナンバー登録</h2>
+    <div class="row">
   <table class="disc-new">
-    <h2 class="disc_new_num">Discナンバー登録</h2>
-                  <div class="row">
-  <!-- フォームフォー -->
-<%= form_for @disc, :url => { :controller => :discs, :action => :create } do |f| %>
-  <% if @disc.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
-    </div>
-  <% end %>
-   <tr>
-     <td>
-      <p class="text-right">Disc：  </p>
-     </td>
-     <td>
-      <%= f.number_field :disc_num, min:1, max:100, class: "disc_num" %>
-     </td>
-   </tr>
-
-   <tr>
-     <td>
-     </td>
-     <td>
-  <%= f.submit "次へ", class:"btn" %>
-<% end %>
-     </td>
-   </tr>
+      <!-- フォームフォー -->
+      <%= form_for @disc, :url => { :controller => :discs, :action => :create } do |f| %>
+      <% if @disc.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= @product.errors.count %>件のエラーが発生しました。</h2>
+      </div>
+      <% end %>
+      <tr>
+        <td><p></p><br>
+        </td>
+      </tr>
+      <tr>
+       <td>
+        <p class="text-right">Disc：  <%= f.number_field :disc_num, min:1, max:100, class: "disc_num" %></p>
+      </td>
+      <td width="50">
+      </td>
+      <td>
+        <%= f.submit "収録曲登録へ", class:"btn btn-info" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td><p></p><br><p></p><br>
+      </td>
+    </tr>
   </table>
-                  </div>
-                  </div>
+</div>
+</div>
 
