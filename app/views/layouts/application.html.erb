@@ -14,12 +14,12 @@
     <header>
       <label></label><br>
       <div style="margin-left: 400px">
-          <% if user_signed_in? %>
-        <%= link_to root_path, class: 'rerere' do %>
+          <% if admin_signed_in? %>
+        <%= link_to admin_products_path, class: 'rerere' do %>
         <%= image_tag 'rerere.png', size:'550x60' %>
         <% end %>
-          <% elsif admin_signed_in? %>
-        <%= link_to admin_products_path, class: 'rerere' do %>
+          <% else %>
+        <%= link_to root_path, class: 'rerere' do %>
         <%= image_tag 'rerere.png', size:'550x60' %>
         <% end %>
         <% end %>
@@ -57,6 +57,7 @@
 
           <% elsif admin_signed_in? %>
           <li>管理者 <%= current_admin.last_name %> <%= current_admin.first_name %> さんがログイン中</li>
+          <li><%= link_to root_path, class: 'top' do %> Top <% end %></li>
           <li><%= link_to admin_products_path, class: '' do %> 商品一覧 <% end %></li>
           <li><%= link_to admin_users_path, class: '' do %> ユーザー一覧 <% end %></li>
           <li><%= link_to destroy_admin_session_path, method: :delete, class: 'logout' do %> ログアウト<% end %></li>

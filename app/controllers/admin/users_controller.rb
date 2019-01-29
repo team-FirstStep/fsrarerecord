@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::ApplicationController
   # before_action :set_user
-
+before_action :authenticate_admin!
   def index
     # @users = User.where("email LIKE(?)", "%#{params[:keyword]}%")
     @users = User.all

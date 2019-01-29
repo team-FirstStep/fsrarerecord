@@ -1,6 +1,6 @@
 class Admin::ProductsController < Admin::ApplicationController
   # before_action :set_product
-
+before_action :authenticate_admin!
   def index
     @products = Product.page(params[:page]).reverse_order
   end

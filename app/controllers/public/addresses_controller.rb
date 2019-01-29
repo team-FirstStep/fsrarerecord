@@ -1,4 +1,23 @@
 class Public::AddressesController < Public::ApplicationController
+  before_action :correct_user_edit, only: [:edit, :update]
+  before_action :correct_user_new, only: [:new]
+
+    def correct_user_edit
+		@edit_address = Address.find(params[:id])
+		@edit_address.user_id = current_user
+      if current_user != @user
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+      end
+    end
+
+    def correct_user_new
+		@add_address = Address.new
+      if current_user != @user
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+      end
+    end
 
 	def show
         @cart = Cart.find(params[:cart_id])

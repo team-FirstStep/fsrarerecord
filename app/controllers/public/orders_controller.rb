@@ -1,7 +1,16 @@
 class Public::OrdersController < Public::ApplicationController
-  # before_action :set_order
-  def index
-  end
+  before_action :correct_user, only: [:create]
+  before_action :authenticate_user!
+
+    def correct_user
+    @cart = current_cart
+    @order = Order.new(order_params)
+      if current_user != @user
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+      end
+    end
+
 
   def create
     @user = current_user

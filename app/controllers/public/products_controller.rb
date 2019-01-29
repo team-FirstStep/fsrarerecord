@@ -12,7 +12,6 @@ class Public::ProductsController < Public::ApplicationController
   end
 
   def create
-
   end
 
   def search
