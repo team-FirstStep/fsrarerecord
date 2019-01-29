@@ -1,6 +1,4 @@
-<% @rank.each do |rank| %>
-<%= rank.product.cd_title %>
-<% end %>
+
 <head>
   <%= stylesheet_link_tag "public/orders", :media => "all" %>
   <title>order_index</title>
@@ -13,7 +11,11 @@
 		<div class="col-md-18">
 
 <% if @order.empty? %>
-<h4>現在、注文は承っておりません。</h4>
+  <h4>現在、注文は承っておりません。</h4>
+<% else %>
+
+<% if user_signed_in? %>
+<h4><%= current_user.last_name %> <%= current_user.first_name %> さんの注文購入履歴一覧</h4>
 <% end %>
 
 <% @order.each do |order| %>
@@ -26,9 +28,10 @@
 <%= order.log_last_name_kana %><%= order.log_first_name_kana %><br>
 <%= order.log_last_name %><%= order.log_first_name %><br>
 <%= order.log_zip %><%= order.log_address %><br>
-<label>注文ステータス：受付</label>
-<%= order.order_status %></br>
 
+<label>注文ステータス： 注文済み</label>
+
+<%= order.order_status %></br>
 
 <% @total_price = 0 %>
 
@@ -54,10 +57,12 @@
 <% @total_price = @total_price + @subtotal_price %>
 				</div>
 						<% end %>
-<%# end %>
-
-				<label>合計金額</label><label><%= @total_price %></label><label>円</label>
-
+	</div>
+	<div class="row">
+			<div class="col-md-18 text-right">
+				<h4>合計金額<%= @total_price %>円</h4>
+			</div>
+<% end %>
 			</div>
 <% end %>
 		</div>

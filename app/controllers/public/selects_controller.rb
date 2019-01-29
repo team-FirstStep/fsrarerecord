@@ -49,9 +49,9 @@ class Public::SelectsController < Public::ApplicationController
       @select.update(quantity: pass_quantity)
           #↑変更されたquantityを変更前に戻す
           redirect_to cart_path(@cart.id)
-
       else
       @product.update(stock: @product.stock - (current_quantity - pass_quantity))
+          #↑変更されたquantityをstockに反映している
       redirect_to cart_path(@cart.id)
     end
     end
