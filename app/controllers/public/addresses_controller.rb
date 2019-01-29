@@ -4,7 +4,7 @@ class Public::AddressesController < Public::ApplicationController
 
     def correct_user_edit
 		@edit_address = Address.find(params[:id])
-		@edit_address.user_id = current_user
+		@user = User.find(params[:user_id])
       if current_user != @user
       flash[:notice] = "権限がありません"
       redirect_to root_path
@@ -13,6 +13,7 @@ class Public::AddressesController < Public::ApplicationController
 
     def correct_user_new
 		@add_address = Address.new
+		@user = User.find(params[:user_id])
       if current_user != @user
       flash[:notice] = "権限がありません"
       redirect_to root_path

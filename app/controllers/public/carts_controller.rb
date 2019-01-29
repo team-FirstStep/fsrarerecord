@@ -8,22 +8,13 @@ class Public::CartsController < Public::ApplicationController
   #   end
   # ーーーーーここまでApplicationControllerで定義ーーーーー
   before_action :correct_user, only: [:show, :check]
-  before_action :correct_user_index, only: [:index]
   before_action :authenticate_user!
 
     def correct_user
     @cart = Cart.find(params[:id])
     @order = Order.new
-      if current_user != @user
-      flash[:notice] = "権限がありません"
-      redirect_to root_path
-      end
-    end
-
-    def correct_user_index
-    @cart = Cart.where(user_id: @user)
-    @order = Order.where(cart_id: @cart)
-      if current_user != @user
+      if current_user.id != @cart.user_id
+    # ↑current_userは.idをつけないと@cart.user_idと認識しない
       flash[:notice] = "権限がありません"
       redirect_to root_path
       end

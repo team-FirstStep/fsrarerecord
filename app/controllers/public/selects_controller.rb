@@ -8,7 +8,8 @@ class Public::SelectsController < Public::ApplicationController
       @select = Select.find(params[:id])
       @select_product = @select.product
       @product = Product.find(@select_product.id)
-      if current_user != @user
+      if current_user.id != @cart.user_id
+   　 # ↑current_userは.idをつけないと@cart.user_idと認識しない
       flash[:notice] = "権限がありません"
       redirect_to root_path
       end
