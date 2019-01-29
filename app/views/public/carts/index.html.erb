@@ -1,69 +1,70 @@
 
 <head>
-  <%= stylesheet_link_tag "public/orders", :media => "all" %>
-  <title>order_index</title>
+	<%= stylesheet_link_tag "public/orders", :media => "all" %>
+	<title>order_index</title>
 </head>
 
 
 <div class="container">
-<h2>購入履歴</h2>
+	<h2>購入履歴</h2>
 	<div class="row">
-		<div class="col-md-18">
+		<div class="col-md-12">
 
-<% if @order.empty? %>
-  <h4>現在、注文は承っておりません。</h4>
-<% else %>
+			<% if @order.empty? %>
+			<h4>現在、注文は承っておりません。</h4>
+			<% else %>
 
-<% if user_signed_in? %>
-<h4><%= current_user.last_name %> <%= current_user.first_name %> さんの注文購入履歴一覧</h4>
-<% end %>
+			<% if user_signed_in? %>
+			<h4><%= current_user.last_name %> <%= current_user.first_name %> さんの注文購入履歴一覧</h4>
+			<% end %>
 
-<% @order.each do |order| %>
-<div class='border'></div>
+			<% @order.each do |order| %>
+			<div class='border'></div>
 			<div class="row">
-<label>購入日時</label>
-<%= order.created_at %><br>
+				<label>購入日時</label>
+				<%= order.created_at %><br>
 
-<label>選択配送先</label><br>
-<%= order.log_last_name_kana %><%= order.log_first_name_kana %><br>
-<%= order.log_last_name %><%= order.log_first_name %><br>
-<%= order.log_zip %><%= order.log_address %><br>
+				<label>選択配送先</label><br>
+				<%= order.log_last_name_kana %><%= order.log_first_name_kana %><br>
+				<%= order.log_last_name %><%= order.log_first_name %><br>
+				<%= order.log_zip %><%= order.log_address %><br>
 
-<label>注文ステータス： 注文済み</label>
+				<label>注文ステータス： 注文済み</label>
 
-<%= order.order_status %></br>
+				<%= order.order_status %></br>
 
-<% @total_price = 0 %>
+				<% @total_price = 0 %>
 
-<%# order.cart.each do |cart| %>
-<% order.cart.selects.each do |select| %>
+				<%# order.cart.each do |cart| %>
+				<% order.cart.selects.each do |select| %>
 				<div class="col-md-4">
 					<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %></br>
 
 					<label>商品名</label>
 					<%= select.product.cd_title %></br>
-					<sapm>アーティスト名</spam>
-						<%= select.product.artists %></br>
-						<label>値段</label>
-						<%= select.log_price %>
-						<label>円</label>
-							<label>商品ステータス：</label>
-							<%= select.product.status %></br>
-							<label>購入数：</label>
-							<%= select.quantity %></br>
-<% @subtotal_price = select.log_price * select.quantity %>
-<!-- ↑小計の計算 -->
-		                     <label>小計</label><label><%= @subtotal_price %></label><label>円</label></br>
-<% @total_price = @total_price + @subtotal_price %>
+					<spam>アーティスト名</spam>
+					<%= select.product.artists %></br>
+					<label>値段</label>
+					<%= select.log_price %>
+					<label>円</label>
+					<label>商品ステータス：</label>
+					<%= select.product.status %></br>
+					<label>購入数：</label>
+					<%= select.quantity %></br>
+					<% @subtotal_price = select.log_price * select.quantity %>
+					<!-- ↑小計の計算 -->
+					<label>小計</label><label><%= @subtotal_price %></label><label>円</label></br>
+					<% @total_price = @total_price + @subtotal_price %>
 				</div>
-						<% end %>
-	</div>
-	<div class="row">
-			<div class="col-md-18 text-right">
-				<h4>合計金額<%= @total_price %>円</h4>
+				<% end %>
 			</div>
-<% end %>
+			<div class="row">
+				<div class="col-md-18 text-right">
+					<h4>合計金額<%= @total_price %>円</h4>
+				</div>
+				<% end %>
 			</div>
-<% end %>
+			<% end %>
 		</div>
 	</div>
+</div>
