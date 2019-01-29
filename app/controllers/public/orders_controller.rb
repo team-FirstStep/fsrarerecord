@@ -11,7 +11,6 @@ class Public::OrdersController < Public::ApplicationController
       end
     end
 
-
   def create
     @user = current_user
     @cart = current_cart
