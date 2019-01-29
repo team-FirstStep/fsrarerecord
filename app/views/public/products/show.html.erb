@@ -3,7 +3,7 @@
     <h2>商品詳細</h2>
     <div class="row">
         <div class="col-md-4">
-            <%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %>
+            <%= attachment_image_tag @product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '300x300' %>
         </div>
 
         <div class="col-md-4">
@@ -48,9 +48,10 @@
 				<%= form_for @select, :url => { :controller => :selects, :action => :create } do |f| %>
 					<%= f.hidden_field :product_id, :value => @product.id %>
 					<%= f.hidden_field :log_price, :value => @product.price %>
-					<%= f.number_field :quantity, min:0, max:100, :size => "5*5" %>
-					<span class="glyphicon glyphicon-shopping-cart aria-hidden="truet"><%= f.submit "カートに入れる", class: "btn btn-info"  %>
-					</span>
+					数量：<%= f.number_field :quantity, min:0, max:100, :size => "5*5" %>
+            </span>
+					<span class="glyphicon glyphicon-shopping-cart aria-hidden="truet"></span>
+					<%= f.submit "カートに入れる", class: "btn btn-info"  %>
 				<% end %>
 				<% else %>
 					<h2>ログインまたは新規会員登録後、カートへの追加が可能です。</h2>
@@ -69,16 +70,42 @@
 				<% end %>
         </div>
         <!-- <div class="col-md-4"> -->
-            <h4>シングル/アルバム内の曲名</h4>
-            <% @product.discs.each do |disc| %>
-                <%= disc.disc_num %>
-            <% disc.songs.each do |song| %>
-                <%= song.song_track %>
-                <%= song.song_title %>
-            <% end %>
-            <% end %>
-            <%= @product.status %>
+				<h3>シングル/アルバム内の曲名</h3>
+				<% @product.discs.each do |disc| %>
+			<table class="product_show_song">
+				<tr>
+					<td width="250">
+						<h4 class="text-center product_show_disc_num">Disc:　<%= disc.disc_num %></h4>
+					</td>
+				</tr>
+				<tr>
+					<td><p></p>
+					</td>
+				</tr>
+			</table>
+				<% disc.songs.each do |song| %>
+			<table class="product_show_song-2">
+				<!-- ↑ここのdiscはeach doのブロック変数|disc| -->
+				<tr>
+					<td>
+						<p class="text-left product_show_song_track">　　　　トラック:<%= song.song_track %>　　<%= song.song_title %></p>
+					</td>
+				</tr>
+				    <tr>
+					<td><p></p>
+					</td>
+				<% end %>
+				    <tr>
+					<td>
+					</td>
+					<td><p></p>
+					</td>
+				</tr>
+			</table>
+				<% end %>
         </div>
-    </div>
 		<label><%= link_to "商品一覧に戻る", products_path, class: "btn btn-default" %></label>
+		<label></label><br><br>
+    </div>
+
 

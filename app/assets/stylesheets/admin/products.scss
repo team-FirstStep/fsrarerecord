@@ -12,6 +12,12 @@ a {
   display: block;
   clear: both;
 }
+
+.product-show {
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
 .col-md-4 {
   padding: 10px 10px 10px 10px;
   text-align: center;

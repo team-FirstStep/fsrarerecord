@@ -1,5 +1,13 @@
 class Public::UsersController < Public::ApplicationController
-  # before_action :set_user
+  before_action :correct_user, only: [:edit, :update, :show]
+
+    def correct_user
+    @user = User.find(params[:id])
+      if current_user != @user
+      flash[:notice] = "権限がありません"
+      redirect_to root_path
+      end
+    end
 
   def show
     @user = User.find(params[:id])
