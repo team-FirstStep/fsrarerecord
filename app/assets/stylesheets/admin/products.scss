@@ -12,6 +12,30 @@ a {
   display: block;
   clear: both;
 }
+.col-md-4 {
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+  margin:15px 0px 15px 0px;
+}
+
+.table {
+  width: 262.484px;
+}
+
+.thead {
+  display: block;
+  width: 280px;
+}
+.tbody {
+  display: block;
+  overflow:auto ;
+  height: 200px;
+  width: 280px;
+}
+.tr-td {
+  width: 140px;
+  height: 30px;
+}
 
 .blog-date {
   display: inline-block;

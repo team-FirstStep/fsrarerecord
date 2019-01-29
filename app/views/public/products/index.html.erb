@@ -60,8 +60,9 @@
 					    <div class="col-md-4">
 					    	<%= link_to product_path(product.id) do %>
 							    <table class="table">
-							    	<thead></thead>
+							    	<thead class="thead"></thead>
 								    <tbody class="tbody">
+								    <div class="tr-td">
 								    	<tr>
 								    		<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
 								    		<td>アーティスト名</td>
@@ -97,6 +98,7 @@
 												</p>
 								   			</td>
 								   		</tr>
+								   	</div>
 								    </tbody>
 							    </table>
 							<% end %>
