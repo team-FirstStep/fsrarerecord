@@ -25,18 +25,10 @@ class Public::CartsController < Public::ApplicationController
     @user = current_user
     @cart = Cart.where(user_id: @user)
     @order = Order.where(cart_id: @cart).order 'created_at desc'
-<<<<<<< HEAD
     
     #仮でランキング？ここに作った↓viewはcarts_index
     @rank = Select.where(product_id: @order).order('product_id desc').limit(6)
     # @ranks = Select.group(:product).order('count_product_id desc').count(:product_id)
-  end
-
-  def rank
-   
-=======
-            # created_at descで新しい順になる
->>>>>>> d73655b2cc219bfff7e9e270c936bc0d1855f63c
   end
 
 	private
