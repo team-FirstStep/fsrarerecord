@@ -1,5 +1,6 @@
 class Admin::DiscsController < Admin::ApplicationController
 # productsの子
+before_action :authenticate_admin!
   def new
   @product = Product.find(params[:product_id])
   @disc = @product.discs.build

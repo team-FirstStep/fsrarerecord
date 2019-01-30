@@ -2,6 +2,7 @@ class Admin::SongsController < Admin::ApplicationController
   # before_action :set_song
 # productsの孫
 # discsの子
+before_action :authenticate_admin!
   def index
     @songs = Song.where(id: params[:disc_id])
   end

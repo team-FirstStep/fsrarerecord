@@ -1,4 +1,5 @@
 class Admin::AddressesController < Admin::ApplicationController
+before_action :authenticate_admin!
 	def edit
 		@edit_address = Address.find(params[:user_id])
 		@user = User.find(params[:id])

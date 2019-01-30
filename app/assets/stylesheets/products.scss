@@ -32,6 +32,8 @@ a {
   text-align: center;
   margin:15px 0px 15px 0px;
 }
+
+
 .record {
   font-size: 40px;
   margin: 10px 400px 5px 220px;
@@ -132,6 +134,10 @@ input#product_image{
   color: #FFF;
   font-size: 20px;
 }
+#cityname {
+  color: #000;
+}
+
 #btn {
   width: 42px;
   height: 30px;
@@ -143,5 +149,155 @@ input#product_image{
 .paginate {
   color: #000;
 }
+.ball {
+    width: 10px;
+    height: 10px;
+    margin: 10px auto;
+    border-radius: 50px;
+}
 
+.container2 {
+    width: 200px;
+    height: 100px;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+.ball:nth-child(1) {
+    font-size: 50px;
+    -webkit-animation: right 1.5s infinite ease-in-out;
+    -moz-animation: right 1.5s infinite ease-in-out;
+    animation: right 1.5s infinite ease-in-out;
+}
+
+.ball:nth-child(2) {
+    font-size: 50px;
+    -webkit-animation: left 1.5s infinite ease-in-out;
+    -moz-animation: left 1.5s infinite ease-in-out;
+    animation: left 1.5s infinite ease-in-out;
+}
+
+.ball:nth-child(3) {
+    font-size: 50px;
+    -webkit-animation: right 1.5s infinite ease-in-out;
+    -moz-animation: right 1.5s infinite ease-in-out;
+    animation: right 1.5s infinite ease-in-out;
+}
+
+.ball:nth-child(4) {
+    font-size: 50px;
+    -webkit-animation: left 1.5s infinite ease-in-out;
+    -moz-animation: left 1.5s infinite ease-in-out;
+    animation: left 1.5s infinite ease-in-out;
+}
+
+.ball:nth-child(5) {
+    font-size: 50px;
+    -webkit-animation: right 1.5s infinite ease-in-out;
+    -moz-animation: right 1.5s infinite ease-in-out;
+    animation: right 1.5s infinite ease-in-out;
+}
+
+.ball:nth-child(6) {
+    font-size: 50px;
+    -webkit-animation: left 1.5s infinite ease-in-out;
+    -moz-animation: left 1.5s infinite ease-in-out;
+    animation: left 1.5s infinite ease-in-out;
+}
+
+.ball:nth-child(7) {
+    font-size: 50px;
+    -webkit-animation: right 1.5s infinite ease-in-out;
+    -moz-animation: right 1.5s infinite ease-in-out;
+    animation: right 1.5s infinite ease-in-out;
+}
+.ball:nth-child(8) {
+    font-size: 50px;
+    -webkit-animation: left 1.5s infinite ease-in-out;
+    -moz-animation: left 1.5s infinite ease-in-out;
+    animation: left 1.5s infinite ease-in-out;
+}
+.ball:nth-child(9) {
+    font-size: 50px;
+    -webkit-animation: right 1.5s infinite ease-in-out;
+    -moz-animation: right 1.5s infinite ease-in-out;
+    animation: right 1.5s infinite ease-in-out;
+}
+.ball:nth-child(10) {
+    font-size: 50px;
+    -webkit-animation: left 1.5s infinite ease-in-out;
+    -moz-animation: left 1.5s infinite ease-in-out;
+    animation: left 1.5s infinite ease-in-out;
+}
+
+@-webkit-keyframes right {
+    0% {
+        -webkit-transform: translate(-50px);
+    }
+    50% {
+        -webkit-transform: translate(50px);
+    }
+    100% {
+        -webkit-transform: translate(-50px);
+    }
+}
+
+@-webkit-keyframes left {
+    0% {
+        -webkit-transform: translate(50px);
+    }
+    50% {
+        -webkit-transform: translate(-50px);
+    }
+    100% {
+        -webkit-transform: translate(50px);
+    }
+}
+
+@-moz-keyframes right {
+    0% {
+        -moz-transform: translate(-50px);
+    }
+    50% {
+        -moz-transform: translate(50px);
+    }
+    100% {
+        -moz-transform: translate(-50px);
+    }
+}
+
+@-moz-keyframes left {
+    0% {
+        -moz-transform: translate(50px);
+    }
+    50% {
+        -moz-transform: translate(-50px);
+    }
+    100% {
+        -moz-transform: translate(50px);
+    }
+}
+
+@keyframes right {
+    0% {
+        transform: translate(-50px);
+    }
+    50% {
+        transform: translate(50px);
+    }
+    100% {
+        transform: translate(-50px);
+    }
+}
+
+@keyframes left {
+    0% {
+        transform: translate(50px);
+    }
+    50% {
+        transform: translate(-50px);
+    }
+    100% {
+        transform: translate(50px);
+    }
+}
 
