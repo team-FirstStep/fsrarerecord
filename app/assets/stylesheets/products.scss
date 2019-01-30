@@ -3,6 +3,7 @@
   background-color: #000;
   border-top: 8px solid #FFF;
   border-bottom: 8px solid #FFF;
+  display: block;
  }
 
 * {
@@ -191,9 +192,13 @@ input#product_image{
 }
 
 .col-md-2 {
+  margin-top: 20px;
   color: #FFF;
   font-size: 20px;
+  border-left: 2px solid #FFF;
+  border-right: 2px solid #FFF;
 }
+
 #cityname {
   color: #000;
 }
@@ -209,6 +214,31 @@ input#product_image{
 .paginate {
   color: #000;
 }
+
+.ppp{
+  color: gold;
+  font-size: 15px;
+  border-bottom: 2px solid #FFF;
+  text-align: center;
+}
+
+.ranking{
+  border-color: gold;
+}
+
+.ranking ol {
+  margin-left: 20px;
+}
+
+.ranking table {
+  margin-bottom: 10px;
+}
+
+.ranking td {
+  font-size: 16px;
+  padding-left: 5px;
+}
+
 .ball {
     width: 10px;
     height: 10px;
