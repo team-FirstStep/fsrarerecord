@@ -39,6 +39,66 @@ a {
   margin: 10px 400px 5px 220px;
   color: #FFF;
 }
+
+.CSSMarquee {
+    max-width: 800px;
+    padding: 1em 0;
+    margin: 0px 0px 0px 60px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    border-top: 2px solid #FFFF00;
+    border-bottom: 2px solid #FFFF00;
+    color:#FFFF00;
+    font-weight: bold;
+}
+.CSSMarquee p:after {
+    content: "";
+    white-space: nowrap;
+}
+.CSSMarquee p {
+    margin: 0;
+    padding-left: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-animation-name:marqueeRL;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-duration:25s;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-name:marqueeRL;
+    -moz-animation-timing-function:linear;
+    -moz-animation-duration:25s;
+    -moz-animation-iteration-count:infinite;
+    -ms-animation-name:marqueeRL;
+    -ms-animation-timing-function:linear;
+    -ms-animation-duration:25s;
+    -ms-animation-iteration-count:infinite;
+    -o-animation-name:marqueeRL;
+    -o-animation-timing-function:linear;
+    -o-animation-duration:25s;
+    -o-animation-iteration-count:infinite;
+    animation-name:marqueeRL;
+    animation-timing-function:linear;
+    animation-duration:25s;
+    animation-iteration-count:infinite;
+}
+ 
+@-webkit-keyframes marqueeRL {
+    from {-webkit-transform:translate(0);} to {-webkit-transform:translate(-100%);}
+}
+@-moz-keyframes marqueeRL {
+    from {-moz-transform:translate(0);} to {-moz-transform:translate(-100%);}
+}
+@-ms-keyframes marqueeRL {
+    from {-ms-transform:translate(0);} to {-ms-transform:translate(-100%);}
+}
+@-o-keyframes marqueeRL {
+    from {-o-transform:translate(0);} to {-o-transform:translate(-100%);}
+}
+@keyframes marqueeRL {
+    from {transform:translate(0);} to {transform:translate(-100%);}
+}
+
 .table {
   width: 262.484px;
 }
