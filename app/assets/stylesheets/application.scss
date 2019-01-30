@@ -36,7 +36,9 @@ header {
 	width: 100%;
   background-color: #000;
   border-top: 5px solid #FFF;
+  display: block;
 }
+
 .header-search {
 	text-align: right;
 	margin-right: 100px;
@@ -90,6 +92,75 @@ header {
 
 #sp-menu {
 	display: none;
+}
+
+
+.star {
+      position: absolute;
+      background: url(https://mtedwards.s3.amazonaws.com/sparkle.png) no-repeat;
+      background-size: contain;
+      overflow: hidden;
+
+      &.star-1 {
+        width: 50px;
+        height: 34px;
+        top:110px;
+        left:97px;  
+      }
+      &.star-2 {
+        width: 83px;
+        height: 77px;
+        top:18px;
+        left:224px;
+      }
+      &.star-3 {
+        width: 74px;
+        height: 70px;
+        top:115px;
+        left:172px;
+      }
+      &.star-4 {
+        width: 56px;
+        height: 54px;
+        top:46px;
+        left:423px;
+      }
+      &.star-5 {
+        width: 68px;
+        height: 70px;
+        top:46px;
+        left:666px;
+      }
+      &.star-6 {
+        width: 23px;
+        height: 12px;
+        top:46px;
+        left:794px;
+      }
+      &.star-7 {
+        width: 58px;
+        height: 50px;
+        top:46px;
+        left:859px;
+      }
+      &.star-8 {
+        width: 54px;
+        height: 40px;
+        top:46px;
+        left:901px;
+      }
+      &.star-9 {
+        width: 69px;
+        height: 60px;
+        top:46px;
+        left:1002px;
+      }
+      &.star-10 {
+        width: 31px;
+        height: 20px;
+        top:10px;
+        left:1200px;
+      }
 }
 
 /*フッター*/
