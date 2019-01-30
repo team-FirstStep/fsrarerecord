@@ -7,7 +7,7 @@
 					<div class="row">
 						<%= link_to product_path(product.id) do %>
 							<div class="col-xs-3">
-								<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200" %>
+								<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %>
 							</div>
 
 							<div class="col-xs-5" style="margin-top:45px">
@@ -30,7 +30,7 @@
 							</div>
 						<% end %>
 							<div class="col-xs-4">
-								<label style="margin-left:50px"><h2>値段 ;</h2></label>
+								<label style="margin-left:50px"><h2>値段 :</h2></label>
 								<span style="font-size: 30px"><%= product.price %></span>
 								<span>円</span>
 								<p style="margin-top:10px">在庫数</p>

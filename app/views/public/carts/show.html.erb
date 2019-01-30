@@ -10,7 +10,7 @@
 <!-- ↑ここで0を定義しないと合計の計算ができない(エラーになる) -->
 				<% @cart.selects.each do |select| %>
 				<div class="col-md-4">
-					<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '200x200' %></br>
+					<%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "/images/no_image.jpg", :size => '200x200' %></br>
 
 					<label>商品名</label>
 					<%= select.product.cd_title %></br>
