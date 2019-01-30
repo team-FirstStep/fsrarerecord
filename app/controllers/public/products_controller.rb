@@ -3,6 +3,7 @@ class Public::ProductsController < Public::ApplicationController
   def index
     @products = Product.page(params[:page]).reverse_order
     @select = Select.new
+    @ranks = Select.all.order('quantity desc').limit(6)
   end
 
   def show

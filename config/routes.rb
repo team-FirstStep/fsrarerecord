@@ -37,11 +37,13 @@ end
   end
 
   scope module: :public do
+    get 'selects/rank' => 'selects#rank', as: 'rank_selects'
     get '/products/search' => 'products#search', as: 'search_products'
     resources :products
     resources :selects, only: [:create, :update, :destroy]
     get 'select/edit'
     post 'select/edit'
+
   end
 
   scope module: :public do
