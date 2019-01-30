@@ -5,10 +5,10 @@
 		<div class="col-md-6">
 			<p><%= @user.last_name %> <%= @user.first_name %></p>
 			<p><%= @user.last_name_kana %> <%= @user.first_name_kana %></p>
-			<%= link_to "編集", edit_user_path(@user), class: 'btn btn-default' %>
+			<%= link_to "編集", edit_user_path(@user), class: 'btn btn-success' %>
 
-			<%= link_to "配送先一覧", user_addresses_path(@user), class: 'btn btn-default' %>
-			<%= link_to "配送先を追加する", new_user_address_path(@user.id), class: "btn btn-default" %>
+			<%= link_to "配送先一覧", user_addresses_path(@user), class: 'btn btn-info' %>
+			<%= link_to "配送先を追加する", new_user_address_path(@user.id), class: "btn btn-primary" %>
 		</div>
 
 		<div class="col-md-6">
