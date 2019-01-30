@@ -10,29 +10,30 @@
 	    <li data-target="#test-carousel" data-slide-to="3" class=""></li>
 	  </ol>
 
-		  <!-- 実際の画像の表示処理 -->
-		  <div class="carousel-inner">
-		  	<span class="item active">    <!-- activeをつけたものがページ表示時に表示される -->
-			    <span1>
-			    	<%= image_tag 'fs1.jpeg', :size =>'1008x470' %>
-			    </span1>
-			</span>
-			<span class="item">
-			    <span1>
-			      	<%= image_tag 'fs2.jpg', :size =>'1008x470' %>
-			    </span1>
-			</span>
-			<span class="item">
-			      <span1>
-			      	<%= image_tag 'fs3.jpg', :size =>'1008x470' %>
-			      </span1>
-			</span>
-			<span class="item">
-			      <span1>
-			      	<%= image_tag 'fs4.jpg', :size =>'1008x470' %>
-			      </span1>
-			</span>
-		  </div>
+
+  <!-- 実際の画像の表示処理 -->
+  <div class="carousel-inner">
+  	<span class="item active">    <!-- activeをつけたものがページ表示時に表示される -->
+	    <span1>
+	    	<%= image_tag '/images/fs1.jpg', :size =>'1008x470' %>
+	    </span1>
+	</span>
+	<span class="item">
+	    <span1>
+	      	<%= image_tag '/images/fs2.jpg', :size =>'1008x470' %>
+	    </span1>
+	</span>
+	<span class="item">
+	      <span1>
+	      	<%= image_tag '/images/fs3.jpg', :size =>'1008x470' %>
+	      </span1>
+	</span>
+	<span class="item">
+	      <span1>
+	      	<%= image_tag '/images/fs4.jpg', :size =>'1008x470' %>
+	      </span1>
+	</span>
+  </div>
 
 		  <!-- 前の画像へ戻るための矢印ポインタ -->
 		    <div class="left">
@@ -64,7 +65,7 @@
 								    <tbody class="tbody">
 								    <div class="tr-td">
 								    	<tr>
-								    		<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
+								    		<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "150x150" %>
 								    		<td>アーティスト名</td>
 								    		<td>
 								    			<%= product.artists %>

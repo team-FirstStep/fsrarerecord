@@ -11,7 +11,7 @@
 						<tbody class="tbody">
 							<div class="tr-td">
 								<tr>
-									<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "150x150" %>
+									<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "150x150" %>
 									<td>アーティスト名</td>
 									<td>
 										<%= product.artists %>

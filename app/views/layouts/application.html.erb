@@ -14,13 +14,15 @@
     <header>
       <label></label><br>
       <div style="margin-left: 400px">
+
           <% if admin_signed_in? %>
         <%= link_to admin_products_path, class: 'rerere' do %>
-        <%= image_tag 'rerere.png', size:'550x60' %>
+        <%= image_tag '/images/rerere.png', size:'550x60' %>
         <% end %>
           <% else %>
         <%= link_to root_path, class: 'rerere' do %>
-        <%= image_tag 'rerere.png', size:'550x60' %>
+        <%= image_tag '/images/rerere.png', size:'550x60' %>
+
         <% end %>
         <% end %>
       </div>
