@@ -129,6 +129,12 @@
 				<span id="weather"></span>
 				<div id="icon"><img id="img"></div>
 
+			<label style="color: gold;">商品ランキング</label>
+				<% @ranks.each do |r| %>
+				<%= link_to product_path(r.id) do %>
+				<%= attachment_image_tag r.product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "75x75" %>
+				<% end %>
+				<% end %>
 
 				<div class="container2">
 				  <div class="ball">😍</div>
