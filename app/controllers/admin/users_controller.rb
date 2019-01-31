@@ -23,11 +23,11 @@ before_action :authenticate_admin!
     redirect_to admin_user_path(@user.id)
   end
 
-  # def destroy
-  #   @user =User.find(params[:id])
-  #   @user.destroy
-  #   redirect_to admin_user_path(@user.id)
-  # end
+   def destroy
+     @user =User.find(params[:id])
+     @user.destroy
+     redirect_to admin_users_path
+   end
 
 private
   def user_params
