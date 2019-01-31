@@ -3,6 +3,9 @@ class Public::ProductsController < Public::ApplicationController
   def index
     @products = Product.page(params[:page]).reverse_order
     @ranks = Select.all.order('quantity desc').limit(5)
+    product_select_count = Product.joins(:selects).group(:product_id).count
+    product_selected_ids = Hash[product_select_count.sort_by{ |_, v| -v }].keys
+    @product_ranking = Product.where(id: product_selected_ids)
   end
 
   def show

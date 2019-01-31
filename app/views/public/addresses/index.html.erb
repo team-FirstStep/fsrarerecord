@@ -13,12 +13,12 @@
 					<li>住所 <%= address.add_address %></li>
 					<li>電話番号 <%= address.add_phone %></li>
 				</ul>
-				<%= link_to "追加配送先の編集", edit_user_address_path(@user.id,address), class: "btn btn-default" %>
+				<%= link_to "追加配送先の編集", edit_user_address_path(@user.id,address), class: "btn btn-info" %>
 				<%= link_to "削除", user_address_path(@user.id,address), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
 			</div>
 		<% end %>
 
-		<%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-default" %>
+		<%= link_to "マイページに戻る", user_path(current_user), class: "btn btn-warning" %>
 	</div>
 </div>
 
