@@ -137,14 +137,14 @@
 				<p class="ppp">👑商品ランキング👑</p>
 				<div class="ranking">
 					<ol>
-						<% @ranks.each do |r| %>
+						<% @product_ranking.each do |r| %>
 							<li>
 								<%= link_to product_path(r.id) do %>
 									<table>
 										<tbody>
 											<tr>
 												<td>
-													<%= attachment_image_tag r.product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "75x75" %>
+													<%= attachment_image_tag r, :image, format: 'jpeg', fallback: "no_image.jpg", size: "75x75" %>
 												</td>
 												<td>raraqqqq</td>
 											</tr>

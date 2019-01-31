@@ -5,7 +5,8 @@ class Public::OrdersController < Public::ApplicationController
     def correct_user
     @cart = current_cart
     @order = Order.new(order_params)
-      if current_user != @cart.user_id
+      if current_user.id != @cart.user_id
+    # ↑current_userは.idをつけないと@cart.user_idと認識しない
       flash[:notice] = "権限がありません"
       redirect_to root_path
       end
