@@ -2,7 +2,6 @@ class Public::ProductsController < Public::ApplicationController
   # before_action :set_product
   def index
     @products = Product.page(params[:page]).reverse_order
-    @select = Select.new
     @ranks = Select.all.order('quantity desc').limit(5)
   end
 
