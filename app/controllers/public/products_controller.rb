@@ -2,11 +2,17 @@ class Public::ProductsController < Public::ApplicationController
   # before_action :set_product
   def index
     @products = Product.page(params[:page]).reverse_order
-    @select = Select.new
-    @ranks = Select.all.order('quantity desc').limit(5)
-    product_select_count = Product.joins(:selects).group(:product_id).count
-    product_selected_ids = Hash[product_select_count.sort_by{ |_, v| -v }].keys
-    @product_ranking = Product.where(id: product_selected_ids)
+#ランキング機能
+    # group(レコード配列)->order(レコード配列)->limit(レコード配列)->count(ハッシュ)
+    @select_count_id = Select.group(:product_id).order('count_product_id DESC').limit(5).count(:product_id).keys
+    @select_count_product = @select_count_id.map{|id| Product.find(id)}
+#ランキング機能 廃墟
+    #@select_count = @select_count_id.map{|id| Select.where(product_id: id).count}
+    #↑whereメソッドはidを整列させる作用があり、せっかく順番にしたのに意味がない
+    # @ranks = Select.all.order('quantity desc').limit(5)
+    # product_select_count = Product.joins(:selects).group(:product_id).count
+    # product_selected_ids = Hash[product_select_count.sort_by{ |_, v| -v }].keys
+    # @product_ranking = product_selected_ids.map{|id| Select.where(id: product_selected_ids).count}
   end
 
   def show

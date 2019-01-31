@@ -137,7 +137,7 @@
 				<p class="ppp">👑商品ランキング👑</p>
 				<div class="ranking">
 					<ol>
-						<% @product_ranking.each do |r| %>
+						<% @select_count_product.each do |r| %>
 							<li>
 								<%= link_to product_path(r.id) do %>
 									<table>
@@ -146,7 +146,8 @@
 												<td>
 													<%= attachment_image_tag r, :image, format: 'jpeg', fallback: "no_image.jpg", size: "75x75" %>
 												</td>
-												<td>raraqqqq</td>
+												<td><%= r.cd_title.truncate(9) %></td>
+												<!-- truncate(9)で9文字まで表示の意味 -->
 											</tr>
 										</tbody>
 									</table>
