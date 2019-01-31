@@ -36,6 +36,22 @@ $(document).ready(function () {
 	});
 });
 
+
+$(function () {
+      setInterval(function () {
+        $('.star-1').fadeOut(150).delay(2000).fadeIn(300).fadeOut(150).delay(1254);
+        $('.star-2').fadeOut(300).fadeIn(120).fadeOut(120).delay(1920);
+        $('.star-3').fadeOut(150).delay(1200).fadeIn(300).fadeOut(150).delay(800);
+        $('.star-4').fadeOut(700).fadeIn(300).fadeOut(160).delay(1350);
+        $('.star-5').fadeOut(450).delay(1000).fadeIn(360).fadeOut(160).delay(254);
+        $('.star-6').fadeOut(800).fadeIn(190).fadeOut(650).delay(1680);
+        $('.star-7').fadeOut(450).delay(200).fadeIn(400).fadeOut(290).delay(900);
+        $('.star-8').fadeOut(770).fadeIn(450).fadeOut(160).delay(1350);
+        $('.star-9').fadeOut(100).delay(105).fadeIn(500).fadeOut(150).delay(700);
+        $('.star-10').fadeOut(520).fadeIn(510).fadeOut(360).delay(1350);
+      }, 1);
+    });
+
 API_KEY = "21bf352314ed4ed72ecc050ee66e8ecd";
 
 $(function(){
