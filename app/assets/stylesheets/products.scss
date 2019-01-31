@@ -161,13 +161,6 @@ input#product_image{
   margin: 0 auto;
   text-align: center;
 }
-.profile-first_name {
-}
-
-.profile-last_name_kana {
-}
-.profile-first_name_kana {
-}
 
 .product-new-driver {
   width: 100%;
@@ -390,4 +383,22 @@ input#product_image{
         transform: translate(50px);
     }
 }
+
+
+.thead-w2 th {
+  display: block;
+  font-size: 18px;
+  text-align: center;
+  width: 250px;
+}
+
+.tbody-w2 {
+  display: block;
+  overflow:auto ;
+  text-align: left;
+  height: 200px;
+  width: 250px;
+}
+
+
 
