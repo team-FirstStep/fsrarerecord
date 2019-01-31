@@ -7,7 +7,7 @@
 					<div class="row">
 						<%= link_to product_path(product.id) do %>
 							<div class="col-xs-3">
-								<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "no_image.jpg", size: "200x200" %>
+								<%= attachment_image_tag product, :image, format: 'jpeg', fallback: "/images/no_image.jpg", size: "200x200" %>
 							</div>
 
 							<div class="col-xs-5" style="margin-top:45px">

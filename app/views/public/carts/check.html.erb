@@ -7,7 +7,7 @@
       <% @cart.selects.each do |select| %>
       <table>
           <tr>
-            <td><%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "no_image.jpg", :size => '80x80' %></td>
+            <td><%= attachment_image_tag select.product, :image, format: 'jpeg', fallback: "/images/no_image.jpg", :size => '80x80' %></td>
           </tr>
       </table>
       <table>
