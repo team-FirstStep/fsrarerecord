@@ -161,13 +161,6 @@ input#product_image{
   margin: 0 auto;
   text-align: center;
 }
-.profile-first_name {
-}
-
-.profile-last_name_kana {
-}
-.profile-first_name_kana {
-}
 
 .product-new-driver {
   width: 100%;
@@ -252,71 +245,11 @@ input#product_image{
     padding-top: 100px;
     margin: 0 auto;
 }
-.ball:nth-child(1) {
+.ball {
     font-size: 50px;
     -webkit-animation: right 1.5s infinite ease-in-out;
     -moz-animation: right 1.5s infinite ease-in-out;
     animation: right 1.5s infinite ease-in-out;
-}
-
-.ball:nth-child(2) {
-    font-size: 50px;
-    -webkit-animation: left 1.5s infinite ease-in-out;
-    -moz-animation: left 1.5s infinite ease-in-out;
-    animation: left 1.5s infinite ease-in-out;
-}
-
-.ball:nth-child(3) {
-    font-size: 50px;
-    -webkit-animation: right 1.5s infinite ease-in-out;
-    -moz-animation: right 1.5s infinite ease-in-out;
-    animation: right 1.5s infinite ease-in-out;
-}
-
-.ball:nth-child(4) {
-    font-size: 50px;
-    -webkit-animation: left 1.5s infinite ease-in-out;
-    -moz-animation: left 1.5s infinite ease-in-out;
-    animation: left 1.5s infinite ease-in-out;
-}
-
-.ball:nth-child(5) {
-    font-size: 50px;
-    -webkit-animation: right 1.5s infinite ease-in-out;
-    -moz-animation: right 1.5s infinite ease-in-out;
-    animation: right 1.5s infinite ease-in-out;
-}
-
-.ball:nth-child(6) {
-    font-size: 50px;
-    -webkit-animation: left 1.5s infinite ease-in-out;
-    -moz-animation: left 1.5s infinite ease-in-out;
-    animation: left 1.5s infinite ease-in-out;
-}
-
-.ball:nth-child(7) {
-    font-size: 50px;
-    -webkit-animation: right 1.5s infinite ease-in-out;
-    -moz-animation: right 1.5s infinite ease-in-out;
-    animation: right 1.5s infinite ease-in-out;
-}
-.ball:nth-child(8) {
-    font-size: 50px;
-    -webkit-animation: left 1.5s infinite ease-in-out;
-    -moz-animation: left 1.5s infinite ease-in-out;
-    animation: left 1.5s infinite ease-in-out;
-}
-.ball:nth-child(9) {
-    font-size: 50px;
-    -webkit-animation: right 1.5s infinite ease-in-out;
-    -moz-animation: right 1.5s infinite ease-in-out;
-    animation: right 1.5s infinite ease-in-out;
-}
-.ball:nth-child(10) {
-    font-size: 50px;
-    -webkit-animation: left 1.5s infinite ease-in-out;
-    -moz-animation: left 1.5s infinite ease-in-out;
-    animation: left 1.5s infinite ease-in-out;
 }
 
 @-webkit-keyframes right {
@@ -390,4 +323,22 @@ input#product_image{
         transform: translate(50px);
     }
 }
+
+
+.thead-w2 th {
+  display: block;
+  font-size: 18px;
+  text-align: center;
+  width: 250px;
+}
+
+.tbody-w2 {
+  display: block;
+  overflow:auto ;
+  text-align: left;
+  height: 200px;
+  width: 250px;
+}
+
+
 

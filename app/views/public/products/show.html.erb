@@ -69,43 +69,24 @@
 					    </div>
 				<% end %>
         </div>
-        <!-- <div class="col-md-4"> -->
-				<h3>シングル/アルバム内の曲名</h3>
-				<% @product.discs.each do |disc| %>
-			<table class="product_show_song">
-				<tr>
-					<td width="250">
-						<h4 class="text-center product_show_disc_num">Disc:　<%= disc.disc_num %></h4>
-					</td>
-				</tr>
-				<tr>
-					<td><p></p>
-					</td>
-				</tr>
-			</table>
-				<% disc.songs.each do |song| %>
-			<table class="product_show_song-2">
-				<!-- ↑ここのdiscはeach doのブロック変数|disc| -->
-				<tr>
-					<td>
-						<p class="text-left product_show_song_track">　　　　トラック:<%= song.song_track %>　　<%= song.song_title %></p>
-					</td>
-				</tr>
-				    <tr>
-					<td><p></p>
-					</td>
-				<% end %>
-				    <tr>
-					<td>
-					</td>
-					<td><p></p>
-					</td>
-				</tr>
-			</table>
-				<% end %>
-        </div>
+		<h3>シングル/アルバム内の曲名</h3>
+			<% @product.discs.each do |disc| %>
+				<table class="product_show_song">
+					<thead class="thead-w2"><th>Disc:　<%= disc.disc_num %></th></thead>
+					<!-- ↑ここのdiscはeach doのブロック変数|disc| -->
+					<tbody class="tbody-w2">
+					<% disc.songs.each do |song| %>
+						<tr>
+							<td>
+						　　　　トラック: <%= song.song_track %>　　<%= song.song_title %>
+							</td>
+						</tr>
+					<% end %>
+				</table>
+			<% end %>
+    </div>
 		<label><%= link_to "商品一覧に戻る", products_path, class: "btn btn-default" %></label>
 		<label></label><br><br>
-    </div>
+</div>
 
 
